@@ -38,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-center',
-      preventDuplicates: false,
+      preventDuplicates: true
     }),
     TranslateModule.forRoot({
       loader: {
