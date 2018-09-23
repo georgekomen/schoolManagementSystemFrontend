@@ -20,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SchoolControllerComponent } from './school-controller/school-controller.component';
 import { AuthenticationControllerComponent } from './authentication-controller/authentication-controller.component';
-import {MatButtonModule, MatCheckboxModule} from "@angular/material";
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule} from "@angular/material";
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FingerprintVerificationComponent,
     SchoolControllerComponent,
     AuthenticationControllerComponent,
+    MainNavComponent,
   ],
   imports: [
     FormsModule,
@@ -55,7 +58,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     ConfigService,
