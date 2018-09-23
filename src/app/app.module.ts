@@ -17,6 +17,7 @@ import {FormsModule} from "@angular/forms";
 import { AuthenticationService } from './shared/authentication.service';
 import { UserService } from './shared/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ConfigService,

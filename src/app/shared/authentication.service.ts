@@ -10,14 +10,12 @@ import { User } from './user';
 
 @Injectable()
 export class AuthenticationService {
-  protected loginUrl: string;
-
   constructor(
     private http: BaseHttpService<any>,
     private loader: LoaderService,
     protected configService: ConfigService,
   ) {
-    this.loginUrl = `${configService.userUrl}/login`;
+
   }
 
   login(username: string, password: string): Observable<User> {
@@ -28,7 +26,7 @@ export class AuthenticationService {
       })
     };
     const body = {username: username, password: password};
-    return this.http.post(`${this.configService.userUrl}/login`, body, httpOptions)
+    return this.http.post(`${this.configService.baseUrl}/auth/login`, body, httpOptions)
       .pipe(
         map((user: any) => {
           this.loader.off();
