@@ -1,0 +1,84 @@
+<button style="display: none" type="button" id="triggerbutton" class="btn btn-primary" data-toggle="modal"
+        data-target="#fingerprintModalCenter"></button>
+<div class="modal" id="fingerprintModalCenter" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Biometrics {{scanType}}</h5>
+        <button style="display: none" type="button" id="closetrigger" class="close" data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div>
+        <div class="modal-body" style="width: auto; height: 15em">
+          <div *ngIf="notificationMessage != null">
+            {{notificationMessage}}
+          </div>
+          <div style="color: red" *ngIf="errormessage != null">
+            {{errormessage}}
+          </div>
+          <div class="row" *ngIf="takingFingerprints && scanType=='Verification'">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" src="../../assets/{{fingerPrints[verifyIndex]}}.png"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+          <div class="row" *ngIf="takingFingerprints && scanType=='Enrollment'">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" src="../../assets/{{idsDifference[0]}}.png"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+          <div class="row" *ngIf="scanningFingerprints">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" src="../../assets/scanning.gif"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+          <div class="row" *ngIf="finalizeTheScan && this.fingerprintImageUrl==null">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" src="../../assets/loader2.gif"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+          <div class="row"
+               *ngIf="!scanningFingerprints && !takingFingerprints && !finalizeTheScan && this.fingerprintImageUrl==null">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" src="../../assets/scanningdevice.gif"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+          <div class="row" *ngIf="fingerprintImageUrl != null">
+            <div class="span4"></div>
+            <img style="width: auto; height: 10em" [src]="fingerprintImageUrl"
+                 class="img-fluid rounded mx-auto d-block"/>
+            <div class="span4"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div>
+        </div>
+        <div>
+          <button (click)="cancelModal()" style="min-width: 140px;" type="button" class="button button-blue-outline"
+                  data-dismiss="modal">Cancel
+          </button>
+          <button (click)="startTakingFingerprints()"
+                  *ngIf="!takingFingerprints && !scanningFingerprints && !finalizeTheScan"
+                  class="button button-blue-1 button__arrow_right">Continue
+          </button>
+          <button (click)="startScanningFingerprints()" *ngIf="!scanningFingerprints && takingFingerprints"
+                  class="button button-blue-1 button__arrow_right">Continue
+          </button>
+          <button id="finalizescanbtn" (click)="finalizeScan()" *ngIf="finalizeTheScan" class="button button-blue-1">
+            Finalize
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

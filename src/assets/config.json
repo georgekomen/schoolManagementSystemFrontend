@@ -1,0 +1,9 @@
+{
+    "userUrl": "/usermanagement",
+    "productUrl": "/product",
+    "pricelistUrl": "/pricelist",
+    "programUrl": "/program",
+    "providerUrl": "/provider",
+    "financeUrl": "/finance",
+    "claimUrl": "/claim"
+}

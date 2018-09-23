@@ -1,0 +1,543 @@
+{
+  "logo" : {
+    "254":"/assets/MTIBA_logo.svg",
+    "234":"/assets/phamAccessLogo.jpeg"
+  },
+  "user_endpoint": {
+    "254":"http://apiv1.test.carepool.co.ke",
+    "234":"http://apiv1-ng.ap-southeast-1.elasticbeanstalk.com"
+  },
+  "hello": "Hello World",
+  "title": "Operations Portal",
+  "mainFacility": "Parent facility",
+  "providerForm": {
+    "label-main-facility": "Parent facility",
+    "label-name": "Name",
+    "label-provider-type": "Facility Type",
+    "label-postal-address": "Postal Address",
+    "label-phone": "Phone",
+    "label-email": "Email",
+    "label-physical-address": "Physical Address",
+    "label-medical-facility": "Medical Facility ID",
+    "label-afridb": "Afri DB",
+    "label-withdrawal-method": "Withdrawal Method",
+    "label-document": "Supporting Document",
+    "label-account-number": "Account Number",
+    "label-ownership-type": "Ownership Type",
+    "label-operating-hours": "Operating Hours",
+    "label-device": "Device",
+    "label-network": "Network",
+    "label-services-offered": "Services Offered",
+    "button-save": "save",
+    "link-basic-details": "Basic Details",
+    "link-networks": "Networks",
+    "link-devices": "Devices",
+    "link-provider-information": "Provider Information",
+    "link-employee": "Employee",
+    "withdrawal-method-error": "Withdrawal method is required"
+  },
+  "providerEmployee": {
+    "label-facility-name": "Facility",
+    "label-firstName": "First name",
+    "label-lastName": "Last Name",
+    "label-phoneNumber": "Phone number",
+    "label-email": "Email",
+    "label-gender": "Gender",
+    "button-save": "Save",
+    "placeholder-phoneNumber": "Eg. 0123456789",
+    "label-country": "Country"
+  },
+  "providerInformationForm": {
+    "label-name": "Name",
+    "label-connectivity-type": "Connectivity Type",
+    "label-internet-provider": "Internet Provider",
+    "label-clinical-officers": "No. of Clinical Officers",
+    "label-doctors": "No. of Doctors",
+    "label-lab-technicians": "No. of Lab Technician",
+    "label-nurses": "No. of Nurses",
+    "label-patients-daily": "No. of Patient Daily",
+    "label-pharmacist": "No. of pharmacist",
+    "label-physiotherapist": "No. of physiotherapist",
+    "label-radiologist": "No. of radiologist",
+    "label-facility-level": "Facility Level",
+    "label-safecare-plus": "Safecare Plus",
+    "label-safecare-active": "Safecare Active",
+    "label-rural-urban": "Rural/Urban",
+    "button-save": "save"
+  },
+  "profile": {
+    "edit_profile": "Edit profile",
+    "logout": "Logout"
+  },
+  "invoice-item": {
+    "status": {
+      "pendingauth": {
+        "title": "Awaiting authorization"
+      },
+      "inprogress": {
+        "title": "Awaiting authorization"
+      },
+      "partiallyrejected": {
+        "title": "Partially Rejected",
+        "msg": "Your claim has been partially rejected. Please adjust your invoice and resubmit."
+      },
+      "fullyrejected": {
+        "title": "Rejected",
+        "msg": "Your claim has been fully rejected."
+      },
+      "approved": {
+        "title": "Approved",
+        "msg": "Your claim has been approved. The amount will be transferred to your account."
+      },
+      "submitted": {
+        "title": "Submitted",
+        "msg": "Your claim has been successfully submitted. Please wait for to confirm the amount."
+      },
+      "deleted": {
+        "title": "Deleted",
+        "msg": "Your claim has been cancelled. Please create a new invoice and resubmit if necessary."
+      }
+    },
+    "start-date": "Start date",
+    "to": "To",
+    "from": "From",
+    "invoice": "Invoice",
+    "benefit": "Benefit",
+    "your_reaction": "Your reaction",
+    "comments": "Comments"
+  },
+  "sidebar": {
+    "users": "Users",
+    "providers": "Providers",
+    "settings": "Settings",
+    "invoices": "Invoices",
+    "patients": "Patients",
+    "balance": "Balance",
+    "reports": "Reports",
+    "pricelist": "Pricelist",
+    "service_desk": "Service desk"
+  },
+  "menu": {
+    "withdrawal": "Withdrawal Method",
+    "network": "Networks",
+    "device": "Devices",
+    "ownership": "Ownership Type",
+    "safecare": "Safe Care",
+    "training": "Training Type",
+    "operating": "Operating Hours",
+    "providerEmployee": "Employee",
+    "providerTill": "Till",
+    "providerInformation": "Provider Information"
+  },
+  "login": {
+    "bad_credentials": "Bad credentials entered",
+    "username_required": "Enter your phonenumber",
+    "password_required": "Enter your password",
+    "username": "username",
+    "phonenumber": "Your phone number",
+    "password": "Password",
+    "login-button": "Log In",
+    "request_password": "Request password",
+    "register-button": "Register",
+    "forgot-password": "Forgot Password?",
+    "intro-text": "Please enter your phone number and password to log in",
+    "request_password_text": "Please enter your details below to set a new pin",
+    "password_request_success": "Your pin was updated",
+    "submit_new_password": "Submit new pin",
+    "national_id": "National ID",
+    "date_of_birth": "Date of birth",
+    "new_pin": "Enter new pin",
+    "confirm_pin": "Confirm pin",
+    "pin_no_match": "Your pin does not match"
+  },
+  "member": {
+    "register_new_member": "Register new member",
+    "edit_member_details": "Edit member details",
+    "verify_member_details": "Verify member details",
+    "verify_photo": "Verify or change photo",
+    "id_verified": "ID verified",
+    "change_photo": "Change photo",
+    "first_name": {
+      "title": "First name",
+      "placeholder": "Enter first name"
+    },
+    "last_name": {
+      "title": "Last name",
+      "placeholder": "Enter last name"
+    },
+    "national_id": {
+      "title": "National ID",
+      "placeholder": "Enter the ID number"
+    },
+    "nhif": {
+      "title": "NHIF number",
+      "placeholder": "Enter NHIF number"
+    },
+    "phoneNumber": {
+      "title": "Phonenumber",
+      "placeholder": "Eg 0123456789"
+    },
+    "gender": {
+      "title": "Gender",
+      "male": "Male",
+      "female": "Female"
+    },
+    "date_of_birth": {
+      "title": "Date of birth",
+      "month": "Select month",
+      "day": "Day",
+      "year": "Year"
+    },
+    "benefits": {
+      "title": "Benefits",
+      "select_placeholder": "Select benefit"
+    }
+  },
+  "patient": {
+    "add_notes": "Add notes",
+    "select": "Select patient",
+    "register": "Register",
+    "add_dependant": "Add dependant",
+    "dependant": "Dependant",
+    "dependant_type": {
+      "child": "Child",
+      "spouse": "Spouse",
+      "other": "Other"
+    },
+    "name": "Name",
+    "status": "Status",
+    "date": "Date",
+    "age": "Age",
+    "transact_code": "Transact \n code",
+    "filters": {
+      "hint_select_checkout": "* Select both items and diagnosis before check out",
+      "search": "Search patient name or transaction code",
+      "programs": "Programs",
+      "medicine": {
+        "search": "Search procedure, test or medicine",
+        "hint": "* Add items by selecting from the dropdown menu"
+      },
+      "diagnoses": {
+        "search": "Search diagnosis",
+        "hint": "* Add diagnosis by selecting from the dropdown menu"
+      }
+    },
+    "create": "Create",
+    "create_claim": "Create claim",
+    "patient_types": {
+      "unknown": "Unknown member",
+      "outpatient": "Outpatient flow",
+      "inpatient": "Inpatient flow"
+    },
+    "other_insurance": {
+      "title": "Other insurance",
+      "placeholder": "Enter insurance name (optional)"
+    },
+    "nhif": {
+      "title": "NHIF number",
+      "placeholder": "Eg. 1234567890 (optional)"
+    },
+    "admission_date": {
+      "title": "Admission date"
+    },
+    "expected_stay": {
+      "title": "Exepected stay",
+      "placeholder": "Enter duration in days"
+    },
+    "admitting_doctor": {
+      "title": "Admitting doctor",
+      "placeholder": "Enter doctor's name"
+    },
+    "requested_amount": {
+      "title": "Requested amount {{currency}}",
+      "placeholder": " Eg. {{currency}} 1.0000,00"
+    },
+    "relationship": {
+      "title": "Relationship"
+    },
+    "next_of_kin": {
+      "title": "Dependant is next of kin"
+    },
+    "profile": {
+      "header": {
+        "title": "Treatment Overview - Items & Diagnosis"
+      }
+    },
+    "details": {
+      "title": "Patient Details"
+    },
+    "programs": {
+      "title": "Programs"
+    },
+    "identifications": {
+      "title": "Identifications"
+    },
+    "availableLimit": {
+      "title": "Balance"
+    },
+    "benefit": {
+      "title": "Benefit"
+    },
+    "patient": "Patient",
+    "added_documents": "Added documents",
+    "unknown_phonenumber": "Unknown phone number. Please register as new member.",
+    "upload_documents": "Upload documents",
+    "add_documents": "Add documents",
+    "select_documents": "Select documents and attach them to your claim"
+  },
+  "transaction": {
+    "transaction_type": "Transaction type"
+  },
+  "documents": {
+    "ID_CARD": "Copy of ID card",
+    "BIRTH_CERTIFICATE": "Copy of birth certificate",
+    "PROFILE_PHOTO": "Profile_photo",
+    "DEATH_CERTIFICATE": "Copy of death certificate",
+    "COPY_INVOICE": "Copy of invoice",
+    "COPY_OF_SIGNED_BILL": "Copy of signed bill"
+  },
+  "identifications": {
+    "BIOMETRICS": "Biometrics",
+    "NATIONAL_ID": "National ID",
+    "PASSPORT": "Passport",
+    "STAFF_ID": "Staff ID",
+    "DRIVING_LICENSE": "Driving License",
+    "VOTER_ID": "Voter ID",
+    "MILITARY_ID": "Military ID",
+    "HEADSHOT": "Photo",
+    "NHIF": "NHIF",
+    "FINGERPRINT_INDEX_LEFT": "Fingerprint Index Left",
+    "FINGERPRINT_INDEX_RIGHT": "Fingerprint Index Right",
+    "FINGERPRINT_THUMB_LEFT": "Fingerprint Thumb Left",
+    "FINGERPRINT_THUMB_RIGHT": "Fingerprint Thumb Right",
+    "BIRTH_CERTIFICATE": "Birth Certificate",
+    "DEPENDANCY_DOCUMENT": "Dependency Document"
+  },
+  "martialStatus": {
+    "UNKNOWN": "Unknown",
+    "SINGLE": "Single",
+    "MARRIED": "Married",
+    "DIVORCED": "Divorced",
+    "WIDOW_ER": "Widower"
+  },
+  "payment": {
+    "items_and_diagnosis": "Items and diagnosis",
+    "voucher": "Do you have a voucher?",
+    "select_payment": "Select payment",
+    "prefered_payment": "Select your patient's preferred method or methods of payment",
+    "select_another": "Select another method",
+    "free_of_charge": "Free of charge",
+    "total": "Total",
+    "enter_voucher_code": "Enter voucher code here",
+    "enter_another_voucher_code": "Enter another voucher code here",
+    "voucher_code": "Voucher code",
+    "add_voucher": "Add voucher",
+    "methods": {
+      "mtiba": "MTIBA account",
+      "cash": "Cash",
+      "saving": "Saving",
+      "mpesa": "MPESA",
+      "benefit": "Benefit",
+      "other_insurance": "Other insurance",
+      "nhif": "NHIF",
+      "voucher": "Voucher"
+    },
+    "amount": "Amount"
+  },
+  "relationship": {
+    "PRIMARY": "Primary",
+    "SPOUSE": "Spouse",
+    "CHILD": "Child",
+    "NEXTOFKIN": "Next of Kin",
+    "OTHER": "Other"
+  },
+  "balance": {
+    "select_amount": "Select amount ({{currency}})",
+    "available_balance": "Available balance",
+    "digital_statement": "Digital statement",
+    "all_facilities": "All facilities",
+    "disbured_amount": "Disbured amount",
+    "processing_fee": "Processing fee",
+    "other_fees": "Other fees",
+    "type": {
+      "0": "All",
+      "1": "Opening Balance",
+      "2": "Payment From Patient",
+      "3": "Safaricom Fee(C)",
+      "4": "Matibabu Fee",
+      "5": "Withdrawal",
+      "6": "Advance",
+      "7": "Advance Repayment",
+      "8": "Payment From Patient Reversal",
+      "9": "Voucher",
+      "10": " MTiba Fee",
+      "11": "Advance Withdrawal",
+      "12": "Repayment By NewAdvance",
+      "13": "MTiba Fee Vat",
+      "14": "Safaricom Fee (S)",
+      "15": "Safaricom Fee Vat (C)",
+      "16": "Manual Adjustment Debit",
+      "17": "Manual Adjustment Credit"
+    }
+  },
+  "pricelist": {
+    "item_name": "Item name",
+    "item_price": "Price (Ksh)",
+    "select_program": "Select program to set Mark-up",
+    "all_programs": "All programs",
+    "all_services": "All services",
+    "download_pricelist": "Download pricelist",
+    "upload_pricelist": "Upload pricelist",
+    "add_items": "Add items",
+    "markup": "Markup"
+  },
+  "reports": {
+    "ten_most_common_diagnoses": "Top 10 common diagnoses at your facility",
+    "ten_most_common_services_offered": "Top 10 common services offered at your facility",
+    "monthly_sales": "Monthly sales at your facility"
+  },
+  "provider": {
+    "register": {
+      "name": "name",
+      "parent": "parent facility"
+    }
+  },
+  "product": {
+    "view": {
+      "name": "Name",
+      "benchmark-price": "Benchmark Price",
+      "modification-time": "Modification Time"
+    }
+  },
+  "payer": {
+    "view": {
+      "name": "Name"
+    }
+  },
+  "notification": {
+    "changePassword": {
+      "error": "Error",
+      "success": "Success",
+      "errorMessage": "error changing password",
+      "successMessage": "successfully changed the password"
+    },
+    "add_dependant": {
+      "error": "Make sure you selected the right date, if dependant is over 18, then fill in the ID number",
+      "successfull_add": "You have successfully added a dependant"
+    },
+    "error": "Error",
+    "confirm_delete": "Are you sure you want to delete this?",
+    "error_generic": "Could not process this request",
+    "success": "Success",
+    "create_claim": {
+      "error": "Something went wrong. Can not create a claim."
+    },
+    "create_dependant": {
+      "error": "Something went wrong. Can not create dependant."
+    },
+    "add_medicine": {
+      "item_already_selected": "Item already selected",
+      "item_added": "Item was added to the invoice",
+      "error": "Something went wrong when trying to add this item to the invoice"
+    },
+    "add_diagnosis": {
+      "item_already_selected": "Diagnosis was already selected"
+    },
+    "add_voucher": {
+      "invalid": "This is not a valid voucher",
+      "added": "Voucher was added"
+    },
+    "balance": {
+      "withdraw_success": "Withdrawal request for {{currency}} {{amount}} has been submitted successfully"
+    },
+    "diagnoses_medicine_required": "Select both items and diagnosis before check out",
+    "no_diagnosis": "Please add a Diagnosis before Saving."
+
+  },
+  "generic": {
+    "days": "days",
+    "day": "day",
+    "details": "Details",
+    "back": "Back",
+    "submit": "Submit",
+    "adjust": "Adjust",
+    "print": "Print",
+    "show-more": "Show more",
+    "continue": "Continue",
+    "save": "Save",
+    "request": "Request",
+    "remove": "Remove",
+    "confirm": "Confirm",
+    "add_dependant": "Add dependant",
+    "delete_member": "Delete member",
+    "search": "Search",
+    "download": "Download",
+    "withdraw": "Withdraw",
+    "program": "Program",
+    "label_search_procedure_medicine": "Search a procedure, test or medicine",
+    "select_program": "Select program",
+    "optional": "optional",
+    "addNewUser": "Add new user"
+  },
+  "fancydate": {
+    "yesterday": "Yesterday"
+  },
+  "alert": {
+    "invoice_submitted": "You have successfully submitted an invoice for {{name}}",
+    "invoice_deleted": "You have deleted the invoice for {{name}}",
+    "patient": {
+      "edit": {
+        "success": " You have successfully edited the member details of {{name}}"
+      },
+      "create": {
+        "success": "You have successfully created {{name}} as a patient"
+      }
+    },
+    "dependant": {
+      "add": {
+        "success": "You have successfully added {{name}} as a dependant"
+      },
+      "edit": {
+        "success": "You have successfully edited the dependant details of {{name}}"
+      }
+    }
+  },
+  "patientStatus":{
+    "New": "New",
+    "Verified": "In Treatment",
+    "Submitted": "Submitted",
+    "Approved": "Approved",
+    "PartiallyRejected": "Partially Rejected",
+    "FullyRejected": "Fully Rejected",
+    "Resubmitted": "Resubmitted",
+    "Suspended": "Suspended",
+    "InProgress": "InProgress",
+    "Deleted": "Deleted",
+    "PendingAuth": "Pending Auth",
+    "Inpatient": "Inpatient"
+  },
+  "country": {
+    "KENYA": {
+      "Name": "KENYA",
+      "Code": "254",
+      "Currency": "KSH"
+    },
+    "NIGERIA": {
+      "Name": "NIGERIA",
+      "Code": "234",
+      "Currency": "NGN"
+    }
+  },
+  "userComponent":{
+    "users":"Users",
+    "idNumber": "National ID",
+    "phoneNumber": "Phone",
+    "currentpassword": "Current Password",
+    "userName": "User Name",
+    "password": "Password",
+    "editDetails" : "Edit Details",
+    "setPassword": "Set Password",
+    "confirmPassword": "Confirm Password",
+    "saveUser": "Save User"
+  }
+}

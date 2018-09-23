@@ -1,0 +1,172 @@
+
+$care-green: rgb(108, 179, 63);                   //#6CB33F
+$care-green-transparant: rgba(108, 179, 63, 0.8); // 80% transparancy of green
+$care-red: rgb(215, 22, 33);                      //#D71621
+$care-red-transparant: rgba(215, 22, 33, 0.5);    // 50% transparancy of #red
+$care-blue: rgb(17, 85, 144);                     //#115590
+$care-blue-transparant: rgba(17, 85, 144,0.5);    //#115590
+$care-blue-light: rgb(74, 122, 163);                //5B94C4
+$care-black: rgb(51, 51, 51);                     //#333333
+$care-gray-dark: rgb(102, 102, 102);              //#666666
+$care-gray: rgb(153, 153, 153);                   //#999999
+$care-gray-medium: rgba(88, 35, 43, 0.45);            //#CCCCCC
+$care-gray-light: rgb(242, 242, 242);             //#F2F2F2
+$care-white: rgb(255, 255, 255);                  //#FFFFFF
+$care-light-gray: rgba(212, 209, 209, 1);            // #d4d1d1;
+
+
+.button-blue-1 {
+  min-width: 140px;
+  background: $care-blue;
+  color: #fff;
+  border-left: 2px solid $care-white;
+  font-weight: bold;
+&:disabled {
+   background: white;
+   color: $care-gray;
+   border: .1rem solid $care-gray-light;
+   cursor: not-allowed;
+&:hover {
+   background: white;
+ }
+}
+&:hover {
+   background: $care-blue-transparant;
+ }
+}
+
+.button-blue-outline {
+  background: transparent;
+  color: $care-blue;
+  border: 1px solid $care-blue;
+  &:hover {
+    background: $care-blue-transparant;
+  }
+
+
+  &:disabled {
+    background: transparent;
+    color: $care-gray;
+    border: 1px solid $care-gray;
+  }
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  min-width: 1.4rem;
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
+  &:after, &:before {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+  &:after {
+    padding-left: 6px;
+  }
+  &:before {
+    padding-right: 3px;
+  }
+  &.button__show_more {
+    // plus icon
+    &:before {
+      content: '\f067';
+    }
+  }
+  &.button__print {
+    // print icon
+    &:before {
+      content: '\f02f';
+    }
+  }
+
+  &.button__arrow_left {
+    // arrow left icon
+    &:before {
+      content: '\f060';
+    }
+  }
+  &.button__arrow_right {
+    // arrow left icon
+    &:after {
+      content: '\f061';
+    }
+  }
+  &.button__arrow_down {
+    // arrow down icon
+    &:before {
+      content: '\f063';
+    }
+  }
+  &.button__chevron_right {
+    // chevron right icon
+    &:after {
+      content: '\f105';
+    }
+  }
+  &.button__save {
+    // floppy save icon
+    &:before {
+      content: '\f0c7';
+    }
+  }
+  &.button__remove {
+    // circle minus icon
+    &:before {
+      content: '\f056';
+    }
+  }
+  &.button__add_dependant {
+    // circle plus icon
+    &:before {
+      content: '\f055';
+    }
+  }
+  &.button__delete {
+    // trash icon
+    &:before {
+      content: '\f014';
+    }
+  }
+  &.button__search {
+    // search icon
+    &:before {
+      content: '\f002';
+    }
+  }
+
+  &.button__check {
+    // check icon
+    &:before {
+      content: '\f00c';
+    }
+  }
+
+  &.button__creditcard {
+    //card icon
+    &:before {
+      content: '\f09d';
+    }
+  }
+  &.button__edit {
+    // edit icon
+    &:before {
+      content: '\f040';
+    }
+  }
+}
+
