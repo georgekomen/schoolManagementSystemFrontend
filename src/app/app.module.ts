@@ -20,9 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SchoolControllerComponent } from './school-controller/school-controller.component';
 import { AuthenticationControllerComponent } from './authentication-controller/authentication-controller.component';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule} from "@angular/material";
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule} from "@angular/material";
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SchoolControllerComponent,
     AuthenticationControllerComponent,
     MainNavComponent,
+    DashboardComponent,
   ],
   imports: [
     FormsModule,
@@ -63,7 +65,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [
     ConfigService,
