@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "customer-portal": {
+    "school-management-system": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/customer-portal",
+            "outputPath": "dist/school-management-system",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "customer-portal:build"
+            "browserTarget": "school-management-system:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "customer-portal:build:production"
+              "browserTarget": "school-management-system:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "customer-portal:build"
+            "browserTarget": "school-management-system:build"
           }
         },
         "test": {
@@ -96,7 +96,7 @@
         }
       }
     },
-    "customer-portal-e2e": {
+    "school-management-system-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "customer-portal:serve"
+            "devServerTarget": "school-management-system:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "customer-portal:serve:production"
+              "devServerTarget": "school-management-system:serve:production"
             }
           }
         },
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "customer-portal"
+  "defaultProject": "school-management-system"
 }
