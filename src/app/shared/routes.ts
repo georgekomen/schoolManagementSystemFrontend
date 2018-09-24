@@ -3,6 +3,7 @@ import {ProviderLogInComponent} from "../provider-log-in/provider-log-in.compone
 import {SchoolControllerComponent} from "../school-controller/school-controller.component";
 import {AuthenticationControllerComponent} from "../authentication-controller/authentication-controller.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
+import {TableListComponent} from '../table-list/table-list.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,11 @@ export const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'table-list',
+    component: TableListComponent,
     pathMatch: 'full'
   }
 ];
