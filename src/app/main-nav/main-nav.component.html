@@ -8,7 +8,10 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item routerLink="school-controller" [routerLinkActive]="['___active']">
+        <span><i class="fa fa-envelope-o"></i></span>
+        school controller
+      </a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
@@ -23,6 +26,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <img src="../assets/MTIBA_logo.svg" class="img-fluid"/>
       <span>school management system</span>
     </mat-toolbar>
     <ng-content></ng-content>
