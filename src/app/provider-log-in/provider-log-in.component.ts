@@ -28,7 +28,7 @@ export class ProviderLogInComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.configService.load();
+
   }
 
   ngAfterViewInit() {

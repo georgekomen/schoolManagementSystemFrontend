@@ -32,5 +32,5 @@ export const routes: Routes = [
     component: TableListComponent,
     pathMatch: 'full'
   },
-  {path: '**', redirectTo: 'login'}
+  {path: '**', redirectTo: 'table-list'}
 ];

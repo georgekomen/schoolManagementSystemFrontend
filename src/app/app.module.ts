@@ -25,6 +25,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableListComponent } from './table-list/table-list.component';
+import {SchoolService} from './shared/SchoolService';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -81,7 +82,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotificationService,
     LoaderService,
     AuthenticationService,
-    UserService
+    UserService,
+    SchoolService
   ],
   bootstrap: [AppComponent]
 })
