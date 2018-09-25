@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import {FingerprintVerificationComponent} from "./fingerprint-verification/fingerprint-verification.component";
@@ -78,21 +78,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    CommonModule,
-    MatCardModule,
-    MatTabsModule,
-    MatTableModule,
+    // CommonModule,
+    // MatTabsModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatPaginatorModule,
-    MatCheckboxModule,
-    BrowserAnimationsModule
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatSelectModule,
+    // MatRadioModule
+
   ],
   providers: [
     ConfigService,
@@ -103,6 +98,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     SchoolService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
