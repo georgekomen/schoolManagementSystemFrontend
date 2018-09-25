@@ -13,7 +13,7 @@ export class SchoolService {
   }
 
 
-  getSchools(): Observable<School> {
+  getSchools(): Observable<School[]> {
     return this.http.get(`${this.configService.baseUrl}/school/get_schools`);
   }
 

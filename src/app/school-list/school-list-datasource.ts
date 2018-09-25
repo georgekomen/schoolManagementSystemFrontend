@@ -2,7 +2,6 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import {SchoolService} from '../shared/SchoolService';
 
 // TODO: Replace this with your own data model type
 export interface School {
@@ -17,13 +16,11 @@ export interface School {
  * (including sorting, pagination, and filtering).
  */
 export class SchoolDataSource extends DataSource<School> {
-  data: School[] = [];
+  schoolList: School[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, private shoolService: SchoolService) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private shoolList1: School[] = []) {
     super();
-    this.shoolService.getSchools().subscribe(res => {
-      console.log(res);
-    });
+    this.schoolList = shoolList1;
   }
 
   /**
@@ -35,16 +32,16 @@ export class SchoolDataSource extends DataSource<School> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      observableOf(this.schoolList),
       this.paginator.page,
       this.sort.sortChange
     ];
 
     // Set the paginators length
-    this.paginator.length = this.data.length;
+    this.paginator.length = this.schoolList.length;
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
+      return this.getPagedData(this.getSortedData([...this.schoolList]));
     }));
   }
 
