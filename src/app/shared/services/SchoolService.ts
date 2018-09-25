@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ConfigService } from '../../config/ConfigService';
-import { BaseHttpService } from '../../shared/base.http.service';
-import {School} from '../school-list/school-list-datasource';
+import { ConfigService } from '../../../config/ConfigService';
+import { BaseHttpService } from '../../../shared/base.http.service';
+import {School} from '../../school-list/school-list-datasource';
 
 @Injectable()
 export class SchoolService {

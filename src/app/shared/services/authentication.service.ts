@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { ConfigService } from '../../config/ConfigService';
-import { BaseHttpService } from '../../shared/base.http.service';
-import { LoaderService } from '../../shared/loader.service';
-import { User } from './user';
+import { ConfigService } from '../../../config/ConfigService';
+import { BaseHttpService } from '../../../shared/base.http.service';
+import { LoaderService } from '../../../shared/loader.service';
+import { User } from '../Models/user';
 
 @Injectable()
 export class AuthenticationService {

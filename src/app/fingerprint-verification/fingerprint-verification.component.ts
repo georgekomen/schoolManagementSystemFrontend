@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {FingerprintServiceService} from "./shared/fingerprint-service.service";
-import {User} from "../shared/user";
+import {User} from "../shared/Models/user";
 
 @Component({
   selector: 'app-fingerprint-verification',

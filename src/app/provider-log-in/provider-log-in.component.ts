@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../config/ConfigService';
 import { LoaderService } from '../../shared/loader.service';
 import { NotificationService } from '../../shared/notification.service';
-import { AuthenticationService } from '../shared/authentication.service';
-import { User } from '../shared/user';
-import { UserService } from '../shared/user.service';
+import { AuthenticationService } from '../shared/services/authentication.service';
+import { User } from '../shared/Models/user';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-provider-log-in',

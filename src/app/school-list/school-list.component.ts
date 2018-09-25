@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import {School, SchoolDataSource} from './school-list-datasource';
-import {SchoolService} from '../shared/SchoolService';
+import {SchoolService} from '../shared/services/SchoolService';
 
 @Component({
   selector: 'app-table-list',

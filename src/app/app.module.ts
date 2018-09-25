@@ -14,8 +14,8 @@ import {LoaderService} from "../shared/loader.service";
 import {RouterModule} from "@angular/router";
 import {routes} from "./shared/routes";
 import {FormsModule} from "@angular/forms";
-import { AuthenticationService } from './shared/authentication.service';
-import { UserService } from './shared/user.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+import { UserService } from './shared/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SchoolControllerComponent } from './school-controller/school-controller.component';
@@ -25,7 +25,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SchoolListComponent } from './school-list/school-list.component';
-import {SchoolService} from './shared/SchoolService';
+import {SchoolService} from './shared/services/SchoolService';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

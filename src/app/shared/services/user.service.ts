@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ConfigService } from '../../config/ConfigService';
-import { BaseHttpService } from '../../shared/base.http.service';
+import { ConfigService } from '../../../config/ConfigService';
+import { BaseHttpService } from '../../../shared/base.http.service';
 
 @Injectable()
 export class UserService {
