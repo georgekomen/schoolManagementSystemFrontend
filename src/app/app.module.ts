@@ -78,15 +78,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    // CommonModule,
-    // MatTabsModule,
+    CommonModule,
+    MatTabsModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatSelectModule,
-    // MatRadioModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatRadioModule
 
   ],
   providers: [
