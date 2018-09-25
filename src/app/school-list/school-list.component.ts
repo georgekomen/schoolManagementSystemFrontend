@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
+import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import {School, SchoolDataSource} from './school-list-datasource';
 import {SchoolService} from '../shared/services/SchoolService';
+import {SchoolControllerComponent} from './school-controller/school-controller.component';
 
 @Component({
   selector: 'app-table-list',
@@ -17,7 +18,7 @@ export class SchoolListComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'date_registered'];
 
-  constructor(private schoolService: SchoolService) {
+  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
 
   }
 
@@ -34,6 +35,17 @@ export class SchoolListComponent implements OnInit {
     this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
       this.dataSource = new SchoolDataSource(this.paginator, this.sort, this.schoolList);
+    });
+  }
+
+  addSchool() {
+    const dialogRef = this.dialog.open(SchoolControllerComponent, {
+      // width: '250px',
+      // data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getSchoolList();
     });
   }
 }

@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface School {
+export class School {
   name: string;
   id: number;
   date_registered: string;
