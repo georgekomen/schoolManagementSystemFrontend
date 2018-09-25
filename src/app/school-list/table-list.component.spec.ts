@@ -1,19 +1,19 @@
 
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableListComponent } from './table-list.component';
+import { SchoolListComponent } from './school-list.component';
 
 describe('TableListComponent', () => {
-  let component: TableListComponent;
-  let fixture: ComponentFixture<TableListComponent>;
+  let component: SchoolListComponent;
+  let fixture: ComponentFixture<SchoolListComponent>;
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableListComponent ]
+      declarations: [ SchoolListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TableListComponent);
+    fixture = TestBed.createComponent(SchoolListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

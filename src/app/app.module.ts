@@ -24,7 +24,7 @@ import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, 
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TableListComponent } from './table-list/table-list.component';
+import { SchoolListComponent } from './school-list/school-list.component';
 import {SchoolService} from './shared/SchoolService';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthenticationControllerComponent,
     MainNavComponent,
     DashboardComponent,
-    TableListComponent,
+    SchoolListComponent,
   ],
   imports: [
     FormsModule,

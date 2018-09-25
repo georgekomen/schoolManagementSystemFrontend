@@ -3,7 +3,7 @@ import {ProviderLogInComponent} from "../provider-log-in/provider-log-in.compone
 import {SchoolControllerComponent} from "../school-controller/school-controller.component";
 import {AuthenticationControllerComponent} from "../authentication-controller/authentication-controller.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
-import {TableListComponent} from '../table-list/table-list.component';
+import {SchoolListComponent} from '../school-list/school-list.component';
 
 
 export const routes: Routes = [
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'table-list',
-    component: TableListComponent,
+    component: SchoolListComponent,
     pathMatch: 'full'
   },
   {path: '**', redirectTo: 'table-list'}
