@@ -9,10 +9,10 @@ import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-provider-log-in',
-  templateUrl: './provider-log-in.component.html',
-  styleUrls: ['./provider-log-in.component.css']
+  templateUrl: './log-in.component.html',
+  styleUrls: ['./log-in.component.css']
 })
-export class ProviderLogInComponent implements OnInit, AfterViewInit {
+export class LogInComponent implements OnInit, AfterViewInit {
   public username: string;
 
   public password: string;

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ProviderLogInComponent } from './provider-log-in/provider-log-in.component';
+import { LogInComponent } from './log-in/log-in.component';
 import {FingerprintVerificationComponent} from "./fingerprint-verification/fingerprint-verification.component";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {ConfigService} from "../config/ConfigService";
@@ -18,8 +18,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
 import { UserService } from './shared/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { SchoolControllerComponent } from './school-controller/school-controller.component';
-import { AuthenticationControllerComponent } from './authentication-controller/authentication-controller.component';
+import { SchoolControllerComponent } from './school-list/school-controller/school-controller.component';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule} from "@angular/material";
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -34,10 +33,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProviderLogInComponent,
+    LogInComponent,
     FingerprintVerificationComponent,
     SchoolControllerComponent,
-    AuthenticationControllerComponent,
     MainNavComponent,
     DashboardComponent,
     SchoolListComponent,
