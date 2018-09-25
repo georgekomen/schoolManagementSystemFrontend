@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
+    *ngIf="page()"
     #drawer
     class="sidenav"
     fixedInViewport="true"
@@ -21,18 +22,15 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <img src="../assets/MTIBA_logo.svg" class="img-fluid"/>
-      <span>school management system</span>
-    </mat-toolbar>
+    <button
+      style="margin-top: 1em; position: absolute"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
     <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>

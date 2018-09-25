@@ -8,7 +8,7 @@ import {TableListComponent} from '../table-list/table-list.component';
 
 export const routes: Routes = [
   {
-    path: 'dashboard',
+    path: 'login',
     component: ProviderLogInComponent,
     pathMatch: 'full'
   },
@@ -23,7 +23,7 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
     pathMatch: 'full'
   },
@@ -31,5 +31,6 @@ export const routes: Routes = [
     path: 'table-list',
     component: TableListComponent,
     pathMatch: 'full'
-  }
+  },
+  {path: '**', redirectTo: 'login'}
 ];
