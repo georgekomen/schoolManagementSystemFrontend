@@ -16,7 +16,7 @@ export interface School {
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class TableListDataSource extends DataSource<School> {
+export class SchoolDataSource extends DataSource<School> {
   data: School[] = [];
 
   constructor(private paginator: MatPaginator, private sort: MatSort, private shoolService: SchoolService) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
-import { TableListDataSource } from './table-list-datasource';
+import { SchoolDataSource } from './table-list-datasource';
 import {SchoolService} from '../shared/SchoolService';
 
 @Component({
@@ -11,7 +11,7 @@ import {SchoolService} from '../shared/SchoolService';
 export class TableListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: TableListDataSource;
+  dataSource: SchoolDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
@@ -21,6 +21,6 @@ export class TableListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new TableListDataSource(this.paginator, this.sort, this.schoolService);
+    this.dataSource = new SchoolDataSource(this.paginator, this.sort, this.schoolService);
   }
 }
