@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav
-    *ngIf="page()"
+    [ngStyle]="{'visibility': page()}"
     #drawer
     class="sidenav"
     fixedInViewport="true"

@@ -18,12 +18,11 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 
-  public page():boolean {
+   public page(): string {
     if(this.router.url === "/login"){
-      return false;
+      return 'hidden';
     } else {
-      return true;
+      return 'visible';
     }
   }
-
-  }
+}
