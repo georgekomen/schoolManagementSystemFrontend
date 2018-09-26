@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigService } from '../../../config/ConfigService';
 import { BaseHttpService } from '../../../shared/base.http.service';
+import {User} from '../Models/user';
 
 @Injectable()
 export class UserService {
@@ -12,11 +13,12 @@ export class UserService {
   }
 
 
-  getLocation(): Observable<any> {
-    return this.http.get_no_auth('http://ip-api.com/json');
+  getUsers(): Observable<User[]> {
+    return this.http.get(`${this.configService.baseUrl}/user/get_employees`);
   }
 
-  logOut() {
-    return localStorage.clear();
+  postUser(user: User): Observable<User> {
+    return this.http.post(`${this.configService.baseUrl}/user/new_employee`, user);
   }
+
 }

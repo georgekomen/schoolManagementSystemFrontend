@@ -4,19 +4,17 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import {User} from '../../shared/Models/user';
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: User[] = [];
-
 /**
  * Data source for the UserList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
 export class UserListDataSource extends DataSource<User> {
-  data: User[] = EXAMPLE_DATA;
+  userList: User[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private userList1: User[]) {
     super();
+    this.userList = userList1;
   }
 
   /**
@@ -28,16 +26,16 @@ export class UserListDataSource extends DataSource<User> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      observableOf(this.userList),
       this.paginator.page,
       this.sort.sortChange
     ];
 
     // Set the paginators length
-    this.paginator.length = this.data.length;
+    this.paginator.length = this.userList.length;
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
+      return this.getPagedData(this.getSortedData([...this.userList]));
     }));
   }
 

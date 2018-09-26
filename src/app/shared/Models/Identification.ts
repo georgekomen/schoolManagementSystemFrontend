@@ -4,4 +4,5 @@ export class Identification {
   id?: number;
   user?: User;
   value?: any;
+  type?: string;
 }

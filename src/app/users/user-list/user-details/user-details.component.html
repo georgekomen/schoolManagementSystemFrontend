@@ -1,3 +1,38 @@
-<p>
-  user-details works!
-</p>
+<div>
+  <mat-toolbar color="primary">
+    Add User
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.email" matInput placeholder="Email">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
+      </mat-form-field>
+      <div class="submit">
+        <!-- which submit -->
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        &nbsp;
+        <button (click)="postSchool()" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

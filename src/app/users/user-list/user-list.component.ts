@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
+import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
+import {SchoolControllerComponent} from '../../school/school-list/school-controller/school-controller.component';
+import {SchoolDataSource} from '../../school/school-list/school-list-datasource';
+import {UserService} from '../../shared/services/user.service';
+import {User} from '../../shared/Models/user';
+import {UserDetailsComponent} from './user-details/user-details.component';
 
 @Component({
   selector: 'app-user-list',
@@ -13,9 +18,33 @@ export class UserListComponent implements OnInit {
   dataSource: UserListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name'];
+
+  userList: User[] = [];
+
+  constructor(private userService: UserService,
+              private dialog: MatDialog) {
+
+  }
 
   ngOnInit() {
-    this.dataSource = new UserListDataSource(this.paginator, this.sort);
+    this.getUserList();
+  }
+
+  getUserList() {
+    this.userService.getUsers().subscribe(res => {
+      this.userList = res;
+      this.dataSource = new UserListDataSource(this.paginator, this.sort, this.userList);
+    });
+  }
+
+  addUser() {
+    const dialogRef = this.dialog.open(UserDetailsComponent, {
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getUserList();
+    });
   }
 }

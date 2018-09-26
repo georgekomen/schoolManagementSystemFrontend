@@ -5,6 +5,8 @@ import {SchoolListComponent} from '../school/school-list/school-list.component';
 import {SchoolControllerComponent} from '../school/school-list/school-controller/school-controller.component';
 import {PermissionListComponent} from '../auth/permission-list/permission-list.component';
 import {AddPermissionComponent} from '../auth/permission-list/add-permission/add-permission.component';
+import {UserListComponent} from '../users/user-list/user-list.component';
+import {UserDetailsComponent} from '../users/user-list/user-details/user-details.component';
 
 
 export const routes: Routes = [
@@ -26,6 +28,16 @@ export const routes: Routes = [
   {
     path: 'school-list',
     component: SchoolListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-user',
+    component: UserDetailsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'user-list',
+    component: UserListComponent,
     pathMatch: 'full'
   },
   {

@@ -12,7 +12,7 @@ export class SchoolControllerComponent implements OnInit {
 
   public school: School = new School();
 
-  constructor(public dialogRef: MatDialogRef<SchoolControllerComponent>,
+  constructor(private dialogRef: MatDialogRef<SchoolControllerComponent>,
               private schoolService: SchoolService) { }
 
   ngOnInit() {
