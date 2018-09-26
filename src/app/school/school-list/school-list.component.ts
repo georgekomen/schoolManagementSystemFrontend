@@ -23,11 +23,6 @@ export class SchoolListComponent implements OnInit {
 
   }
 
-  getDataSourceLength(): number {
-    let d = this.dataSource !== undefined ? this.dataSource.schoolList.length : 0;
-    return d;
-  }
-
   ngOnInit() {
     this.getSchoolList();
   }

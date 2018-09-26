@@ -32,6 +32,8 @@ import {SchoolService} from './shared/services/SchoolService';
 import {CommonModule} from '@angular/common';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailsComponent } from './users/user-list/user-details/user-details.component';
+import { PermissionListComponent } from './auth/permission-list/permission-list.component';
+import { AddPermissionComponent } from './auth/permission-list/add-permission/add-permission.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SchoolListComponent,
     UserListComponent,
     UserDetailsComponent,
+    PermissionListComponent,
+    AddPermissionComponent,
   ],
   imports: [
     FormsModule,
