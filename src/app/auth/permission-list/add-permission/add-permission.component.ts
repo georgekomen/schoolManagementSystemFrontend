@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../../shared/services/authentication.service';
+import {Permission} from '../../../shared/Models/permission';
+import {SchoolControllerComponent} from '../../../school/school-list/school-controller/school-controller.component';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-permission',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPermissionComponent implements OnInit {
 
-  constructor() { }
+  public permission: Permission = new Permission();
+
+  constructor(private authService: AuthenticationService,
+              public dialogRef: MatDialogRef<AddPermissionComponent>) { }
 
   ngOnInit() {
+  }
+
+  addPermission() {
+    this.authService.postPermission(this.permission).subscribe(res => {
+      this.dialogRef.close();
+    });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }

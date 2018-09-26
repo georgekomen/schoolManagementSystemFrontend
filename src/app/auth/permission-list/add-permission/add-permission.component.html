@@ -1,3 +1,22 @@
-<p>
-  add-permission works!
-</p>
+<div>
+  <mat-toolbar color="primary">
+    Add Permission
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <input [(ngModel)]="permission.name" matInput placeholder="Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="permission.description" matInput placeholder="Description">
+      </mat-form-field>
+      <div class="submit">
+        <!-- which submit -->
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        &nbsp;
+        <button (click)="addPermission()" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

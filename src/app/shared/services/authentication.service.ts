@@ -7,6 +7,8 @@ import { ConfigService } from '../../../config/ConfigService';
 import { BaseHttpService } from '../../../shared/base.http.service';
 import { LoaderService } from '../../../shared/loader.service';
 import { User } from '../Models/user';
+import {Permission} from '../Models/permission';
+import {School} from '../Models/school';
 
 @Injectable()
 export class AuthenticationService {
@@ -38,5 +40,13 @@ export class AuthenticationService {
   logout() {
     localStorage.clear();
     sessionStorage.clear();
+  }
+
+  getPermissions(): Observable<Permission[]> {
+    return this.http.get(`${this.configService.baseUrl}/auth/get_permissions`);
+  }
+
+  postPermission(permission: Permission): Observable<Permission> {
+    return this.http.post(`${this.configService.baseUrl}/auth/new_permission`, permission);
   }
 }

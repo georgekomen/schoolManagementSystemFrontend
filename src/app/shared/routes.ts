@@ -3,6 +3,8 @@ import {LogInComponent} from "../log-in/log-in.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import {SchoolListComponent} from '../school/school-list/school-list.component';
 import {SchoolControllerComponent} from '../school/school-list/school-controller/school-controller.component';
+import {PermissionListComponent} from '../auth/permission-list/permission-list.component';
+import {AddPermissionComponent} from '../auth/permission-list/add-permission/add-permission.component';
 
 
 export const routes: Routes = [
@@ -17,7 +19,7 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'school-component',
+    path: 'add-school',
     component: SchoolControllerComponent,
     pathMatch: 'full'
   },
@@ -26,5 +28,18 @@ export const routes: Routes = [
     component: SchoolListComponent,
     pathMatch: 'full'
   },
-  {path: '**', redirectTo: 'school-list'}
+  {
+    path: 'permission-list',
+    component: PermissionListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-permission',
+    component: AddPermissionComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'school-list'
+  }
 ];

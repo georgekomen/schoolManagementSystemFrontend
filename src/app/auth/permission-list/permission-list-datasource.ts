@@ -4,20 +4,17 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import {Permission} from '../../shared/Models/permission';
 
-
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: Permission[] = [];
-
 /**
  * Data source for the PermissionList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
 export class PermissionListDataSource extends DataSource<Permission> {
-  data: Permission[] = EXAMPLE_DATA;
+  permissionList: Permission[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, permissionList: Permission[]) {
     super();
+    this.permissionList = permissionList;
   }
 
   /**
@@ -29,16 +26,16 @@ export class PermissionListDataSource extends DataSource<Permission> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      observableOf(this.permissionList),
       this.paginator.page,
       this.sort.sortChange
     ];
 
     // Set the paginators length
-    this.paginator.length = this.data.length;
+    this.paginator.length = this.permissionList.length;
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
+      return this.getPagedData(this.getSortedData([...this.permissionList]));
     }));
   }
 
