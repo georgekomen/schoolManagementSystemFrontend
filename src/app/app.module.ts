@@ -18,7 +18,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
 import { UserService } from './shared/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { SchoolControllerComponent } from './school-list/school-controller/school-controller.component';
+import { SchoolControllerComponent } from './school/school-list/school-controller/school-controller.component';
 import {
   MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule,
   MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatRadioModule, MatSelectModule, MatNativeDateModule,
@@ -27,7 +27,7 @@ import {
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SchoolListComponent } from './school-list/school-list.component';
+import { SchoolListComponent } from './school/school-list/school-list.component';
 import {SchoolService} from './shared/services/SchoolService';
 import {CommonModule} from '@angular/common';
 import { UserListComponent } from './users/user-list/user-list.component';

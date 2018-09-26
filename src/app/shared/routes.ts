@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import {LogInComponent} from "../log-in/log-in.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
-import {SchoolListComponent} from '../school-list/school-list.component';
-import {SchoolControllerComponent} from '../school-list/school-controller/school-controller.component';
+import {SchoolListComponent} from '../school/school-list/school-list.component';
+import {SchoolControllerComponent} from '../school/school-list/school-controller/school-controller.component';
 
 
 export const routes: Routes = [

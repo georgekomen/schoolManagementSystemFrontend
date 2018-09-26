@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {School} from '../school-list-datasource';
-import {SchoolService} from '../../shared/services/SchoolService';
+import {SchoolService} from '../../../shared/services/SchoolService';
+import {School} from '../../../shared/Models/school';
 
 @Component({
   selector: 'app-school-controller',

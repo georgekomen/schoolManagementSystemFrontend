@@ -3,7 +3,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
 
 @Component({
-  selector: 'app-users/user-list',
+  selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
