@@ -30,6 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SchoolListComponent } from './school-list/school-list.component';
 import {SchoolService} from './shared/services/SchoolService';
 import {CommonModule} from '@angular/common';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailsComponent } from './users/user-list/user-details/user-details.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainNavComponent,
     DashboardComponent,
     SchoolListComponent,
+    UserListComponent,
+    UserDetailsComponent,
   ],
   imports: [
     FormsModule,
