@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ConfigService } from '../../../config/ConfigService';
 import { BaseHttpService } from '../../../shared/base.http.service';
 import {User} from '../Models/user';
+import {Grant} from '../Models/grant';
 
 @Injectable()
 export class UserService {
@@ -15,6 +16,10 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get(`${this.configService.baseUrl}/user/get_employees`);
+  }
+
+  getUserGrants(user: User): Observable<Grant[]> {
+    return this.http.get(`${this.configService.baseUrl}/auth/get_user_grants/${user.id}`);
   }
 
   postUser(user: User): Observable<User> {

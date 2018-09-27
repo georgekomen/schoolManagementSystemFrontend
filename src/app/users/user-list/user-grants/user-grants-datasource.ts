@@ -11,11 +11,11 @@ import {Grant} from '../../../shared/Models/grant';
  * (including sorting, pagination, and filtering).
  */
 export class UserGrantsDataSource extends DataSource<Grant> {
-  data: Grant[] = [];
+  grantList: Grant[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, private grantList: Grant[]) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private grantList1: Grant[]) {
     super();
-    this.data = grantList;
+    this.grantList = grantList1;
   }
 
   /**
@@ -27,16 +27,16 @@ export class UserGrantsDataSource extends DataSource<Grant> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      observableOf(this.grantList),
       this.paginator.page,
       this.sort.sortChange
     ];
 
     // Set the paginators length
-    this.paginator.length = this.data.length;
+    this.paginator.length = this.grantList.length;
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
+      return this.getPagedData(this.getSortedData([...this.grantList]));
     }));
   }
 

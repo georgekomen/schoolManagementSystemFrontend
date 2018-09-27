@@ -7,6 +7,7 @@ import {MatDialogRef} from '@angular/material';
 import {Identification} from '../../../shared/Models/Identification';
 import {SchoolDataSource} from '../../../school/school-list/school-list-datasource';
 import {School} from '../../../shared/Models/school';
+import {NotificationService} from '../../../../shared/notification.service';
 
 @Component({
   selector: 'app-user-details',
@@ -14,12 +15,13 @@ import {School} from '../../../shared/Models/school';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  public user: User = new User();
+  user: User = new User();
   schoolList: School[] = [];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
-              private dialogRef: MatDialogRef<SchoolControllerComponent>) {
+              private dialogRef: MatDialogRef<SchoolControllerComponent>,
+              private notificationService: NotificationService) {
     this.user.identifications = [];
     this.user.identifications[0] = new Identification();
     this.user.identifications[0].type = 'NATIONAL_ID';
@@ -38,7 +40,8 @@ export class UserDetailsComponent implements OnInit {
   postUser() {
     this.userService.postUser(this.user).subscribe(res => {
       console.log(res);
-      this.closeDialog();
+      this.user = res;
+      this.notificationService.success('Success', 'successfully registered user');
     });
   }
 

@@ -7,6 +7,7 @@ import {PermissionListComponent} from '../auth/permission-list/permission-list.c
 import {AddPermissionComponent} from '../auth/permission-list/add-permission/add-permission.component';
 import {UserListComponent} from '../users/user-list/user-list.component';
 import {UserDetailsComponent} from '../users/user-list/user-details/user-details.component';
+import {UserGrantsComponent} from '../users/user-list/user-grants/user-grants.component';
 
 
 export const routes: Routes = [
@@ -23,6 +24,11 @@ export const routes: Routes = [
   {
     path: 'add-school',
     component: SchoolControllerComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'grant-list',
+    component: UserGrantsComponent,
     pathMatch: 'full'
   },
   {

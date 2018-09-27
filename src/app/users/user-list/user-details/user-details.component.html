@@ -52,3 +52,6 @@
     </mat-card-content>
   </mat-card>
 </div>
+<div *ngIf="user.id > 0">
+  <app-user-grants [_user]="user"></app-user-grants>
+</div>
