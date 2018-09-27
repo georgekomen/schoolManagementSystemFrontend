@@ -5,6 +5,8 @@ import {User} from '../../../shared/Models/user';
 import {SchoolControllerComponent} from '../../../school/school-list/school-controller/school-controller.component';
 import {MatDialogRef} from '@angular/material';
 import {Identification} from '../../../shared/Models/Identification';
+import {SchoolDataSource} from '../../../school/school-list/school-list-datasource';
+import {School} from '../../../shared/Models/school';
 
 @Component({
   selector: 'app-user-details',
@@ -13,6 +15,7 @@ import {Identification} from '../../../shared/Models/Identification';
 })
 export class UserDetailsComponent implements OnInit {
   public user: User = new User();
+  schoolList: School[] = [];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
@@ -23,9 +26,16 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSchoolList();
   }
 
-  postSchool() {
+  getSchoolList() {
+    this.schoolService.getSchools().subscribe(res => {
+      this.schoolList = res;
+    });
+  }
+
+  postUser() {
     this.userService.postUser(this.user).subscribe(res => {
       console.log(res);
       this.closeDialog();

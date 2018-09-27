@@ -27,11 +27,27 @@
       <mat-form-field>
         <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
       </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select [(ngModel)]="user.gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+        <mat-placeholder>Gender</mat-placeholder>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <mat-select [(ngModel)]="user.school">
+          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>School</mat-placeholder>
+      </mat-form-field>
+
       <div class="submit">
         <!-- which submit -->
         <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
         &nbsp;
-        <button (click)="postSchool()" mat-raised-button color="primary">Submit</button>
+        <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
       </div>
     </mat-card-content>
   </mat-card>
