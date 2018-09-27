@@ -1,5 +1,5 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
+import {Component, Inject, Input, OnInit, ViewChild} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef, MatPaginator, MatSort} from '@angular/material';
 import { UserGrantsDataSource } from './user-grants-datasource';
 import {UserService} from '../../../shared/services/user.service';
 import {Grant} from '../../../shared/Models/grant';
@@ -29,7 +29,9 @@ export class UserGrantsComponent {
     }
   }
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private dialogRef: MatDialogRef<UserGrantsComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
 
