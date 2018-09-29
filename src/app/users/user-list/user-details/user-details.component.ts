@@ -8,6 +8,7 @@ import {Identification} from '../../../shared/Models/Identification';
 import {SchoolDataSource} from '../../../school/school-list/school-list-datasource';
 import {School} from '../../../shared/Models/school';
 import {NotificationService} from '../../../../shared/notification.service';
+import {UserSchool} from '../../../shared/Models/UserSchool';
 
 @Component({
   selector: 'app-user-details',
@@ -26,10 +27,15 @@ export class UserDetailsComponent implements OnInit {
     this.user.identifications = [];
     this.user.identifications[0] = new Identification();
     this.user.identifications[0].type = 'NATIONAL_ID';
+
+    this.user.userSchools = [];
+    this.user.userSchools[0] = new UserSchool();
   }
 
   ngOnInit() {
-    this.user = this.data['user'];
+    if (this.data !== null) {
+      this.user = this.data['user'];
+    }
     this.getSchoolList();
   }
 
