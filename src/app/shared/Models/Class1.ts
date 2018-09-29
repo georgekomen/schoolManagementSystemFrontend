@@ -9,5 +9,5 @@ export class Class1 {
   name?: string;
   start_date?: string;
   end_date?: string;
-
+  classInvoices?: any;
 }
