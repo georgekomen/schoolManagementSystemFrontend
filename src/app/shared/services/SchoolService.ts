@@ -28,7 +28,7 @@ export class SchoolService {
   }
 
   postClassInvoice(classInvoice: ClassInvoice): Observable<ClassInvoice> {
-    return this.http.post(`${this.configService.baseUrl}/school/new_class`, classInvoice);
+    return this.http.post(`${this.configService.baseUrl}/invoice/new_class_invoice`, classInvoice);
   }
 
   getSchools(): Observable<School[]> {
