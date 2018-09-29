@@ -1,3 +1,16 @@
+<mat-toolbar color="primary">
+  &nbsp; &nbsp;
+  <img src="../assets/MTIBA_logo.svg" class="img-fluid"/>
+  <nav>
+    <button mat-icon-button title="Add new course">
+      <mat-icon (click)="addClass1()" aria-label="Add new class">add</mat-icon>
+    </button>
+  </nav>
+</mat-toolbar>
+
+
+
+
 <div class="mat-elevation-z8">
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Id Column -->
@@ -17,7 +30,7 @@
   </table>
 
   <mat-paginator #paginator
-    [length]="dataSource.data.length"
+    [length]="dataSource != undefined ? dataSource.data.length : 0"
     [pageIndex]="0"
     [pageSize]="50"
     [pageSizeOptions]="[25, 50, 100, 250]">

@@ -6,6 +6,7 @@ export class Class1 {
   term?: 'ONE' | 'TWO' | 'THREE';
   school?: School;
   course?: Course;
+  name?: string;
   start_date?: string;
   end_date?: string;
 

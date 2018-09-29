@@ -4,20 +4,20 @@
   </mat-toolbar>
   <mat-card>
     <mat-card-content>
+      &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
       </mat-form-field>
-      &nbsp;
       &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
       </mat-form-field>
       &nbsp;
+      <br>
       &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
       </mat-form-field>
-      &nbsp;
       &nbsp;
       <mat-form-field>
         <mat-select [(ngModel)]="user.role">
@@ -26,16 +26,17 @@
         <mat-placeholder>Role</mat-placeholder>
       </mat-form-field>
       &nbsp;
+      <br>
       &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
       </mat-form-field>
       &nbsp;
-      &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.email" matInput placeholder="Email">
       </mat-form-field>
       &nbsp;
+      <br>
       &nbsp;
       <mat-form-field>
         <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
@@ -50,6 +51,7 @@
         <mat-placeholder>Gender</mat-placeholder>
       </mat-form-field>
       &nbsp;
+      <br>
       &nbsp;
       <mat-form-field>
         <mat-select [(ngModel)]="user.userSchools[0].school">
@@ -59,15 +61,19 @@
       </mat-form-field>
 
       <div class="submit">
-        <!-- which submit -->
-        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-        &nbsp;
-        <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
+        <div style="float: right;" >
+          <!-- which submit -->
+          <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+          &nbsp;
+          <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
+        </div>
       </div>
+      <br>
 
     </mat-card-content>
   </mat-card>
 </div>
-<div *ngIf="user.id > 0">
-  <app-user-grants [_user]="user"></app-user-grants>
-</div>
+
+<!--<div *ngIf="user.id > 0">-->
+  <!--<app-user-grants [_user]="user"></app-user-grants>-->
+<!--</div>-->

@@ -10,6 +10,8 @@ import {UserDetailsComponent} from '../users/user-list/user-details/user-details
 import {UserGrantsComponent} from '../users/user-list/user-grants/user-grants.component';
 import {CourseListComponent} from '../course/course-list/course-list.component';
 import {AddCourseComponent} from '../course/course-list/add-course/add-course.component';
+import {AddClassComponent} from '../class1/class-list/add-class/add-class.component';
+import {ClassListComponent} from '../class1/class-list/class-list.component';
 
 
 export const routes: Routes = [
@@ -41,6 +43,16 @@ export const routes: Routes = [
   {
     path: 'add-user',
     component: UserDetailsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-class',
+    component: AddClassComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'class-list',
+    component: ClassListComponent,
     pathMatch: 'full'
   },
   {

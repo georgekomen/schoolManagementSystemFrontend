@@ -1,3 +1,47 @@
-<p>
-  add-class works!
-</p>
+<div>
+  <mat-toolbar color="primary">
+    Add Class
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-select [(ngModel)]="class1.school">
+          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>School</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select [(ngModel)]="class1.course">
+          <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Course</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="class1.start_date" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker1" placeholder="Start date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="class1.end_date" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker2" placeholder="End date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="class1.name" matInput placeholder="Name">
+      </mat-form-field>
+
+      <div class="submit">
+        <!-- which submit -->
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        &nbsp;
+        <button (click)="postClass()" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
