@@ -18,6 +18,16 @@ import {UserSchool} from '../../../shared/Models/UserSchool';
 export class UserDetailsComponent implements OnInit {
   user: User = new User();
   schoolList: School[] = [];
+  roles: string[] = [
+    'PRINCIPAL',
+    'DEPUTY_PRINCIPAL',
+    'FINANCE_MANAGER',
+    'HEAD_OF_DEPARTMENT',
+    'DEPUTY_HEAD_OF_DEPARTMENT',
+    'TEACHER',
+    'CLASS_TEACHER',
+    'STUDENT'
+  ];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
