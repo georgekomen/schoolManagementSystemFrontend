@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
-import {SchoolControllerComponent} from '../../school/school-list/school-controller/school-controller.component';
+import {AddSchoolComponent} from '../../school/school-list/add-school/add-school-.component';
 import {SchoolDataSource} from '../../school/school-list/school-list-datasource';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/Models/user';

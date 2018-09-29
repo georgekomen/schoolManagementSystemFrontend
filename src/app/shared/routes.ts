@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import {LogInComponent} from "../log-in/log-in.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import {SchoolListComponent} from '../school/school-list/school-list.component';
-import {SchoolControllerComponent} from '../school/school-list/school-controller/school-controller.component';
+import {AddSchoolComponent} from '../school/school-list/add-school/add-school-.component';
 import {PermissionListComponent} from '../auth/permission-list/permission-list.component';
 import {AddPermissionComponent} from '../auth/permission-list/add-permission/add-permission.component';
 import {UserListComponent} from '../users/user-list/user-list.component';
@@ -23,7 +23,7 @@ export const routes: Routes = [
   },
   {
     path: 'add-school',
-    component: SchoolControllerComponent,
+    component: AddSchoolComponent,
     pathMatch: 'full'
   },
   {

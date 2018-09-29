@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import {SchoolDataSource} from './school-list-datasource';
 import {SchoolService} from '../../shared/services/SchoolService';
-import {SchoolControllerComponent} from './school-controller/school-controller.component';
+import {AddSchoolComponent} from './add-school/add-school-.component';
 import {School} from '../../shared/Models/school';
 
 @Component({
@@ -35,7 +35,7 @@ export class SchoolListComponent implements OnInit {
   }
 
   addSchool() {
-    const dialogRef = this.dialog.open(SchoolControllerComponent, {
+    const dialogRef = this.dialog.open(AddSchoolComponent, {
       // width: '250px',
       // data: { name: this.name, animal: this.animal }
     });

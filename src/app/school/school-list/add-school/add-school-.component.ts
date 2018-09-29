@@ -5,14 +5,14 @@ import {School} from '../../../shared/Models/school';
 
 @Component({
   selector: 'app-school-controller',
-  templateUrl: './school-controller.component.html',
-  styleUrls: ['./school-controller.component.css']
+  templateUrl: './add-school-.component.html',
+  styleUrls: ['./add-school-.component.css']
 })
-export class SchoolControllerComponent implements OnInit {
+export class AddSchoolComponent implements OnInit {
 
   public school: School = new School();
 
-  constructor(private dialogRef: MatDialogRef<SchoolControllerComponent>,
+  constructor(private dialogRef: MatDialogRef<AddSchoolComponent>,
               private schoolService: SchoolService) { }
 
   ngOnInit() {

@@ -18,7 +18,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
 import { UserService } from './shared/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { SchoolControllerComponent } from './school/school-list/school-controller/school-controller.component';
+import { AddSchoolComponent } from './school/school-list/add-school/add-school-.component';
 import {
   MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule,
   MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatRadioModule, MatSelectModule, MatNativeDateModule,
@@ -45,7 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     LogInComponent,
     FingerprintVerificationComponent,
-    SchoolControllerComponent,
+    AddSchoolComponent,
     MainNavComponent,
     DashboardComponent,
     SchoolListComponent,

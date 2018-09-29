@@ -15,7 +15,7 @@ export class UserService {
 
 
   getUsers(): Observable<User[]> {
-    return this.http.get(`${this.configService.baseUrl}/user/get_employees`);
+    return this.http.get(`${this.configService.baseUrl}/user/get_users`);
   }
 
   getUserGrants(user: User): Observable<Grant[]> {
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   postUser(user: User): Observable<User> {
-    return this.http.post(`${this.configService.baseUrl}/user/new_employee`, user);
+    return this.http.post(`${this.configService.baseUrl}/user/new_user`, user);
   }
 
 }

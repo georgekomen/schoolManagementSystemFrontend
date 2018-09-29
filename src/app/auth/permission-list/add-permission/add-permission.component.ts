@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../shared/services/authentication.service';
 import {Permission} from '../../../shared/Models/permission';
-import {SchoolControllerComponent} from '../../../school/school-list/school-controller/school-controller.component';
+import {AddSchoolComponent} from '../../../school/school-list/add-school/add-school-.component';
 import {MatDialogRef} from '@angular/material';
 
 @Component({
