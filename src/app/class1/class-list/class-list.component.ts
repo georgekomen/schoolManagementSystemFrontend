@@ -41,6 +41,16 @@ export class ClassListComponent implements OnInit {
     });
   }
 
+  class1Details(class1: Class1) {
+    const dialogRef = this.dialog.open(AddClassComponent, {
+      data: { class1: class1 }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getClassList();
+    });
+  }
+
   getClassList() {
     this.schoolService.getClasses().subscribe(res => {
       this.classList = res;

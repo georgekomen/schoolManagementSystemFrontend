@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {SchoolService} from '../../../shared/services/SchoolService';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {Course} from '../../../shared/Models/course';
 import {School} from '../../../shared/Models/school';
 import {AddCourseComponent} from '../../../course/course-list/add-course/add-course.component';
@@ -22,13 +22,18 @@ export class AddClassComponent implements OnInit {
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
 
-  constructor(private schoolService: SchoolService, private dialogRef: MatDialogRef<AddClassComponent>) {
+  constructor(private schoolService: SchoolService,
+              private dialogRef: MatDialogRef<AddClassComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
 
   ngOnInit() {
     this.getSchoolList();
     this.getCourseList();
+    if (this.data !== null) {
+      this.class1 = this.data['class1'];
+    }
   }
 
   getSchoolList() {
