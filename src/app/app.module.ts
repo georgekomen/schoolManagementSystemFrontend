@@ -35,6 +35,8 @@ import { UserDetailsComponent } from './users/user-list/user-details/user-detail
 import { PermissionListComponent } from './auth/permission-list/permission-list.component';
 import { AddPermissionComponent } from './auth/permission-list/add-permission/add-permission.component';
 import { UserGrantsComponent } from './users/user-list/user-grants/user-grants.component';
+import { CourseListComponent } from './course/course-list/course-list.component';
+import { AddCourseComponent } from './course/course-list/add-course/add-course.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,6 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PermissionListComponent,
     AddPermissionComponent,
     UserGrantsComponent,
+    CourseListComponent,
+    AddCourseComponent,
   ],
   imports: [
     FormsModule,
