@@ -1,4 +1,5 @@
 <div>
+  <div style="float: left">
   <mat-toolbar color="primary">
     Add Class
   </mat-toolbar>
@@ -44,4 +45,9 @@
       </div>
     </mat-card-content>
   </mat-card>
+  </div>
+  <div style="float: right">
+      <app-add-invoice *ngIf="class1.id != null" [classList]="[class1]"></app-add-invoice>
+  </div>
 </div>
+

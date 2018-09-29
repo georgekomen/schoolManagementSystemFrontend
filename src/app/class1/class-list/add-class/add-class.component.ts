@@ -45,8 +45,7 @@ export class AddClassComponent implements OnInit {
 
   postClass() {
     this.schoolService.postClass(this.class1).subscribe(res => {
-      console.log(res);
-      this.closeDialog();
+      this.class1 = res;
     });
   }
 

@@ -42,6 +42,7 @@ import { AddClassComponent } from './class1/class-list/add-class/add-class.compo
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoaderComponent } from './loader/loader.component';
+import { AddInvoiceComponent } from './class1/class-list/add-invoice/add-invoice.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -67,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClassListComponent,
     AddClassComponent,
     LoaderComponent,
+    AddInvoiceComponent,
   ],
   imports: [
     FormsModule,

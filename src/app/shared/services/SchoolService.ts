@@ -5,6 +5,7 @@ import { BaseHttpService } from '../../../shared/base.http.service';
 import {School} from '../Models/school';
 import {Course} from '../Models/course';
 import {Class1} from '../Models/Class1';
+import {ClassInvoice} from '../Models/ClassInvoice';
 
 @Injectable()
 export class SchoolService {
@@ -24,6 +25,10 @@ export class SchoolService {
 
   getClasses(): Observable<Class1[]> {
     return this.http.get(`${this.configService.baseUrl}/school/get_classes`);
+  }
+
+  postClassInvoice(classInvoice: ClassInvoice): Observable<ClassInvoice> {
+    return this.http.post(`${this.configService.baseUrl}/school/new_class`, classInvoice);
   }
 
   getSchools(): Observable<School[]> {
