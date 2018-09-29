@@ -7,3 +7,29 @@ nav {
  table {
    width: 100%;
  }
+
+.loader {
+  position: absolute;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid black; /* Blue */
+  border-radius: 50%;
+  left:50%;
+  top:50%;
+  margin-right: auto;
+  width: 60px;
+  height: 60px;
+  animation: spin 1500ms linear infinite;
+}
+
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+}

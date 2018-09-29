@@ -39,6 +39,10 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 import { AddCourseComponent } from './course/course-list/add-course/add-course.component';
 import { ClassListComponent } from './class1/class-list/class-list.component';
 import { AddClassComponent } from './class1/class-list/add-class/add-class.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoaderComponent } from './loader/loader.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -62,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddCourseComponent,
     ClassListComponent,
     AddClassComponent,
+    LoaderComponent,
   ],
   imports: [
     FormsModule,
@@ -88,6 +93,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatProgressBarModule,
     MatIconModule,
     MatListModule,
     MatGridListModule,
@@ -104,7 +110,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [
