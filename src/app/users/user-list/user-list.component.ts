@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit {
   dataSource: UserListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name'];
+  displayedColumns = ['name', 'phoneNumber', 'email', 'gender'];
 
   userList: User[] = [];
 
@@ -38,10 +38,20 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  userDetails(user: User) {
+    const dialogRef = this.dialog.open(UserDetailsComponent, {
+      data: { user: user}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getUserList();
+    });
+  }
+
   addUser() {
     const dialogRef = this.dialog.open(UserDetailsComponent, {
-
-    });
+      // data: { user: }
+      });
 
     dialogRef.afterClosed().subscribe(result => {
       this.getUserList();
