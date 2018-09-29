@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ConfigService } from '../../../config/ConfigService';
 import { BaseHttpService } from '../../../shared/base.http.service';
 import {School} from '../Models/school';
+import {Course} from '../Models/course';
 
 @Injectable()
 export class SchoolService {
@@ -12,6 +13,9 @@ export class SchoolService {
   ) {
   }
 
+  getCourses(): Observable<Course[]> {
+    return this.http.get(`${this.configService.baseUrl}/school/get_courses`);
+  }
 
   getSchools(): Observable<School[]> {
     return this.http.get(`${this.configService.baseUrl}/school/get_schools`);
@@ -19,6 +23,10 @@ export class SchoolService {
 
   postSchool(school: School): Observable<School> {
     return this.http.post(`${this.configService.baseUrl}/school/new_school`, school);
+  }
+
+  postCourse(course: Course): Observable<Course> {
+    return this.http.post(`${this.configService.baseUrl}/school/new_course`, course);
   }
 
 }

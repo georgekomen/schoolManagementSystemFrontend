@@ -8,6 +8,8 @@ import {AddPermissionComponent} from '../auth/permission-list/add-permission/add
 import {UserListComponent} from '../users/user-list/user-list.component';
 import {UserDetailsComponent} from '../users/user-list/user-details/user-details.component';
 import {UserGrantsComponent} from '../users/user-list/user-grants/user-grants.component';
+import {CourseListComponent} from '../course/course-list/course-list.component';
+import {AddCourseComponent} from '../course/course-list/add-course/add-course.component';
 
 
 export const routes: Routes = [
@@ -49,6 +51,16 @@ export const routes: Routes = [
   {
     path: 'permission-list',
     component: PermissionListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'course-list',
+    component: CourseListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-course',
+    component: AddCourseComponent,
     pathMatch: 'full'
   },
   {
