@@ -1,13 +1,12 @@
 import {User} from './user';
-import {Exam} from './exam';
-import {StudentClasses} from './StudentClasses';
-import {ExamSubjectResult} from './examSubjectResult';
+import {StudentExamResult} from './StudentExamResult';
+import {ClassExam} from './ClassExam';
 
 export class StudentExam {
   id?: number;
-  student?: User;
-  exam?: Exam;
-  studentClass?: StudentClasses;
-  examSubjectResults?: ExamSubjectResult[];
+  user?: User;
+  name?: string;
+  classExam?: ClassExam;
+  studentExamResults?: StudentExamResult[];
 
 }

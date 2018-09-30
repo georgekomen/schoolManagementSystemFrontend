@@ -1,11 +1,11 @@
-import {ExamSubject} from './examSubject';
 import {User} from './user';
 import {StudentExam} from './studentExam';
+import {Subject1} from './Subject1';
 
-export class ExamSubjectResult {
+export class StudentExamResult {
   id?: number;
-  examSubject?: ExamSubject;
-  student?: User;
+  subject?: Subject1;
+  user?: User;
   result_mark?: number;
   studentExam?: StudentExam;
 }

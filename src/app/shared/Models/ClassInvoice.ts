@@ -4,6 +4,6 @@ export class ClassInvoice {
   id?: number;
   name?: string;
   class1?: Class1;
-  isInvoiced?: boolean;
+  invoice_date?: string;
   invoice_amount?: number;
 }
