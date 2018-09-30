@@ -3,6 +3,7 @@ import {SchoolService} from '../../../shared/services/SchoolService';
 import {MatDialogRef} from '@angular/material';
 import {Class1} from '../../../shared/Models/Class1';
 import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-add-invoice',
@@ -12,24 +13,35 @@ import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
 export class AddInvoiceComponent implements OnInit {
 
   classList: Class1[] = [];
-  @Input() set _classList(_classList: Class1[]) {
-      this.classList = _classList;
-      this.classInvoice.class1 = this.classList[0];
-  }
 
   classInvoice: ClassInvoice = new ClassInvoice();
 
+  @Input() set _classList(_classList: Class1[]) {
+    if (!isNullOrUndefined(_classList)) {
+      this.classList = _classList;
+      this.classInvoice.class1 = new Class1();
+    }
+  }
+
+  @Input() set _class(_class: Class1) {
+    if (!isNullOrUndefined(_class)) {
+      this.classInvoice.class1.id = _class.id;
+    }
+  }
+
   @Input() set _classInvoice(_classInvoice: ClassInvoice) {
-    if (_classInvoice !== undefined && _classInvoice != null) {
+    if (!isNullOrUndefined(_classInvoice)) {
       this.classInvoice = _classInvoice;
     }
   }
 
   constructor(private schoolService: SchoolService,
-              private dialogRef: MatDialogRef<AddInvoiceComponent>) { }
+              private dialogRef: MatDialogRef<AddInvoiceComponent>) {
+
+  }
 
   ngOnInit() {
-    if (this.classList == null || this.classList === []) {
+    if (isNullOrUndefined(this.classList)) {
       this.getClassList();
     }
   }

@@ -13,6 +13,8 @@ import {Class1} from '../../../shared/Models/Class1';
 })
 export class AddClassComponent implements OnInit {
 
+  classList: Class1[] = [];
+
   courseList: Course[] = [];
 
   schoolList: School[] = [];
@@ -20,6 +22,7 @@ export class AddClassComponent implements OnInit {
   class1: Class1 = new Class1();
 
   minDate = new Date(2000, 0, 1);
+
   maxDate = new Date(2020, 0, 1);
 
   constructor(private schoolService: SchoolService,
@@ -33,6 +36,7 @@ export class AddClassComponent implements OnInit {
     this.getCourseList();
     if (this.data !== null) {
       this.class1 = this.data['class1'];
+      this.classList = this.data['classList'];
     }
   }
 

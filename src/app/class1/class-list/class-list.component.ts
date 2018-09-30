@@ -43,7 +43,7 @@ export class ClassListComponent implements OnInit {
 
   class1Details(class1: Class1) {
     const dialogRef = this.dialog.open(AddClassComponent, {
-      data: { class1: class1 }
+      data: { class1: class1, classList: this.classList }
     });
 
     dialogRef.afterClosed().subscribe(result => {

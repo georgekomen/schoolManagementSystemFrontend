@@ -48,7 +48,7 @@
   </div>
   <div style="float: right">
     <!-- TODO - loop through all invoices for the class, Add (Add Invoice functionality -->
-      <app-add-invoice *ngIf="class1.id != null" [_classList]="[class1]" [_classInvoice]="class1.classInvoices[0]"></app-add-invoice>
+      <app-add-invoice [_class]="class1" [_classList]="classList" [_classInvoice]="class1.classInvoices[0]"></app-add-invoice>
   </div>
 </div>
 

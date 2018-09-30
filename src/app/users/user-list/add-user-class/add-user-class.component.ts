@@ -14,9 +14,10 @@ import {isNullOrUndefined} from 'util';
 export class AddUserClassComponent implements OnInit {
 
   minDate = new Date(2000, 0, 1);
+
   maxDate = new Date(2020, 0, 1);
 
-  studentClasses: StudentClass[] = [new StudentClass()];
+  studentClasses: StudentClass = new StudentClass();
 
   user: User = new User();
 
@@ -34,24 +35,25 @@ export class AddUserClassComponent implements OnInit {
     }
   }
 
-  @Input() set _studentClasses(_studentClasses: StudentClass[]) {
+  @Input() set _studentClasses(_studentClasses: StudentClass) {
     if (!isNullOrUndefined(_studentClasses)) {
-      console.log(_studentClasses);
       this.studentClasses = _studentClasses;
     }
   }
 
   constructor(private schoolService: SchoolService,
               private dialogRef: MatDialogRef<AddUserClassComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+
+  }
 
   ngOnInit() {
 
   }
 
   postUserClass() {
-    this.studentClasses[0].user = new User();
-    this.studentClasses[0].user.id = this.user.id;
+    this.studentClasses.user = new User();
+    this.studentClasses.user.id = this.user.id;
     this.schoolService.postNewStudentClass(this.studentClasses[0]).subscribe(res => {
       console.log(res);
     });

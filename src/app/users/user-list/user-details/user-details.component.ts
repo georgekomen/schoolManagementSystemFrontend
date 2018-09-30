@@ -20,16 +20,8 @@ import {StudentClass} from '../../../shared/Models/StudentClass';
 export class UserDetailsComponent implements OnInit {
   user: User = new User();
   schoolList: School[] = [];
-  roles: string[] = [
-    'PRINCIPAL',
-    'DEPUTY_PRINCIPAL',
-    'FINANCE_MANAGER',
-    'HEAD_OF_DEPARTMENT',
-    'DEPUTY_HEAD_OF_DEPARTMENT',
-    'TEACHER',
-    'CLASS_TEACHER',
-    'STUDENT'
-  ];
+  roles: string[] = ['PRINCIPAL', 'DEPUTY_PRINCIPAL', 'FINANCE_MANAGER', 'HEAD_OF_DEPARTMENT',
+    'DEPUTY_HEAD_OF_DEPARTMENT', 'TEACHER', 'CLASS_TEACHER', 'STUDENT'];
   classList: Class1[] = [];
 
   constructor(private schoolService: SchoolService,
@@ -47,7 +39,6 @@ export class UserDetailsComponent implements OnInit {
     this.user.identifications[0].type = 'NATIONAL_ID';
 
     this.user.userSchools = [new UserSchool()];
-    this.user.studentClasses = [new StudentClass()];
   }
 
   ngOnInit() {
