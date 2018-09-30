@@ -43,7 +43,11 @@ export class UserDetailsComponent implements OnInit {
 
   init() {
     this.user = new User();
+    this.user.identifications = [new Identification()];
     this.user.identifications[0].type = 'NATIONAL_ID';
+
+    this.user.userSchools = [new UserSchool()];
+    this.user.studentClasses = [new StudentClass()];
   }
 
   ngOnInit() {
