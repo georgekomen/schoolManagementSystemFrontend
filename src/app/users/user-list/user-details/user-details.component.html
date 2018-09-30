@@ -1,86 +1,90 @@
 <div>
-  <mat-toolbar color="primary">
-    Add User
-  </mat-toolbar>
-  <mat-card>
-    <mat-card-content>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
-      </mat-form-field>
-      &nbsp;
-      <br>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field>
-        <mat-select [(ngModel)]="user.role">
-          <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Role</mat-placeholder>
-      </mat-form-field>
-      &nbsp;
-      <br>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.email" matInput placeholder="Email">
-      </mat-form-field>
-      &nbsp;
-      <br>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
-      </mat-form-field>
-      &nbsp;
-      &nbsp;
-      <mat-form-field>
-        <mat-select [(ngModel)]="user.gender">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
-        </mat-select>
-        <mat-placeholder>Gender</mat-placeholder>
-      </mat-form-field>
-      &nbsp;
-      <br>
-      &nbsp;
-      <mat-form-field>
-        <mat-select [(ngModel)]="user.userSchools[0].school">
-          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>School</mat-placeholder>
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field>
-        <mat-select [(ngModel)]="user.studentClasses[0].class1">
-          <mat-option *ngFor="let cls of classList" [value]="cls">{{cls.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Class</mat-placeholder>
-      </mat-form-field>
+  <div style="float: left">
+    <mat-toolbar color="primary">
+      Add User
+    </mat-toolbar>
+    <mat-card>
+      <mat-card-content>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
+        </mat-form-field>
+        &nbsp;
+        <br>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-select [(ngModel)]="user.role">
+            <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
+          </mat-select>
+          <mat-placeholder>Role</mat-placeholder>
+        </mat-form-field>
+        &nbsp;
+        <br>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.email" matInput placeholder="Email">
+        </mat-form-field>
+        &nbsp;
+        <br>
+        &nbsp;
+        <mat-form-field>
+          <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
+        </mat-form-field>
+        &nbsp;
+        &nbsp;
+        <mat-form-field>
+          <mat-select [(ngModel)]="user.gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+          <mat-placeholder>Gender</mat-placeholder>
+        </mat-form-field>
+        &nbsp;
+        <br>
+        &nbsp;
+        <mat-form-field>
+          <mat-select [(ngModel)]="user.userSchools[0].school">
+            <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
+          </mat-select>
+          <mat-placeholder>School</mat-placeholder>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-select [(ngModel)]="user.studentClasses[0].class1">
+            <mat-option *ngFor="let cls of classList" [value]="cls">{{cls.name}}</mat-option>
+          </mat-select>
+          <mat-placeholder>Class</mat-placeholder>
+        </mat-form-field>
 
-      <div class="submit">
-        <div style="float: right;" >
-          <!-- which submit -->
-          <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-          &nbsp;
-          <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
+        <div class="submit">
+          <div style="float: right;" >
+            <!-- which submit -->
+            <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+            &nbsp;
+            <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
 
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div style="float: right">
+    <app-add-user-class [_classList]="classList" [_user]="user" [_studentClasses]="user.studentClasses"></app-add-user-class>
+  </div>
 </div>
-
 <!--<div *ngIf="user.id > 0">-->
-  <!--<app-user-grants [_user]="user"></app-user-grants>-->
+<!--<app-user-grants [_user]="user"></app-user-grants>-->
 <!--</div>-->

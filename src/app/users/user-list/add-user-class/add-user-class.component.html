@@ -1,32 +1,30 @@
 <div>
   <mat-toolbar color="primary">
-    Add Invoice
+    Assign Class
   </mat-toolbar>
   <mat-card>
     <mat-card-content>
       <!-- TODO - HIDE THIS if you are in the add class popup -->
       <mat-form-field>
-        <mat-select [(ngModel)]="classInvoice.class1">
+        <mat-select [(ngModel)]="studentClasses[0].class1">
           <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
         </mat-select>
-        <mat-placeholder>Course</mat-placeholder>
+        <mat-placeholder>Class</mat-placeholder>
       </mat-form-field>
       <br>
 
-      <mat-form-field>
-        <input [(ngModel)]="classInvoice.name" matInput placeholder="Name">
-      </mat-form-field>
-      <br>
-
-      <mat-form-field>
-        <input [(ngModel)]="classInvoice.invoice_amount" matInput placeholder="Amount">
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="studentClasses[0].date_joined" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
 
       <div class="submit">
         <!-- which submit -->
         <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
         &nbsp;
-        <button (click)="postClassInvoice()" mat-raised-button color="primary">Submit</button>
+        <button (click)="postUserClass()" mat-raised-button color="primary">Submit</button>
       </div>
     </mat-card-content>
   </mat-card>

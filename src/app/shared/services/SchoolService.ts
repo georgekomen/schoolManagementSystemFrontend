@@ -6,6 +6,7 @@ import {School} from '../Models/school';
 import {Course} from '../Models/course';
 import {Class1} from '../Models/Class1';
 import {ClassInvoice} from '../Models/ClassInvoice';
+import {StudentClass} from '../Models/StudentClass';
 
 @Injectable()
 export class SchoolService {
@@ -29,6 +30,10 @@ export class SchoolService {
 
   postClassInvoice(classInvoice: ClassInvoice): Observable<ClassInvoice> {
     return this.http.post(`${this.configService.baseUrl}/invoice/new_class_invoice`, classInvoice);
+  }
+
+  postNewStudentClass(studentClass: StudentClass): Observable<StudentClass> {
+    return this.http.post(`${this.configService.baseUrl}/school/new_student_class`, studentClass);
   }
 
   getSchools(): Observable<School[]> {

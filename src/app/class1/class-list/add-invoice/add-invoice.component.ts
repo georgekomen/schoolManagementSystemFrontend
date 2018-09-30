@@ -20,7 +20,7 @@ export class AddInvoiceComponent implements OnInit {
   classInvoice: ClassInvoice = new ClassInvoice();
 
   @Input() set _classInvoice(_classInvoice: ClassInvoice) {
-    if (_classInvoice !== undefined) {
+    if (_classInvoice !== undefined && _classInvoice != null) {
       this.classInvoice = _classInvoice;
     }
   }
