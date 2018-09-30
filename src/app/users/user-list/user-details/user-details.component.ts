@@ -9,6 +9,8 @@ import {SchoolDataSource} from '../../../school/school-list/school-list-datasour
 import {School} from '../../../shared/Models/school';
 import {NotificationService} from '../../../../shared/notification.service';
 import {UserSchool} from '../../../shared/Models/UserSchool';
+import {Class1} from '../../../shared/Models/Class1';
+import {StudentClass} from '../../../shared/Models/StudentClass';
 
 @Component({
   selector: 'app-user-details',
@@ -28,30 +30,40 @@ export class UserDetailsComponent implements OnInit {
     'CLASS_TEACHER',
     'STUDENT'
   ];
+  classList: Class1[] = [];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
               private dialogRef: MatDialogRef<AddSchoolComponent>,
               private notificationService: NotificationService,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.user.identifications = [];
-    this.user.identifications[0] = new Identification();
-    this.user.identifications[0].type = 'NATIONAL_ID';
 
-    this.user.userSchools = [];
-    this.user.userSchools[0] = new UserSchool();
+
+  }
+
+  init() {
+    this.user = new User();
+    this.user.identifications[0].type = 'NATIONAL_ID';
   }
 
   ngOnInit() {
+    this.init();
     if (this.data !== null) {
       this.user = this.data['user'];
     }
     this.getSchoolList();
+    this.getClassList();
   }
 
   getSchoolList() {
     this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
+    });
+  }
+
+  getClassList() {
+    this.schoolService.getClasses().subscribe(res => {
+      this.classList = res;
     });
   }
 

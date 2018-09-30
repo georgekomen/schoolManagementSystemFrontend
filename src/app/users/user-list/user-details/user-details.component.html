@@ -59,6 +59,13 @@
         </mat-select>
         <mat-placeholder>School</mat-placeholder>
       </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <mat-select [(ngModel)]="user.studentClasses[0].class1">
+          <mat-option *ngFor="let cls of classList" [value]="cls">{{cls.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Class</mat-placeholder>
+      </mat-form-field>
 
       <div class="submit">
         <div style="float: right;" >
