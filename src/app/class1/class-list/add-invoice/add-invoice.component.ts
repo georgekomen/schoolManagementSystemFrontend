@@ -11,10 +11,19 @@ import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
 })
 export class AddInvoiceComponent implements OnInit {
 
-  @Input()
   classList: Class1[] = [];
+  @Input() set _classList(_classList: Class1[]) {
+      this.classList = _classList;
+      this.classInvoice.class1 = this.classList[0];
+  }
 
   classInvoice: ClassInvoice = new ClassInvoice();
+
+  @Input() set _classInvoice(_classInvoice: ClassInvoice) {
+    if (_classInvoice !== undefined) {
+      this.classInvoice = _classInvoice;
+    }
+  }
 
   constructor(private schoolService: SchoolService,
               private dialogRef: MatDialogRef<AddInvoiceComponent>) { }
