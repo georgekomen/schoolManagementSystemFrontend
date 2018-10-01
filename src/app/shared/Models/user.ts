@@ -23,4 +23,5 @@ export class User {
   grants?: Grant[];
   userInvoices?: UserInvoice[];
   role?: string;
+  admission?: Admission;
 }

@@ -1,12 +1,3 @@
-<mat-toolbar color="primary">
-  &nbsp; &nbsp;
-  <img src="../assets/MTIBA_logo.svg" class="img-fluid"/>
-  <nav>
-    <button mat-icon-button title="Add new school">
-      <mat-icon (click)="addUser()" aria-label="Add new school">add</mat-icon>
-    </button>
-  </nav>
-</mat-toolbar>
 
 <div class="mat-elevation-z8">
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
@@ -27,11 +18,18 @@
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="gender">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Gender
+        <nav>
+          <button mat-icon-button title="Add new school">
+            <mat-icon (click)="addUser()" aria-label="Add new school">add</mat-icon>
+          </button>
+        </nav>
+      </th>
       <td mat-cell *matCellDef="let row">{{row.gender}}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"  (click)="userDetails(row)"></tr>
   </table>
 
