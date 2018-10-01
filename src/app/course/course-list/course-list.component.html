@@ -12,12 +12,19 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Name
         <nav>
-          <button mat-icon-button title="Add new course">
-            <mat-icon (click)="addCourse()" aria-label="Add new school">add</mat-icon>
+          <button mat-icon-button>
+            <mat-icon (click)="addCourse()" matTooltip="Add new course">add_circle</mat-icon>
           </button>
         </nav>
       </th>
       <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="icons">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-icon >add_circle</mat-icon>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

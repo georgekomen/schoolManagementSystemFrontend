@@ -43,6 +43,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoaderComponent } from './loader/loader.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -102,6 +103,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTooltipModule,
     MatSortModule,
     CommonModule,
     MatTabsModule,
