@@ -1,9 +1,8 @@
-<div>
-  <div style="float: left">
-  <mat-toolbar color="primary">
-    Add Class
-  </mat-toolbar>
-  <mat-card>
+
+
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+      <ng-template matStepLabel>Class Details</ng-template>
     <mat-card-content>
       <mat-form-field>
         <mat-select [(ngModel)]="class1.school">
@@ -36,19 +35,44 @@
       <mat-form-field>
         <input [(ngModel)]="class1.name" matInput placeholder="Name">
       </mat-form-field>
-
-      <div class="submit">
-        <!-- which submit -->
-        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-        &nbsp;
-        <button (click)="postClass()" mat-raised-button color="primary">Submit</button>
-      </div>
     </mat-card-content>
-  </mat-card>
-  </div>
-  <div style="float: right">
-    <!-- TODO - loop through all invoices for the class, Add (Add Invoice functionality -->
-      <app-add-invoice [_class]="class1" [_classList]="classList" [_classInvoice]="class1.classInvoices[0]"></app-add-invoice>
-  </div>
-</div>
+    <div>
+      <button (click)="postClass()" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+
+  <mat-step>
+      <ng-template matStepLabel>Class Fee Invoice</ng-template>
+    <mat-card-content *ngFor="let cl of class1.classInvoices">
+      <!-- TODO - HIDE THIS if you are in the add class popup -->
+      <mat-form-field>
+        <mat-select [(ngModel)]="cl.class1">
+          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Class</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="cl.name" matInput placeholder="Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="cl.invoice_amount" matInput placeholder="Amount">
+      </mat-form-field>
+    </mat-card-content>
+    <div>
+      <button (click)="postClassInvoice()" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
 

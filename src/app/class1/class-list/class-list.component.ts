@@ -43,7 +43,10 @@ export class ClassListComponent implements OnInit {
 
   class1Details(class1: Class1) {
     const dialogRef = this.dialog.open(AddClassComponent, {
-      data: { class1: class1, classList: this.classList }
+      data: { class1: class1, classList: this.classList },
+      height: '100%',
+      // width: '80%',
+      scrollStrategy: null
     });
 
     dialogRef.afterClosed().subscribe(result => {

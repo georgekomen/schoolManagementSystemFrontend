@@ -13,6 +13,8 @@ import {Class1} from '../../../shared/Models/Class1';
 })
 export class AddClassComponent implements OnInit {
 
+  isLinear = false;
+
   classList: Class1[] = [];
 
   courseList: Course[] = [];
@@ -60,6 +62,12 @@ export class AddClassComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  postClassInvoice() {
+    this.schoolService.postClassInvoice(this.class1.classInvoices[0]).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

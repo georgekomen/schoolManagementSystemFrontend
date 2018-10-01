@@ -1,9 +1,11 @@
-<div>
-  <div style="float: left">
-    <mat-toolbar color="primary">
-      Add User
-    </mat-toolbar>
-    <mat-card>
+<mat-toolbar color="primary">
+      {{user.first_name + ' ' + user.middle_name + ' ' +  user.last_name || 'Add New User'}}
+</mat-toolbar>
+
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+
+  <mat-step>
+    <ng-template matStepLabel>Basic Details</ng-template>
       <mat-card-content>
         &nbsp;
         <mat-form-field>
@@ -60,24 +62,45 @@
           </mat-select>
           <mat-placeholder>School</mat-placeholder>
         </mat-form-field>
-
-        <div class="submit">
-          <div style="float: right;" >
-            <!-- which submit -->
-            <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-            &nbsp;
-            <button (click)="postUser()" mat-raised-button color="primary">Submit</button>
-          </div>
-        </div>
         <br>
-
       </mat-card-content>
-    </mat-card>
-  </div>
-  <div style="float: right">
-    <app-add-user-class [_classList]="classList" [_user]="user" [_studentClasses]="user.studentClasses[0]"></app-add-user-class>
-  </div>
-</div>
-<!--<div *ngIf="user.id > 0">-->
-<!--<app-user-grants [_user]="user"></app-user-grants>-->
-<!--</div>-->
+    <div>
+      <button (click)="postUser()" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Stdent Classes</ng-template>
+    <mat-card-content *ngFor="let studentClass of user.studentClasses">
+      <mat-form-field>
+        <mat-select [(ngModel)]="studentClass.class1">
+          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Class</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </mat-card-content>
+    <div>
+      <button (click)="postUserClass()" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+
+
+</mat-vertical-stepper>

@@ -18,11 +18,20 @@ import {StudentClass} from '../../../shared/Models/StudentClass';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  isLinear = false;
+
   user: User = new User();
+
   schoolList: School[] = [];
+
   roles: string[] = ['PRINCIPAL', 'DEPUTY_PRINCIPAL', 'FINANCE_MANAGER', 'HEAD_OF_DEPARTMENT',
     'DEPUTY_HEAD_OF_DEPARTMENT', 'TEACHER', 'CLASS_TEACHER', 'STUDENT'];
+
   classList: Class1[] = [];
+
+  minDate = new Date(2000, 0, 1);
+
+  maxDate = new Date(2020, 0, 1);
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
@@ -39,6 +48,7 @@ export class UserDetailsComponent implements OnInit {
     this.user.identifications[0].type = 'NATIONAL_ID';
 
     this.user.userSchools = [new UserSchool()];
+    this.user.studentClasses = [new StudentClass()];
   }
 
   ngOnInit() {
@@ -72,6 +82,12 @@ export class UserDetailsComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  postUserClass() {
+    this.schoolService.postNewStudentClass(this.user.studentClasses[0]).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

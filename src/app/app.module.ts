@@ -42,9 +42,7 @@ import { AddClassComponent } from './class1/class-list/add-class/add-class.compo
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoaderComponent } from './loader/loader.component';
-import { AddInvoiceComponent } from './class1/class-list/add-invoice/add-invoice.component';
-import { AddUserClassComponent } from './users/user-list/add-user-class/add-user-class.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -69,8 +67,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ClassListComponent,
     AddClassComponent,
     LoaderComponent,
-    AddInvoiceComponent,
-    AddUserClassComponent,
   ],
   imports: [
     FormsModule,
@@ -96,6 +92,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCheckboxModule,
     LayoutModule,
     MatToolbarModule,
+    MatStepperModule,
     MatSidenavModule,
     MatProgressBarModule,
     MatIconModule,
