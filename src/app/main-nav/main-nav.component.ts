@@ -10,6 +10,7 @@ import {CourseListDataSource} from '../course/course-list/course-list-datasource
 import {Course} from '../shared/Models/course';
 import {ClassListDataSource} from '../class1/class-list/class-list-datasource';
 import {Class1} from '../shared/Models/Class1';
+import {EventsService} from '../shared/services/events.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -35,10 +36,11 @@ export class MainNavComponent implements OnInit {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router,
-              private schoolService: SchoolService,) {}
+              private schoolService: SchoolService,
+              private events: EventsService) {}
 
    public page(): string {
-    if(this.router.url === '/login'){
+    if (this.router.url === '/login') {
       return 'hidden';
     } else {
       return 'visible';
@@ -47,25 +49,28 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSchoolList();
-    this.getCourseList();
-    this.getClassList();
+  }
+
+  schoolChange(event) {
+    console.log(event);
+    this.schoolService.getSchool(event.value.id).subscribe(res => {
+      this.courseList = res.courses;
+      this.events.publish('courseList', this.courseList);
+    });
+  }
+
+  courseChange(event) {
+
+  }
+
+  classChange(event) {
+
   }
 
   getSchoolList() {
-    this.schoolService.getSchools().subscribe(res => {
+      this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
-    });
-  }
-
-  getClassList() {
-    this.schoolService.getClasses().subscribe(res => {
-      this.classList = res;
-    });
-  }
-
-  getCourseList() {
-    this.schoolService.getCourses().subscribe(res => {
-      this.courseList = res;
+      this.events.publish('schoolList', this.schoolList);
     });
   }
 }

@@ -54,7 +54,9 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     this.init();
     if (this.data !== null) {
-      this.user = this.data['user'];
+      this.userService.getUser(this.data['user'].id).subscribe(res => {
+        this.user = res;
+      });
     }
     this.getSchoolList();
     this.getClassList();

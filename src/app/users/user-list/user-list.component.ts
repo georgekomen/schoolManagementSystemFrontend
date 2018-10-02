@@ -6,6 +6,7 @@ import {SchoolDataSource} from '../../school/school-list/school-list-datasource'
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/Models/user';
 import {UserDetailsComponent} from './user-details/user-details.component';
+import {EventsService} from '../../shared/services/events.service';
 
 @Component({
   selector: 'app-user-list',
@@ -23,12 +24,16 @@ export class UserListComponent implements OnInit {
   userList: User[] = [];
 
   constructor(private userService: UserService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private events: EventsService) {
 
   }
 
   ngOnInit() {
     this.getUserList();
+    this.events.subscribe('schoolList', (data) => {
+      alert(data);
+    });
   }
 
   getUserList() {

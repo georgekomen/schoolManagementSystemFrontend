@@ -28,6 +28,10 @@ export class SchoolService {
     return this.http.get(`${this.configService.baseUrl}/school/get_classes`);
   }
 
+  getClass(classId): Observable<Class1> {
+    return this.http.get(`${this.configService.baseUrl}/school/get_class/${classId}`);
+  }
+
   postClassInvoice(classInvoice: ClassInvoice): Observable<ClassInvoice> {
     return this.http.post(`${this.configService.baseUrl}/invoice/new_class_invoice`, classInvoice);
   }
@@ -38,6 +42,10 @@ export class SchoolService {
 
   getSchools(): Observable<School[]> {
     return this.http.get(`${this.configService.baseUrl}/school/get_schools`);
+  }
+
+  getSchool(schoolId): Observable<School> {
+    return this.http.get(`${this.configService.baseUrl}/school/get_school/${schoolId}`);
   }
 
   postSchool(school: School): Observable<School> {

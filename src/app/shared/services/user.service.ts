@@ -18,6 +18,10 @@ export class UserService {
     return this.http.get(`${this.configService.baseUrl}/user/get_users`);
   }
 
+  getUser(userId): Observable<User> {
+    return this.http.get(`${this.configService.baseUrl}/user/get_user/${userId}`);
+  }
+
   getUserGrants(user: User): Observable<Grant[]> {
     return this.http.get(`${this.configService.baseUrl}/auth/get_user_grants/${user.id}`);
   }

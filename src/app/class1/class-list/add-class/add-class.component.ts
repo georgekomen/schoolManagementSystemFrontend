@@ -37,8 +37,10 @@ export class AddClassComponent implements OnInit {
     this.getSchoolList();
     this.getCourseList();
     if (this.data !== null) {
-      this.class1 = this.data['class1'];
       this.classList = this.data['classList'];
+      this.schoolService.getClass(this.data['class1'].id).subscribe(res => {
+        this.class1 = res;
+      });
     }
   }
 
