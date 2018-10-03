@@ -22,6 +22,8 @@ export class CourseListComponent implements OnInit {
 
   courseList: Course[] = [];
 
+  showDivVal;
+
   constructor(private schoolService: SchoolService, private dialog: MatDialog) {
 
   }
@@ -39,6 +41,22 @@ export class CourseListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getCourseList();
     });
+  }
+
+  setShowDiv(value) {
+    this.showDivVal = value;
+  }
+
+  showDiv(value) {
+    return this.showDivVal === value ? 'visible' : 'hidden';
+  }
+
+  styleBox(value) {
+    return this.showDivVal === value ? {
+      '-moz-box-shadow': 'inset 0 0 10px #000000',
+      '-webkit-box-shadow': 'inset 0 0 10px #000000',
+      'box-shadow': 'inset 0 0 10px #000000',
+    } : null;
   }
 
   getCourseList() {
