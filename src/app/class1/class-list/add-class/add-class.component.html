@@ -4,20 +4,6 @@
   <mat-step>
       <ng-template matStepLabel>Class Details</ng-template>
     <mat-card-content>
-      <mat-form-field>
-        <mat-select [(ngModel)]="class1.school">
-          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>School</mat-placeholder>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <mat-select [(ngModel)]="class1.course">
-          <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Course</mat-placeholder>
-      </mat-form-field>
-      <br>
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="class1.start_date" matInput [min]="minDate"
                [max]="maxDate" [matDatepicker]="picker1" placeholder="Start date">
@@ -46,12 +32,6 @@
       <ng-template matStepLabel>Class Fee Invoice</ng-template>
     <mat-card-content *ngFor="let cl of class1.classInvoices">
       <!-- TODO - HIDE THIS if you are in the add class popup -->
-      <mat-form-field>
-        <mat-select [(ngModel)]="cl.class1">
-          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Class</mat-placeholder>
-      </mat-form-field>
       <br>
       <mat-form-field>
         <input [(ngModel)]="cl.name" matInput placeholder="Name">

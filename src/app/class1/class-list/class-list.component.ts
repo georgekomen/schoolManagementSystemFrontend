@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatDialog, MatPaginator, MatSort} from '@angular/material';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort} from '@angular/material';
 import { ClassListDataSource } from './class-list-datasource';
 import {SchoolService} from '../../shared/services/SchoolService';
 import {Course} from '../../shared/Models/course';
@@ -22,23 +22,36 @@ export class ClassListComponent implements OnInit {
 
   classList: Class1[] = [];
 
-  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
+  course: Course;
+
+  constructor(private schoolService: SchoolService, private dialog: MatDialog,
+              private dialogRef: MatDialogRef<ClassListComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
 
   ngOnInit() {
-    this.getClassList();
+    if (this.data !== null) {
+      this.course = this.data['course'];
+      this.getClassList(this.course.id);
+    }
   }
 
   addClass1() {
     const dialogRef = this.dialog.open(AddClassComponent, {
-      // width: '250px',
-      // data: { name: this.name, animal: this.animal }
+      data: { course: this.course },
+      height: '100%',
+      // width: '80%',
+      scrollStrategy: null
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getClassList();
+      this.getClassList(null);
     });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
   class1Details(class1: Class1) {
@@ -50,12 +63,12 @@ export class ClassListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getClassList();
+      this.getClassList(null);
     });
   }
 
-  getClassList() {
-    this.schoolService.getClasses(null, null).subscribe(res => {
+  getClassList(courseId: number) {
+    this.schoolService.getClasses(courseId, null).subscribe(res => {
       this.classList = res;
       this.dataSource = new ClassListDataSource(this.paginator, this.sort, this.classList);
     });

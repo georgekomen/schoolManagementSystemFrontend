@@ -6,6 +6,8 @@ import {SchoolService} from '../../shared/services/SchoolService';
 import {Course} from '../../shared/Models/course';
 import {AddSchoolComponent} from '../../school/school-list/add-school/add-school-.component';
 import {AddCourseComponent} from './add-course/add-course.component';
+import {AddClassComponent} from '../../class1/class-list/add-class/add-class.component';
+import {ClassListComponent} from '../../class1/class-list/class-list.component';
 
 @Component({
   selector: 'app-course-list',
@@ -57,6 +59,18 @@ export class CourseListComponent implements OnInit {
       '-webkit-box-shadow': 'inset 0 0 10px #000000',
       'box-shadow': 'inset 0 0 10px #000000',
     } : null;
+  }
+
+  getClasses(course: Course) {
+    const dialogRef = this.dialog.open(ClassListComponent, {
+        data: { course: course },
+        height: '100%',
+        width: '70%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
   getCourseList() {

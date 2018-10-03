@@ -15,9 +15,7 @@ export class AddClassComponent implements OnInit {
 
   isLinear = false;
 
-  classList: Class1[] = [];
-
-  courseList: Course[] = [];
+  course: Course;
 
   schoolList: School[] = [];
 
@@ -34,29 +32,21 @@ export class AddClassComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSchoolList();
-    this.getCourseList();
     if (this.data !== null) {
-      this.classList = this.data['classList'];
-      this.schoolService.getClass(this.data['class1'].id).subscribe(res => {
-        this.class1 = res;
-      });
+      if (this.data['class1']) {
+        this.schoolService.getClass(this.data['class1'].id).subscribe(res => {
+          this.class1 = res;
+        });
+      }
+
+      if (this.data['course']) {
+        this.course = this.data['course'];
+      }
     }
   }
 
-  getSchoolList() {
-    this.schoolService.getSchools().subscribe(res => {
-      this.schoolList = res;
-    });
-  }
-
-  getCourseList() {
-    this.schoolService.getCourses(null).subscribe(res => {
-      this.courseList = res;
-    });
-  }
-
   postClass() {
+    this.class1.course = this.course;
     this.schoolService.postClass(this.class1).subscribe(res => {
       this.class1 = res;
     });
