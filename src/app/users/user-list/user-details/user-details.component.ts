@@ -69,7 +69,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getClassList() {
-    this.schoolService.getClasses().subscribe(res => {
+    this.schoolService.getClasses(null, null).subscribe(res => {
       this.classList = res;
     });
   }

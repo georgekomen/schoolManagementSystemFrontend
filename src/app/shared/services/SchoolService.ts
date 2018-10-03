@@ -16,16 +16,30 @@ export class SchoolService {
   ) {
   }
 
-  getCourses(): Observable<Course[]> {
-    return this.http.get(`${this.configService.baseUrl}/school/get_courses`);
+  getCourses(schoolId: number): Observable<Course[]> {
+    let url = `${this.configService.baseUrl}/school/get_courses`;
+    if (schoolId != null) {
+      url += `?schoolId=${schoolId}`;
+    }
+    return this.http.get(url);
   }
 
   postClass(class1: Class1): Observable<Class1> {
     return this.http.post(`${this.configService.baseUrl}/school/new_class`, class1);
   }
 
-  getClasses(): Observable<Class1[]> {
-    return this.http.get(`${this.configService.baseUrl}/school/get_classes`);
+  getClasses(courseId: number, startDate: string): Observable<Class1[]> {
+    let url = `${this.configService.baseUrl}/school/get_classes`;
+    if (courseId !== null || startDate !== startDate) {
+      url += '?';
+    }
+    if (courseId !== null) {
+      url += `courseId=${courseId}&`;
+    }
+    if (startDate !== null) {
+      url += `year=${startDate}`;
+    }
+    return this.http.get(url);
   }
 
   getClass(classId): Observable<Class1> {

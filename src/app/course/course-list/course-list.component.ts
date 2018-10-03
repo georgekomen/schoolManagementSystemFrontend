@@ -42,7 +42,7 @@ export class CourseListComponent implements OnInit {
   }
 
   getCourseList() {
-    this.schoolService.getCourses().subscribe(res => {
+    this.schoolService.getCourses(null).subscribe(res => {
       this.courseList = res;
       this.dataSource = new CourseListDataSource(this.paginator, this.sort, this.courseList);
     });

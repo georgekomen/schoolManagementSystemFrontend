@@ -55,7 +55,7 @@ export class ClassListComponent implements OnInit {
   }
 
   getClassList() {
-    this.schoolService.getClasses().subscribe(res => {
+    this.schoolService.getClasses(null, null).subscribe(res => {
       this.classList = res;
       this.dataSource = new ClassListDataSource(this.paginator, this.sort, this.classList);
     });

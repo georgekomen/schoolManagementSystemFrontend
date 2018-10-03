@@ -22,6 +22,8 @@ export class MainNavComponent implements OnInit {
 
   schoolList: School[] = [];
 
+  year: string;
+
   classList: Class1[] = [];
 
   selectedClass: Class1;
@@ -53,14 +55,17 @@ export class MainNavComponent implements OnInit {
 
   schoolChange(event) {
     console.log(event);
-    this.schoolService.getSchool(event.value.id).subscribe(res => {
-      this.courseList = res.courses;
+    this.schoolService.getCourses(event.value.id).subscribe(res => {
+      this.courseList = res;
       this.events.publish('courseList', this.courseList);
     });
   }
 
   courseChange(event) {
-
+    this.schoolService.getClasses(event.value.id, this.year.toString() + '-10-03T21:00:00').subscribe(res => {
+      this.classList = res;
+      this.events.publish('classList', this.classList);
+    });
   }
 
   classChange(event) {

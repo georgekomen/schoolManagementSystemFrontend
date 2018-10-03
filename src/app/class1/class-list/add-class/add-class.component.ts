@@ -51,7 +51,7 @@ export class AddClassComponent implements OnInit {
   }
 
   getCourseList() {
-    this.schoolService.getCourses().subscribe(res => {
+    this.schoolService.getCourses(null).subscribe(res => {
       this.courseList = res;
     });
   }

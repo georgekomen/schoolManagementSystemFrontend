@@ -57,6 +57,10 @@
         </mat-form-field>
 
         <mat-form-field>
+          <input [(ngModel)]="year" matInput placeholder="Year">
+        </mat-form-field>
+
+        <mat-form-field>
           <mat-select [(ngModel)]="selectedCourse" (selectionChange)="courseChange($event)">
             <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
           </mat-select>
