@@ -7,7 +7,6 @@ import {ClassInvoice} from './ClassInvoice';
 export class Class1 {
   id?: number;
   term?: 'ONE' | 'TWO' | 'THREE';
-  school?: School;
   course?: Course;
   name?: string;
   start_date?: string;

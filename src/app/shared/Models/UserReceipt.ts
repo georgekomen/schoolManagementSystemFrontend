@@ -8,5 +8,4 @@ export class UserReceipt {
   amount?: number;
   payTo?: 'SCHOOL_TO_USER' | 'USER_TO_SCHOOL';
   userInvoice?: UserInvoice;
-  user?: User;
 }
