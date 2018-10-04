@@ -32,7 +32,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
         (mouseover)="setShowDiv(row.id)"
-        [ngStyle]="styleBox(row.id)">
+        appHoverStyle [condition]="true">
 
     </tr>
   </table>
