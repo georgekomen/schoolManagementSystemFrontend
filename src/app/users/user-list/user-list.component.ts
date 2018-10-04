@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
-import {AddSchoolComponent} from '../../school/school-list/add-school/add-school-.component';
-import {SchoolDataSource} from '../../school/school-list/school-list-datasource';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/Models/user';
 import {UserDetailsComponent} from './user-details/user-details.component';
@@ -21,6 +19,10 @@ export class UserListComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['name', 'phoneNumber', 'email', 'gender'];
 
+  displayForStudent = ['name', 'gender'];
+
+  displayForEmployee = ['name', 'phoneNumber', 'email', 'gender'];
+
   userList: User[] = [];
 
   constructor(private userService: UserService,
@@ -30,6 +32,8 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // display for student
+    this.displayedColumns = this.displayForStudent;
     this.getUserList();
     this.events.subscribe('schoolList', (data) => {
 
@@ -47,7 +51,7 @@ export class UserListComponent implements OnInit {
     const dialogRef = this.dialog.open(UserDetailsComponent, {
       data: { user: user},
       height: '100%',
-      // width: '80%',
+      width: '70%',
       scrollStrategy: null
     });
 
@@ -59,7 +63,7 @@ export class UserListComponent implements OnInit {
   addUser() {
     const dialogRef = this.dialog.open(UserDetailsComponent, {
       height: '100%',
-      // width: '80%',
+      width: '70%',
       scrollStrategy: null
       });
 

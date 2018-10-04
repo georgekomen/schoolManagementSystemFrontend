@@ -1,7 +1,3 @@
-<!--<mat-toolbar color="primary">-->
-      <!--{{user.first_name + ' ' + user.middle_name + ' ' +  user.last_name || 'Add New User'}}-->
-<!--</mat-toolbar>-->
-
 <mat-vertical-stepper [linear]="isLinear" #stepper>
 
   <mat-step>
@@ -41,6 +37,8 @@
         &nbsp;
         <br>
         &nbsp;
+        <!-- for employees-->
+        <!--todo - add student id for students-->
         <mat-form-field>
           <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
         </mat-form-field>
@@ -56,6 +54,7 @@
         &nbsp;
         <br>
         &nbsp;
+        <!-- for employees-->
         <mat-form-field>
           <mat-select [(ngModel)]="user.userSchools[0].school">
             <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>

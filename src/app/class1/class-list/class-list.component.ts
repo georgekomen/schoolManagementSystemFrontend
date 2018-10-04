@@ -41,7 +41,7 @@ export class ClassListComponent implements OnInit {
     const dialogRef = this.dialog.open(AddClassComponent, {
       data: { course: this.course },
       height: '100%',
-      // width: '80%',
+      width: '70%',
       scrollStrategy: null
     });
 
@@ -58,7 +58,7 @@ export class ClassListComponent implements OnInit {
     const dialogRef = this.dialog.open(AddClassComponent, {
       data: { class1: class1, classList: this.classList },
       height: '100%',
-      // width: '80%',
+      width: '70%',
       scrollStrategy: null
     });
 

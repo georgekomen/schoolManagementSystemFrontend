@@ -1,9 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {SchoolService} from '../../../shared/services/SchoolService';
 import {UserService} from '../../../shared/services/user.service';
 import {User} from '../../../shared/Models/user';
 import {AddSchoolComponent} from '../../../school/school-list/add-school/add-school-.component';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatStepper} from '@angular/material';
 import {Identification} from '../../../shared/Models/Identification';
 import {SchoolDataSource} from '../../../school/school-list/school-list-datasource';
 import {School} from '../../../shared/Models/school';
@@ -17,7 +17,10 @@ import {StudentClass} from '../../../shared/Models/StudentClass';
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('stepper') stepper: MatStepper;
+
   isLinear = false;
 
   user: User = new User();
@@ -42,6 +45,10 @@ export class UserDetailsComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+    // this.stepper
+  }
+
   init() {
     this.user = new User();
     this.user.identifications = [new Identification()];
@@ -49,6 +56,7 @@ export class UserDetailsComponent implements OnInit {
 
     this.user.userSchools = [new UserSchool()];
     this.user.studentClasses = [new StudentClass()];
+
   }
 
   ngOnInit() {
