@@ -36,6 +36,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
   maxDate = new Date(2020, 0, 1);
 
+  steppeIndex = 1;
+
   constructor(private schoolService: SchoolService,
               private userService: UserService,
               private dialogRef: MatDialogRef<AddSchoolComponent>,
@@ -46,7 +48,14 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.stepper
+    this.setStepperIndex(this.steppeIndex);
+  }
+
+  setStepperIndex(index1) {
+    setTimeout(() => {
+      this.stepper.reset();
+      this.stepper.selectedIndex = index1;
+    }, 500);
   }
 
   init() {
