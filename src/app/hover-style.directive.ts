@@ -18,11 +18,18 @@ export class HoverStyleDirective {
   }
 
   private highlight(condition) {
-    if (condition) {
-      this.el.nativeElement.style.boxShadow = 'inset 0 0 10px #000000';
-    } else {
-      this.el.nativeElement.style.boxShadow = null;
+    try {
+      if (condition) {
+        this.el.nativeElement.style.boxShadow = 'inset 0 0 10px #000000';
+        this.el.nativeElement.querySelector('.showOnHover').style.cursor = 'pointer';
+        this.el.nativeElement.querySelector('.showOnHover').style.visibility = 'visible';
+      } else {
+        this.el.nativeElement.style.boxShadow = null;
+        this.el.nativeElement.querySelector('.showOnHover').style.cursor = 'auto';
+        this.el.nativeElement.querySelector('.showOnHover').style.visibility = 'hidden';
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
-
 }

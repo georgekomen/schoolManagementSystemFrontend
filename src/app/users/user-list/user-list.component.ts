@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.getUserList();
     this.events.subscribe('schoolList', (data) => {
-      alert(data);
+
     });
   }
 
