@@ -64,7 +64,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     this.user.identifications[0].type = 'NATIONAL_ID';
 
     this.user.userSchools = [new UserSchool()];
-    this.user.studentClasses = [new StudentClass()];
+    // this.user.studentClasses = [new StudentClass()];
 
   }
 

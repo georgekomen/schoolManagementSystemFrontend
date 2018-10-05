@@ -30,13 +30,21 @@
         </nav>
       </th>
       <td mat-cell *matCellDef="let row">
-        <mat-icon matTooltipPosition="above"
-                  matTooltipClass ="primary-tooltip"
-                  matTooltip="View classes for this course"
-                  class="showOnHover"
-                  (click)="getClasses(row)">
-          add_circle
-        </mat-icon>
+
+        <button mat-button [matMenuTriggerFor]="menu"
+                class="showOnHover">
+          <mat-icon
+            matTooltipPosition="above"
+            matTooltipClass ="primary-tooltip"
+            matTooltip="Menu">
+            add_circle
+          </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="getClasses(row)">Classes</button>
+          <button mat-menu-item>Subjects</button>
+        </mat-menu>
+
       </td>
     </ng-container>
 
@@ -48,9 +56,9 @@
   </table>
 
   <mat-paginator #paginator
-    [length]="dataSource != undefined ? dataSource.data.length : 0"
-    [pageIndex]="0"
-    [pageSize]="50"
-    [pageSizeOptions]="[25, 50, 100, 250]">
+                 [length]="dataSource != undefined ? dataSource.data.length : 0"
+                 [pageIndex]="0"
+                 [pageSize]="50"
+                 [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
 </div>

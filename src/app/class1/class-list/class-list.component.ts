@@ -17,7 +17,7 @@ export class ClassListComponent implements OnInit {
   dataSource: ClassListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name', 'icons'];
 
 
   classList: Class1[] = [];
