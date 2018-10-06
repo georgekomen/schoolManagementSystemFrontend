@@ -38,7 +38,6 @@ export class AddClassComponent implements OnInit {
           this.class1 = res;
         });
       }
-
       if (this.data['course']) {
         this.course = this.data['course'];
       }
@@ -46,7 +45,6 @@ export class AddClassComponent implements OnInit {
   }
 
   postClass() {
-    this.class1.course = this.course;
     this.schoolService.postClass(this.class1).subscribe(res => {
       this.class1 = res;
     });
@@ -66,6 +64,8 @@ export class AddClassComponent implements OnInit {
     const stDate = event.value;
     const ed = new Date(stDate.getFullYear() + 1, stDate.getMonth(), stDate.getDate());
     this.class1.end_date = ed.toJSON().toString();
+    this.class1.name = `${stDate.getFullYear().toString()}/${(stDate.getFullYear() + 1).toString()} ${this.course.name}`;
+    this.class1.course = this.course;
   }
 
 }
