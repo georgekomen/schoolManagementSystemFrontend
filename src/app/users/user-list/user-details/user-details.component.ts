@@ -37,7 +37,17 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
   maxDate = new Date(2020, 0, 1);
 
-  steppeIndex = 1;
+  steppeIndex = 0;
+
+  identificationTypes: string[] = [
+    'FINGERPRINT_INDEX_RIGHT',
+    'FINGERPRINT_INDEX_LEFT',
+    'FINGERPRINT_THUMB_RIGHT',
+    'FINGERPRINT_THUMB_LEFT',
+    'ADMISSION_NUMBER',
+    'NATIONAL_ID',
+    'PARENT_PHONE_NUMBER'
+  ];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,

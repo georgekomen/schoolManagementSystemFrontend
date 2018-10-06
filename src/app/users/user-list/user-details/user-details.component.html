@@ -3,69 +3,89 @@
 
   <mat-step>
     <ng-template matStepLabel>Basic Details</ng-template>
-      <mat-card-content>
-        &nbsp;
-        <mat-form-field>
-          <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
-        </mat-form-field>
-        &nbsp;
-        <mat-form-field>
-          <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
-        </mat-form-field>
-        &nbsp;
-        <br>
-        &nbsp;
-        <mat-form-field>
-          <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
-        </mat-form-field>
-        &nbsp;
-        <mat-form-field>
-          <mat-select [(ngModel)]="user.role">
-            <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
-          </mat-select>
-          <mat-placeholder>Role</mat-placeholder>
-        </mat-form-field>
-        &nbsp;
-        <br>
-        &nbsp;
-        <mat-form-field>
-          <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
-        </mat-form-field>
-        &nbsp;
-        <mat-form-field>
-          <input [(ngModel)]="user.email" matInput placeholder="Email">
-        </mat-form-field>
-        &nbsp;
-        <br>
-        &nbsp;
-        <!-- for employees-->
-        <!--todo - add student id for students-->
-        <mat-form-field>
-          <input [(ngModel)]="user.identifications[0].value" matInput placeholder="National Id">
-        </mat-form-field>
-        &nbsp;
-        &nbsp;
-        <mat-form-field>
-          <mat-select [(ngModel)]="user.gender">
-            <mat-option value="Male">Male</mat-option>
-            <mat-option value="Female">Female</mat-option>
-          </mat-select>
-          <mat-placeholder>Gender</mat-placeholder>
-        </mat-form-field>
-        &nbsp;
-        <br>
-        &nbsp;
-        <!-- for employees-->
-        <mat-form-field>
-          <mat-select [(ngModel)]="user.userSchools[0].school">
-            <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
-          </mat-select>
-          <mat-placeholder>School</mat-placeholder>
-        </mat-form-field>
-        <br>
-      </mat-card-content>
+    <mat-card-content>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.first_name" matInput placeholder="First Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.middle_name" matInput placeholder="Middle Name">
+      </mat-form-field>
+      &nbsp;
+      <br>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.last_name" matInput placeholder="Last Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <mat-select [(ngModel)]="user.role">
+          <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Role</mat-placeholder>
+      </mat-form-field>
+      &nbsp;
+      <br>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="user.email" matInput placeholder="Email">
+      </mat-form-field>
+      &nbsp;
+      <br>
+      &nbsp;
+      <mat-form-field>
+        <mat-select [(ngModel)]="user.gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+        <mat-placeholder>Gender</mat-placeholder>
+      </mat-form-field>
+      &nbsp;
+      <br>
+    </mat-card-content>
     <div>
       <button (click)="postUser()" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Identifications</ng-template>
+    <mat-card-content *ngFor="let ids of user.identifications">
+      <mat-form-field>
+        <mat-select [(ngModel)]="ids.type">
+          <mat-option *ngFor="let idt of identificationTypes" [value]="idt">{{idt}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Identification</mat-placeholder>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="ids.value" matInput [placeholder]="ids.type">
+      </mat-form-field>
+    </mat-card-content>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+
+  <mat-step>
+    <ng-template matStepLabel>Schools</ng-template>
+    <mat-card-content *ngFor="let usc of user.userSchools">
+      <mat-form-field>
+        <mat-select [(ngModel)]="usc.school">
+          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>School</mat-placeholder>
+      </mat-form-field>
+    </mat-card-content>
+    <div>
+      <button mat-button matStepperNext>Next</button>
     </div>
   </mat-step>
 
