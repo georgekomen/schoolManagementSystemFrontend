@@ -12,7 +12,6 @@ import {ClassListComponent} from '../../class1/class-list/class-list.component';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: CourseListDataSource;
 
@@ -54,7 +53,7 @@ export class CourseListComponent implements OnInit {
   getCourseList() {
     this.schoolService.getCourses(null).subscribe(res => {
       this.courseList = res;
-      this.dataSource = new CourseListDataSource(this.paginator, this.sort, this.courseList);
+      this.dataSource = new CourseListDataSource(this.sort, this.courseList);
     });
   }
 

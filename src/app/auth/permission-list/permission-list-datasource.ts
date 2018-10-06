@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import {Permission} from '../../shared/Models/permission';
@@ -12,7 +12,7 @@ import {Permission} from '../../shared/Models/permission';
 export class PermissionListDataSource extends DataSource<Permission> {
   permissionList: Permission[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, permissionList: Permission[]) {
+  constructor(private sort: MatSort, permissionList: Permission[]) {
     super();
     this.permissionList = permissionList;
   }
@@ -27,15 +27,11 @@ export class PermissionListDataSource extends DataSource<Permission> {
     // stream for the data-table to consume.
     const dataMutations = [
       observableOf(this.permissionList),
-      this.paginator.page,
       this.sort.sortChange
     ];
 
-    // Set the paginators length
-    this.paginator.length = this.permissionList.length;
-
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.permissionList]));
+      return this.getSortedData([...this.permissionList]);
     }));
   }
 
@@ -44,15 +40,6 @@ export class PermissionListDataSource extends DataSource<Permission> {
    * any open connections or free any held resources that were set up during connect.
    */
   disconnect() {}
-
-  /**
-   * Paginate the data (client-side). If you're using server-side pagination,
-   * this would be replaced by requesting the appropriate data from the server.
-   */
-  private getPagedData(data: Permission[]) {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    return data.splice(startIndex, this.paginator.pageSize);
-  }
 
   /**
    * Sort the data (client-side). If you're using server-side sorting,

@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import {User} from '../../shared/Models/user';
@@ -12,7 +12,7 @@ import {User} from '../../shared/Models/user';
 export class UserListDataSource extends DataSource<User> {
   userList: User[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, private userList1: User[]) {
+  constructor(private sort: MatSort, private userList1: User[]) {
     super();
     this.userList = userList1;
   }
@@ -27,15 +27,12 @@ export class UserListDataSource extends DataSource<User> {
     // stream for the data-table to consume.
     const dataMutations = [
       observableOf(this.userList),
-      this.paginator.page,
       this.sort.sortChange
     ];
 
-    // Set the paginators length
-    this.paginator.length = this.userList.length;
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.userList]));
+      return this.getSortedData([...this.userList]);
     }));
   }
 
@@ -45,14 +42,6 @@ export class UserListDataSource extends DataSource<User> {
    */
   disconnect() {}
 
-  /**
-   * Paginate the data (client-side). If you're using server-side pagination,
-   * this would be replaced by requesting the appropriate data from the server.
-   */
-  private getPagedData(data: User[]) {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    return data.splice(startIndex, this.paginator.pageSize);
-  }
 
   /**
    * Sort the data (client-side). If you're using server-side sorting,

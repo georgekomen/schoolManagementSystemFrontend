@@ -11,7 +11,6 @@ import {School} from '../../shared/Models/school';
   styleUrls: ['./school-list.component.css']
 })
 export class SchoolListComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: SchoolDataSource;
   schoolList: School[] = [];
@@ -30,7 +29,7 @@ export class SchoolListComponent implements OnInit {
   getSchoolList() {
     this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
-      this.dataSource = new SchoolDataSource(this.paginator, this.sort, this.schoolList);
+      this.dataSource = new SchoolDataSource(this.sort, this.schoolList);
     });
   }
 

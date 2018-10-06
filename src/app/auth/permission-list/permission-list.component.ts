@@ -11,7 +11,6 @@ import {AddPermissionComponent} from './add-permission/add-permission.component'
   styleUrls: ['./permission-list.component.css']
 })
 export class PermissionListComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: PermissionListDataSource;
 
@@ -31,7 +30,7 @@ export class PermissionListComponent implements OnInit {
   getPermissionList() {
     this.permissionService.getPermissions().subscribe(res => {
       this.permissionList = res;
-      this.dataSource = new PermissionListDataSource(this.paginator, this.sort, this.permissionList);
+      this.dataSource = new PermissionListDataSource(this.sort, this.permissionList);
     });
   }
 

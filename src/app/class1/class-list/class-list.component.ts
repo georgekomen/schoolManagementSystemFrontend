@@ -12,7 +12,6 @@ import {AddClassComponent} from './add-class/add-class.component';
   styleUrls: ['./class-list.component.css']
 })
 export class ClassListComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: ClassListDataSource;
 
@@ -72,7 +71,7 @@ export class ClassListComponent implements OnInit {
   getClassList() {
     this.schoolService.getClasses(this.course.id, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
-      this.dataSource = new ClassListDataSource(this.paginator, this.sort, this.classList);
+      this.dataSource = new ClassListDataSource(this.sort, this.classList);
     });
   }
 

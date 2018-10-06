@@ -12,7 +12,6 @@ import {EventsService} from '../../shared/services/events.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: UserListDataSource;
 
@@ -39,7 +38,7 @@ export class UserListComponent implements OnInit {
   getUserList() {
     this.userService.getUsers().subscribe(res => {
       this.userList = res;
-      this.dataSource = new UserListDataSource(this.paginator, this.sort, this.userList);
+      this.dataSource = new UserListDataSource(this.sort, this.userList);
     });
   }
 
