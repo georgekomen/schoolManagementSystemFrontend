@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" xmlns="http://www.w3.org/1999/html">
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
@@ -11,6 +11,7 @@
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
           <mat-icon>filter</mat-icon>
         </button>
+        &nbsp;
 
         Name
       </th>
