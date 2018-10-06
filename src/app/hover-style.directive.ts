@@ -20,7 +20,8 @@ export class HoverStyleDirective {
   private highlight(condition) {
     try {
       if (condition) {
-        this.el.nativeElement.style.boxShadow = 'inset 0 0 10px #000000';
+        // this.el.nativeElement.style.boxShadow = 'inset 0 0 10px #000000';
+        this.el.nativeElement.style.boxShadow = 'inset 0 0 5px #000000';
         this.el.nativeElement.querySelector('.showOnHover').style.cursor = 'pointer';
         this.el.nativeElement.querySelector('.showOnHover').style.visibility = 'visible';
       } else {
