@@ -62,4 +62,10 @@ export class AddClassComponent implements OnInit {
     });
   }
 
+  startDateChange(event) {
+    const stDate = event.value;
+    const ed = new Date(stDate.getFullYear() + 1, stDate.getMonth(), stDate.getDate());
+    this.class1.end_date = ed.toJSON().toString();
+  }
+
 }

@@ -41,7 +41,7 @@ import { ClassListComponent } from './class1/class-list/class-list.component';
 import { AddClassComponent } from './class1/class-list/add-class/add-class.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HoverStyleDirective } from './hover-style.directive';

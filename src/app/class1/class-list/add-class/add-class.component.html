@@ -5,7 +5,8 @@
     <mat-card-content>
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="class1.start_date" matInput [min]="minDate"
-               [max]="maxDate" [matDatepicker]="picker1" placeholder="Start date">
+               [max]="maxDate" [matDatepicker]="picker1" placeholder="Start date"
+               (dateChange)="startDateChange($event)">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
