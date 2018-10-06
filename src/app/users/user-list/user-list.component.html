@@ -47,15 +47,18 @@
           </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Menu 1</button>
-          <button mat-menu-item>Menu 2</button>
+          <button mat-menu-item (click)="userDetails(row)">Details</button>
+          <button mat-menu-item>Invoices</button>
+          <button mat-menu-item>Classes</button>
+          <button mat-menu-item>Schools</button>
+          <button mat-menu-item>Identifications</button>
+          <button mat-menu-item>Exams</button>
         </mat-menu>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-        (click)="userDetails(row)"
         appHoverStyle [condition]="true"></tr>
   </table>
 

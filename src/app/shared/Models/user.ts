@@ -6,6 +6,7 @@ import {StudentClass} from './StudentClass';
 import {UserInvoice} from './UserInvoice';
 import {Grant} from './grant';
 import {UserSchool} from './UserSchool';
+import {StudentExam} from './studentExam';
 
 export class User {
   id?: number;
@@ -24,4 +25,5 @@ export class User {
   userInvoices?: UserInvoice[];
   role?: string;
   admission?: Admission;
+  studentExams?: StudentExam[];
 }

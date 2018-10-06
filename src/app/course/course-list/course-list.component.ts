@@ -44,7 +44,7 @@ export class CourseListComponent implements OnInit {
     const dialogRef = this.dialog.open(ClassListComponent, {
         data: { course: course },
         height: '100%',
-        width: '70%',
+        width: '80%',
     });
 
     dialogRef.afterClosed().subscribe(result => {

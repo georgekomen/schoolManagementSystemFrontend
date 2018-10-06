@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
     const dialogRef = this.dialog.open(UserDetailsComponent, {
       data: { user: user},
       height: '100%',
-      width: '70%',
+      width: '80%',
       scrollStrategy: null
     });
 
@@ -63,7 +63,7 @@ export class UserListComponent implements OnInit {
   addUser() {
     const dialogRef = this.dialog.open(UserDetailsComponent, {
       height: '100%',
-      width: '70%',
+      width: '80%',
       scrollStrategy: null
       });
 

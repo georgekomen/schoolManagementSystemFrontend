@@ -51,6 +51,8 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSchoolList();
+    const d = new Date();
+    this.year = d.getFullYear().toString();
   }
 
   schoolChange(event) {

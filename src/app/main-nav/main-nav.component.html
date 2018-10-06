@@ -30,6 +30,16 @@
         users
       </a>
 
+      <a mat-list-item routerLink="exams-list" [routerLinkActive]="['___active']">
+        <mat-icon>home</mat-icon>
+        Exams
+      </a>
+
+      <a mat-list-item routerLink="fees-list" [routerLinkActive]="['___active']">
+        <mat-icon>home</mat-icon>
+        Fees
+      </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -52,7 +62,7 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input [(ngModel)]="year" matInput placeholder="Year">
+          <input [(ngModel)]="year" matInput>
         </mat-form-field>
 
         <mat-form-field>
