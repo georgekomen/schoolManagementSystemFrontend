@@ -52,7 +52,7 @@ export class UserListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getUserList();
+
     });
   }
 

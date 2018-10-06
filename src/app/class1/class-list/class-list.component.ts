@@ -35,7 +35,7 @@ export class ClassListComponent implements OnInit {
     this.year = new Date().getFullYear().toString();
     if (this.data !== null) {
       this.course = this.data['course'];
-      this.getClassList(this.course.id);
+      this.getClassList();
     }
   }
 
@@ -48,7 +48,7 @@ export class ClassListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getClassList(null);
+      this.getClassList();
     });
   }
 
@@ -65,12 +65,12 @@ export class ClassListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getClassList(null);
+
     });
   }
 
-  getClassList(courseId: number) {
-    this.schoolService.getClasses(courseId, this.year + '-01-01T00:00:00').subscribe(res => {
+  getClassList() {
+    this.schoolService.getClasses(this.course.id, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
       this.dataSource = new ClassListDataSource(this.paginator, this.sort, this.classList);
     });
