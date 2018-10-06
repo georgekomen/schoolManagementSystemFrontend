@@ -26,8 +26,7 @@ export class UserListComponent implements OnInit {
   userList: User[] = [];
 
   constructor(private userService: UserService,
-              private dialog: MatDialog,
-              private events: EventsService) {
+              private dialog: MatDialog) {
 
   }
 
@@ -35,9 +34,6 @@ export class UserListComponent implements OnInit {
     // display for student
     this.displayedColumns = this.displayForStudent;
     this.getUserList();
-    this.events.subscribe('schoolList', (data) => {
-
-    });
   }
 
   getUserList() {

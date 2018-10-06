@@ -11,6 +11,7 @@ import {Course} from '../shared/Models/course';
 import {ClassListDataSource} from '../class1/class-list/class-list-datasource';
 import {Class1} from '../shared/Models/Class1';
 import {EventsService} from '../shared/services/events.service';
+import {ConfigService} from '../../config/ConfigService';
 
 @Component({
   selector: 'app-main-nav',
@@ -21,14 +22,6 @@ export class MainNavComponent implements OnInit {
   courseList: Course[] = [];
 
   schoolList: School[] = [];
-
-  year: string;
-
-  classList: Class1[] = [];
-
-  selectedClass: Class1;
-
-  selectedCourse: Course;
 
   selectedSchool: School;
 
@@ -51,27 +44,13 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSchoolList();
-    const d = new Date();
-    this.year = d.getFullYear().toString();
   }
 
   schoolChange(event) {
-    console.log(event);
     this.schoolService.getCourses(event.value.id).subscribe(res => {
       this.courseList = res;
       this.events.publish('courseList', this.courseList);
     });
-  }
-
-  courseChange(event) {
-    this.schoolService.getClasses(event.value.id, this.year.toString() + '-10-03T21:00:00').subscribe(res => {
-      this.classList = res;
-      this.events.publish('classList', this.classList);
-    });
-  }
-
-  classChange(event) {
-
   }
 
   getSchoolList() {

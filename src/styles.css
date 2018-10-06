@@ -38,3 +38,7 @@ nav {
   font-size: xx-large;
   box-shadow: inset 0 0 12px #eeeeee;
 }
+
+.spanSpacer {
+  flex: 1 1 auto;
+}

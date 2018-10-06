@@ -61,25 +61,6 @@
           <mat-placeholder *ngIf="selectedSchool == null || selectedSchool == undefined">School</mat-placeholder>
         </mat-form-field>
 
-        <mat-form-field>
-          <input [(ngModel)]="year" matInput>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select [(ngModel)]="selectedCourse" (selectionChange)="courseChange($event)">
-            <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
-          </mat-select>
-          <mat-placeholder *ngIf="selectedCourse == null || selectedCourse == undefined">Course</mat-placeholder>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select  [(ngModel)]="selectedClass" (selectionChange)="classChange($event)">
-            <mat-option *ngFor="let sch of classList" [value]="sch">{{sch.name}}</mat-option>
-          </mat-select>
-          <mat-placeholder *ngIf="selectedClass == null || selectedClass == undefined">Class</mat-placeholder>
-        </mat-form-field>
-
-
       </mat-toolbar>
     </div>
 

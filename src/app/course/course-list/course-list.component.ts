@@ -31,8 +31,7 @@ export class CourseListComponent implements OnInit {
 
   addCourse() {
     const dialogRef = this.dialog.open(AddCourseComponent, {
-      // width: '250px',
-      // data: { name: this.name, animal: this.animal }
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
