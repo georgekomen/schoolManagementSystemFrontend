@@ -20,14 +20,6 @@
     <ng-container matColumnDef="gender">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Gender
-        <nav>
-          <button mat-icon-button>
-            <mat-icon (click)="addUser()"
-                      matTooltipPosition="above"
-                      matTooltipClass ="primary-tooltip"
-                      matTooltip="Add new user">add_circle</mat-icon>
-          </button>
-        </nav>
       </th>
       <td mat-cell *matCellDef="let row">{{row.gender}}</td>
     </ng-container>
@@ -35,6 +27,14 @@
     <ng-container matColumnDef="icons">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Actions
+        <nav>
+          <button mat-icon-button>
+            <mat-icon (click)="addUser()"
+                      matTooltipPosition="above"
+                      matTooltipClass ="primary-tooltip"
+                      matTooltip="Add a new user">add_circle</mat-icon>
+          </button>
+        </nav>
       </th>
       <td mat-cell *matCellDef="let row">
         <button mat-button [matMenuTriggerFor]="menu"
@@ -53,6 +53,7 @@
           <button mat-menu-item>Schools</button>
           <button mat-menu-item>Identifications</button>
           <button mat-menu-item>Exams</button>
+          <button mat-menu-item>Grants</button>
         </mat-menu>
       </td>
     </ng-container>

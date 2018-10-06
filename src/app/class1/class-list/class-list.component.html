@@ -2,13 +2,18 @@
   <mat-toolbar color="primary">
     Classes
     <span class="spanSpacer"></span>
+    <mat-form-field>
+      <input [(ngModel)]="year" matInput placeholder="year">
+    </mat-form-field>
+    <span class="spanSpacer"></span>
     <button mat-icon-button>
       <mat-icon (click)="addClass1()"
-                matTooltip="Add new class"
+                matTooltip="Add a new class"
                 matTooltipPosition="above"
                 matTooltipClass ="primary-tooltip">add_circle</mat-icon>
     </button>
   </mat-toolbar>
+
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
@@ -43,6 +48,7 @@
           <button mat-menu-item>Invoices</button>
           <button mat-menu-item>Subjects</button>
           <button mat-menu-item>Exams</button>
+          <button mat-menu-item>Streams</button>
         </mat-menu>
       </td>
     </ng-container>

@@ -32,7 +32,7 @@ export class MainFilterComponent implements OnInit {
 
 
   courseChange(event) {
-    this.schoolService.getClasses(event.value.id, this.year.toString() + '-10-03T21:00:00').subscribe(res => {
+    this.schoolService.getClasses(event.value.id, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
       this.events.publish('classList', this.classList);
     });

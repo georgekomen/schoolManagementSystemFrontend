@@ -3,6 +3,7 @@ import {School} from './school';
 import {ClassSubject} from './ClassSubject';
 import {ClassExam} from './ClassExam';
 import {ClassInvoice} from './ClassInvoice';
+import {Stream} from './Steam';
 
 export class Class1 {
   id?: number;
@@ -14,4 +15,5 @@ export class Class1 {
   classInvoices?: ClassInvoice[];
   classSubjects?: ClassSubject[];
   classExams?: ClassExam[];
+  streams?: Stream[];
 }

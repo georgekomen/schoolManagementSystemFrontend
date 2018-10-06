@@ -16,6 +16,8 @@ export class ClassListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: ClassListDataSource;
 
+  year: string;
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'icons'];
 
@@ -31,6 +33,7 @@ export class ClassListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.year = new Date().getFullYear().toString();
     if (this.data !== null) {
       this.course = this.data['course'];
       this.getClassList(this.course.id);
@@ -68,7 +71,7 @@ export class ClassListComponent implements OnInit {
   }
 
   getClassList(courseId: number) {
-    this.schoolService.getClasses(courseId, null).subscribe(res => {
+    this.schoolService.getClasses(courseId, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
       this.dataSource = new ClassListDataSource(this.paginator, this.sort, this.classList);
     });

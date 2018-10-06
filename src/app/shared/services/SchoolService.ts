@@ -29,7 +29,7 @@ export class SchoolService {
 
   getClasses(courseId: number, startDate: string): Observable<Class1[]> {
     let url = `${ConfigService.baseUrl}/school/get_classes`;
-    if (courseId !== null || startDate !== startDate) {
+    if (courseId !== null || startDate !== null) {
       url += '?';
     }
     if (courseId !== null) {
