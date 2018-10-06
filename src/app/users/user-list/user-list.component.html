@@ -1,9 +1,19 @@
-<app-main-filter></app-main-filter>
 <div class="mat-elevation-z8">
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+
+        <mat-menu #appMenu="matMenu" yPosition="above">
+          <app-main-filter (click)="$event.stopPropagation();"></app-main-filter>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>filter</mat-icon>
+        </button>
+
+        Name
+      </th>
       <td mat-cell *matCellDef="let row">{{row.first_name}} {{row.middle_name}} {{row.last_name}}</td>
     </ng-container>
     <!-- Name Column -->
@@ -32,7 +42,9 @@
             <mat-icon (click)="addUser()"
                       matTooltipPosition="above"
                       matTooltipClass ="primary-tooltip"
-                      matTooltip="Add a new user">add_circle</mat-icon>
+                      matTooltip="Add a new user">
+              add_circle
+            </mat-icon>
           </button>
         </nav>
       </th>
@@ -42,8 +54,8 @@
           <mat-icon
             matTooltipPosition="above"
             matTooltipClass ="primary-tooltip"
-            matTooltip="Menu">
-            add_circle
+            matTooltip="more">
+            more_vert
           </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
