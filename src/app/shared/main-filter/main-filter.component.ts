@@ -3,6 +3,7 @@ import {SchoolService} from '../services/SchoolService';
 import {EventsService} from '../services/events.service';
 import {Class1} from '../Models/Class1';
 import {Course} from '../Models/course';
+import {ConfigService} from '../../../config/ConfigService';
 
 @Component({
   selector: 'app-main-filter',
@@ -19,12 +20,13 @@ export class MainFilterComponent implements OnInit {
   selectedClass: Class1;
 
   selectedCourse: Course;
+
   constructor(private schoolService: SchoolService,
               private events: EventsService) { }
 
   ngOnInit() {
-    const d = new Date();
-    this.year = d.getFullYear().toString();
+    this.year = new Date().getFullYear().toString();
+    this.courseList = ConfigService.courseList;
     this.events.subscribe('courseList', (data) => {
       this.courseList = data;
     });
@@ -32,6 +34,7 @@ export class MainFilterComponent implements OnInit {
 
 
   courseChange(event) {
+    this.selectedCourse = event.value;
     this.schoolService.getClasses(event.value.id, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
       this.events.publish('classList', this.classList);
@@ -39,6 +42,7 @@ export class MainFilterComponent implements OnInit {
   }
 
   classChange(event) {
+    // emit year, course, class, stream for filtering
 
   }
 }

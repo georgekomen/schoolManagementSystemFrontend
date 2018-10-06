@@ -48,9 +48,14 @@ export class MainNavComponent implements OnInit {
 
   schoolChange(event) {
     ConfigService.selectedSchool = event.value;
-    this.schoolService.getCourses(event.value.id).subscribe(res => {
+    this.getCourseList(ConfigService.selectedSchool.id);
+  }
+
+  getCourseList(schoolId: number) {
+    this.schoolService.getCourses(schoolId).subscribe(res => {
       this.courseList = res;
-      this.events.publish('courseList', this.courseList);
+      ConfigService.courseList = this.courseList;
+      this.events.publish('courseList', ConfigService.courseList);
     });
   }
 
@@ -58,10 +63,10 @@ export class MainNavComponent implements OnInit {
     // TODO - get user schools
     this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
-      // set school to the first one
-      ConfigService.selectedSchool = this.schoolList[0];
       ConfigService.schoolList = this.schoolList;
+      ConfigService.selectedSchool = ConfigService.schoolList[0];
       this.selectedSchool = ConfigService.selectedSchool;
+      this.getCourseList(ConfigService.selectedSchool.id);
     });
   }
 }
