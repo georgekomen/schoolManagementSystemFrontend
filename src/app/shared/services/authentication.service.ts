@@ -28,7 +28,7 @@ export class AuthenticationService {
       })
     };
     const body = {username: username, password: password};
-    return this.http.post(`${this.configService.baseUrl}/auth/login`, body, httpOptions)
+    return this.http.post(`${ConfigService.baseUrl}/auth/login`, body, httpOptions)
       .pipe(
         map((user: any) => {
           this.loader.off();
@@ -43,10 +43,10 @@ export class AuthenticationService {
   }
 
   getPermissions(): Observable<Permission[]> {
-    return this.http.get(`${this.configService.baseUrl}/auth/get_permissions`);
+    return this.http.get(`${ConfigService.baseUrl}/auth/get_permissions`);
   }
 
   postPermission(permission: Permission): Observable<Permission> {
-    return this.http.post(`${this.configService.baseUrl}/auth/new_permission`, permission);
+    return this.http.post(`${ConfigService.baseUrl}/auth/new_permission`, permission);
   }
 }

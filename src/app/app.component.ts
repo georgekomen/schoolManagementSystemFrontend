@@ -8,9 +8,9 @@ import {ConfigService} from '../config/ConfigService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(translate: TranslateService, private configService: ConfigService) {
+  constructor(translate: TranslateService) {
     translate.setDefaultLang('en');
     translate.use('en');
-    this.configService.load();
+    ConfigService.load();
   }
 }

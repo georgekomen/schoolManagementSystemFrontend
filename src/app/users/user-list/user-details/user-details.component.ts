@@ -11,6 +11,7 @@ import {NotificationService} from '../../../../shared/notification.service';
 import {UserSchool} from '../../../shared/Models/UserSchool';
 import {Class1} from '../../../shared/Models/Class1';
 import {StudentClass} from '../../../shared/Models/StudentClass';
+import {ConfigService} from '../../../../config/ConfigService';
 
 @Component({
   selector: 'app-user-details',
@@ -64,6 +65,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     this.user.identifications[0].type = 'NATIONAL_ID';
 
     this.user.userSchools = [new UserSchool()];
+    this.user.userSchools[0].school = ConfigService.selectedSchool;
     // this.user.studentClasses = [new StudentClass()];
 
   }
@@ -75,14 +77,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
         this.user = res;
       });
     }
-    this.getSchoolList();
+    this.schoolList = ConfigService.schoolList;
     this.getClassList();
-  }
-
-  getSchoolList() {
-    this.schoolService.getSchools().subscribe(res => {
-      this.schoolList = res;
-    });
   }
 
   getClassList() {

@@ -8,26 +8,25 @@ import {Grant} from '../Models/grant';
 @Injectable()
 export class UserService {
   constructor(
-    private http: BaseHttpService<any>,
-    private configService: ConfigService,
+    private http: BaseHttpService<any>
   ) {
   }
 
 
   getUsers(): Observable<User[]> {
-    return this.http.get(`${this.configService.baseUrl}/user/get_users`);
+    return this.http.get(`${ConfigService.baseUrl}/user/get_users`);
   }
 
   getUser(userId): Observable<User> {
-    return this.http.get(`${this.configService.baseUrl}/user/get_user/${userId}`);
+    return this.http.get(`${ConfigService.baseUrl}/user/get_user/${userId}`);
   }
 
   getUserGrants(user: User): Observable<Grant[]> {
-    return this.http.get(`${this.configService.baseUrl}/auth/get_user_grants/${user.id}`);
+    return this.http.get(`${ConfigService.baseUrl}/auth/get_user_grants/${user.id}`);
   }
 
   postUser(user: User): Observable<User> {
-    return this.http.post(`${this.configService.baseUrl}/user/new_user`, user);
+    return this.http.post(`${ConfigService.baseUrl}/user/new_user`, user);
   }
 
 }

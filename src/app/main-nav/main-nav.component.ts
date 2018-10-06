@@ -34,7 +34,7 @@ export class MainNavComponent implements OnInit {
               private schoolService: SchoolService,
               private events: EventsService) {}
 
-   public page(): string {
+  public page(): string {
     if (this.router.url === '/login') {
       return 'hidden';
     } else {
@@ -47,6 +47,7 @@ export class MainNavComponent implements OnInit {
   }
 
   schoolChange(event) {
+    ConfigService.selectedSchool = event.value;
     this.schoolService.getCourses(event.value.id).subscribe(res => {
       this.courseList = res;
       this.events.publish('courseList', this.courseList);
@@ -54,9 +55,13 @@ export class MainNavComponent implements OnInit {
   }
 
   getSchoolList() {
-      this.schoolService.getSchools().subscribe(res => {
+    // TODO - get user schools
+    this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
-      this.events.publish('schoolList', this.schoolList);
+      // set school to the first one
+      ConfigService.selectedSchool = this.schoolList[0];
+      ConfigService.schoolList = this.schoolList;
+      this.selectedSchool = ConfigService.selectedSchool;
     });
   }
 }

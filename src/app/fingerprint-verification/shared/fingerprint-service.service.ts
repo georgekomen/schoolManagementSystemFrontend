@@ -8,14 +8,14 @@ import {  BehaviorSubject,  Observable, of, throwError } from 'rxjs';
 })
 export class FingerprintServiceService {
 
-  constructor(public configService: ConfigService, private http: BaseHttpService<any>
+  constructor(private http: BaseHttpService<any>
   ) {
 
   }
 
   getBeneficiaryDetails(beneficiaryId): Observable<any> {
     return this.http.get(
-      `${this.configService.baseUrl}/beneficiaries/${beneficiaryId}`,
+      `${ConfigService.baseUrl}/beneficiaries/${beneficiaryId}`,
     );
   }
 
@@ -27,7 +27,7 @@ export class FingerprintServiceService {
     const formData: FormData = new FormData();
     formData.append('file', image);
 
-    return this.http.upload(`${this.configService.baseUrl}/beneficiaries/${beneficiaryId}/identifications/${identificationType}/auth`, formData);
+    return this.http.upload(`${ConfigService.baseUrl}/beneficiaries/${beneficiaryId}/identifications/${identificationType}/auth`, formData);
   }
 
   addIdentificationType(beneficiaryId, photoType, image): Observable<any> {
@@ -35,7 +35,7 @@ export class FingerprintServiceService {
     formData.append('file', image);
     return this.http.upload(
       `${
-        this.configService.baseUrl
+        ConfigService.baseUrl
         }/beneficiaries/${beneficiaryId}/photos/${photoType}`,
       formData,
     );

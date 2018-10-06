@@ -2,15 +2,20 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import {School} from '../app/shared/Models/school';
 
 @Injectable()
 export class ConfigService {
-  public baseUrl = '';
+  public static baseUrl = '';
+
+  public static selectedSchool: School;
+
+  public static schoolList: School[];
 
   constructor(private http: HttpClient) {
   }
 
-  load() {
+  static load() {
     switch (location.hostname) {
       case 'localhost':
         this.baseUrl = "http://localhost:5000";
