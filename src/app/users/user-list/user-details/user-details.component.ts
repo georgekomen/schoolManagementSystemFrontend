@@ -40,10 +40,6 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   steppeIndex = 0;
 
   identificationTypes: string[] = [
-    'FINGERPRINT_INDEX_RIGHT',
-    'FINGERPRINT_INDEX_LEFT',
-    'FINGERPRINT_THUMB_RIGHT',
-    'FINGERPRINT_THUMB_LEFT',
     'ADMISSION_NUMBER',
     'NATIONAL_ID',
     'PARENT_PHONE_NUMBER'
