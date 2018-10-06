@@ -72,8 +72,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
     this.user.userSchools = [new UserSchool()];
     this.user.userSchools[0].school = ConfigService.selectedSchool;
-    // this.user.studentClasses = [new StudentClass()];
-
+    this.user.studentClasses = [new StudentClass()];
   }
 
   ngOnInit() {
@@ -95,7 +94,6 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
   postUser() {
     this.userService.postUser(this.user).subscribe(res => {
-      console.log(res);
       this.user = res;
       this.notificationService.success('Success', 'successfully registered user');
     });
