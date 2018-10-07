@@ -37,7 +37,9 @@ nav {
 }
 
 .loading {
-
+  position: relative;
+  z-index: 1000;
+  cursor: wait;
 }
 
 .primary-tooltip {
