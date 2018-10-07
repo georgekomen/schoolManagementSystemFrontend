@@ -30,7 +30,7 @@ export class HoverStyleDirective {
         this.el.nativeElement.querySelector('.showOnHover').style.visibility = 'hidden';
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 }
