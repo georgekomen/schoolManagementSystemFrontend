@@ -76,3 +76,8 @@ nav {
   background-color: rgba(164,166,169,0.46);
   border-radius: 15px;
 }
+
+mat-menu:focus,
+button:focus {
+  outline: none;
+}
