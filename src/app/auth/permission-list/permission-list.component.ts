@@ -15,7 +15,7 @@ export class PermissionListComponent implements OnInit {
   dataSource: PermissionListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'description'];
+  displayedColumns = ['id', 'name', 'description', 'icons'];
 
   permissionList: Permission[] = [];
 

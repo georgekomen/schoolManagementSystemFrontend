@@ -16,7 +16,7 @@ export class SchoolListComponent implements OnInit {
   schoolList: School[] = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'date_registered'];
+  displayedColumns = ['id', 'name', 'date_registered', 'icons'];
 
   constructor(private schoolService: SchoolService, private dialog: MatDialog) {
 
