@@ -72,7 +72,6 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
     this.user.userSchools = [new UserSchool()];
     this.user.userSchools[0].school = ConfigService.selectedSchool;
-    this.user.studentClasses = [new StudentClass()];
   }
 
   ngOnInit() {
@@ -103,10 +102,25 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     this.dialogRef.close();
   }
 
-  postUserClass() {
-    this.schoolService.postNewStudentClass(this.user.studentClasses[0]).subscribe(res => {
+  postUserClass(studentClass: StudentClass) {
+    this.schoolService.postNewStudentClass(studentClass).subscribe(res => {
       console.log(res);
     });
+  }
+
+  classSelected(studentClass: StudentClass, event) {
+    const cl: Class1 = event.value;
+    this.user.studentClasses.find(gg => gg.id === studentClass.id).date_joined = cl.start_date;
+  }
+
+  addUserClass() {
+    if (this.user.studentClasses === undefined) {
+      this.user.studentClasses = [];
+    }
+    const studentClass: StudentClass = new StudentClass();
+    studentClass.user = new User();
+    studentClass.user.id = this.user.id;
+    this.user.studentClasses.push(studentClass);
   }
 
 }
