@@ -9,5 +9,6 @@ export class UserInvoice {
   invoice_amount?: number;
   invoiceTo?: 'SCHOOL_TO_USER' | 'USER_TO_SCHOOL';
   user?: User;
+  name?: String;
   userReceipts?: UserReceipt;
 }

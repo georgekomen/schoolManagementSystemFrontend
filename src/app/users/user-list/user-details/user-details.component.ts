@@ -12,6 +12,7 @@ import {UserSchool} from '../../../shared/Models/UserSchool';
 import {Class1} from '../../../shared/Models/Class1';
 import {StudentClass} from '../../../shared/Models/StudentClass';
 import {ConfigService} from '../../../../config/ConfigService';
+import {UserInvoice} from '../../../shared/Models/UserInvoice';
 
 @Component({
   selector: 'app-user-details',
@@ -44,6 +45,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     'NATIONAL_ID',
     'PARENT_PHONE_NUMBER'
   ];
+
+  invOptions = ['SCHOOL_TO_USER', 'USER_TO_SCHOOL'];
 
   constructor(private schoolService: SchoolService,
               private userService: UserService,
@@ -148,6 +151,22 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     userSchool.user = new User();
     userSchool.user.id = this.user.id;
     this.user.userSchools.push(userSchool);
+  }
+
+  postUserInvoice(userInvoice: UserInvoice) {
+    this.schoolService.postUserInvoice(userInvoice).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  addUserInvoice() {
+    if (this.user.userInvoices === undefined) {
+      this.user.userInvoices = [];
+    }
+    const userInvoice: UserInvoice = new UserInvoice();
+    userInvoice.user = new User();
+    userInvoice.user.id = this.user.id;
+    this.user.userInvoices.push(userInvoice);
   }
 
 }

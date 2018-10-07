@@ -55,6 +55,30 @@
 
 
   <mat-step>
+    <ng-template matStepLabel>Student Classes</ng-template>
+    <mat-card-content *ngFor="let studentClass of user.studentClasses">
+      <mat-form-field>
+        <mat-select [(ngModel)]="studentClass.class1" (selectionChange)="classSelected(studentClass, $event)">
+          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Class</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button (click)="postUserClass(studentClass)" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+    <button (click)="addUserClass()" mat-button>Add class</button>
+  </mat-step>
+
+
+  <mat-step>
     <ng-template matStepLabel>Identifications</ng-template>
     <mat-card-content *ngFor="let ids of user.identifications">
       <mat-form-field>
@@ -76,6 +100,40 @@
 
 
   <mat-step>
+    <ng-template matStepLabel>Invoices</ng-template>
+    <mat-card-content *ngFor="let inv of user.userInvoices">
+      <mat-form-field *ngIf="inv.date_created !== undefined && inv.date_created !== null && inv.date_created !== ''">
+        <input [ngModel]="inv.date_created.substring(0, 10)" matInput placeholder="Date created" disabled="disabled">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select [(ngModel)]="inv.invoiceTo">
+          <mat-option *ngFor="let invOpt of invOptions" [value]="invOpt">{{invOpt}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Invoice Type</mat-placeholder>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="inv.name" matInput placeholder="Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field *ngIf="inv.classInvoice !== undefined && inv.classInvoice !== null">
+        <input placeholder="class invoice name" matInput [ngModel]="inv.classInvoice.name">
+      </mat-form-field>
+      <br>
+      <div>
+        <button (click)="postUserInvoice(inv)" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+    <button (click)="addUserInvoice()" mat-button>Add user invoice</button>
+  </mat-step>
+
+
+  <mat-step>
     <ng-template matStepLabel>Schools</ng-template>
     <mat-card-content *ngFor="let usc of user.userSchools">
       <mat-form-field>
@@ -89,30 +147,6 @@
       </div>
     </mat-card-content>
     <button (click)="addUserSchool()" mat-button>Add school</button>
-  </mat-step>
-
-
-  <mat-step>
-    <ng-template matStepLabel>Student Classes</ng-template>
-    <mat-card-content *ngFor="let studentClass of user.studentClasses">
-      <mat-form-field>
-        <mat-select [(ngModel)]="studentClass.class1" (selectionChange)="classSelected(studentClass, $event)">
-          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Class</mat-placeholder>
-      </mat-form-field>
-      <br>
-      <mat-form-field class="example-full-width">
-        <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
-               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-      <div>
-        <button (click)="postUserClass(studentClass)" mat-raised-button color="primary">Submit</button>
-      </div>
-    </mat-card-content>
-    <button (click)="addUserClass()" mat-button>Add class</button>
   </mat-step>
 
 
