@@ -116,6 +116,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
       this.user.studentClasses = [];
     }
     const studentClass: StudentClass = new StudentClass();
+    studentClass.class1 = new Class1();
     studentClass.user = new User();
     studentClass.user.id = this.user.id;
     this.user.studentClasses.push(studentClass);
@@ -148,6 +149,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
       this.user.userSchools = [];
     }
     const userSchool: UserSchool = new UserSchool();
+    userSchool.school = new School();
     userSchool.user = new User();
     userSchool.user.id = this.user.id;
     this.user.userSchools.push(userSchool);

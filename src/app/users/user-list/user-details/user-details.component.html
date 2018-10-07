@@ -58,8 +58,8 @@
     <ng-template matStepLabel>Student Classes</ng-template>
     <mat-card-content *ngFor="let studentClass of user.studentClasses">
       <mat-form-field>
-        <mat-select [(ngModel)]="studentClass.class1" (selectionChange)="classSelected(studentClass, $event)">
-          <mat-option *ngFor="let cs of classList" [value]="cs">{{cs.name}}</mat-option>
+        <mat-select [(ngModel)]="studentClass.class1.id" (selectionChange)="classSelected(studentClass, $event)">
+          <mat-option *ngFor="let cs of classList" [value]="cs.id">{{cs.name}}</mat-option>
         </mat-select>
         <mat-placeholder>Class</mat-placeholder>
       </mat-form-field>
@@ -137,8 +137,8 @@
     <ng-template matStepLabel>Schools</ng-template>
     <mat-card-content *ngFor="let usc of user.userSchools">
       <mat-form-field>
-        <mat-select [(ngModel)]="usc.school">
-          <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
+        <mat-select [(ngModel)]="usc.school.id">
+          <mat-option *ngFor="let sch of schoolList" [value]="sch.id">{{sch.name}}</mat-option>
         </mat-select>
         <mat-placeholder>School</mat-placeholder>
       </mat-form-field>
