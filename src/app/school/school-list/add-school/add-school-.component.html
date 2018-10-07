@@ -1,16 +1,14 @@
 <app-loader></app-loader>
-<div>
-  <mat-card>
-    <mat-card-content>
-      <mat-form-field>
-        <input [(ngModel)]="school.name" matInput placeholder="Name">
-      </mat-form-field>
-      <div class="submit">
-        <!-- which submit -->
-        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
-        &nbsp;
-        <button (click)="postSchool()" mat-raised-button color="primary">Submit</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input [(ngModel)]="school.name" matInput placeholder="Name">
+    </mat-form-field>
+    <div class="submit">
+      <!-- which submit -->
+      <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+      &nbsp;
+      <button (click)="postSchool()" mat-raised-button color="primary">Submit</button>
+    </div>
+  </mat-card-content>
+</mat-card>
