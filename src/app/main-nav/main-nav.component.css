@@ -26,3 +26,16 @@
   outline: none;
 }
 
+a:link {
+  color:black;
+}
+a:hover {
+  font-size:20px;
+  font-weight:bold;
+}
+a:active {
+  color:#ef6c00;
+}
+a:visited {
+
+}
