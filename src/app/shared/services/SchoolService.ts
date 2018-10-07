@@ -77,8 +77,8 @@ export class SchoolService {
     return this.http.get(`${ConfigService.baseUrl}/school/get_schools`);
   }
 
-  getSchool(schoolId): Observable<School> {
-    return this.http.get(`${ConfigService.baseUrl}/school/get_school/${schoolId}`);
+  getStreams(classid: number): Observable<Stream[]> {
+    return this.http.get(`${ConfigService.baseUrl}/school/get_streams?classId=${classid}`);
   }
 
   postSchool(school: School): Observable<School> {

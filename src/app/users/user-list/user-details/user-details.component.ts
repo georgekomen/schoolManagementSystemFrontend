@@ -13,6 +13,7 @@ import {Class1} from '../../../shared/Models/Class1';
 import {StudentClass} from '../../../shared/Models/StudentClass';
 import {ConfigService} from '../../../../config/ConfigService';
 import {UserInvoice} from '../../../shared/Models/UserInvoice';
+import {Stream} from '../../../shared/Models/Steam';
 
 @Component({
   selector: 'app-user-details',
@@ -28,6 +29,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   user: User = new User();
 
   schoolList: School[] = [];
+
+  streamList: Stream[] = [];
 
   roles: string[] = ['PRINCIPAL', 'DEPUTY_PRINCIPAL', 'FINANCE_MANAGER', 'HEAD_OF_DEPARTMENT',
     'DEPUTY_HEAD_OF_DEPARTMENT', 'TEACHER', 'CLASS_TEACHER', 'STUDENT'];
@@ -109,6 +112,11 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   classSelected(studentClass: StudentClass, event) {
     const cl: Class1 = event.value;
     this.user.studentClasses.find(gg => gg.id === studentClass.id).date_joined = cl.start_date;
+
+    this.streamList = [];
+    this.schoolService.getStreams(studentClass.class1.id).subscribe(res => {
+      this.streamList = res;
+    });
   }
 
   addUserClass() {
@@ -119,6 +127,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     studentClass.class1 = new Class1();
     studentClass.user = new User();
     studentClass.user.id = this.user.id;
+    studentClass.stream = new Stream();
     this.user.studentClasses.push(studentClass);
   }
 
