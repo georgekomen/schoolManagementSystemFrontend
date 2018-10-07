@@ -1,7 +1,9 @@
 <app-loader></app-loader>
 <mat-vertical-stepper [linear]="isLinear" #stepper>
+
+
   <mat-step>
-      <ng-template matStepLabel>Class Details</ng-template>
+    <ng-template matStepLabel>Class Details</ng-template>
     <mat-card-content>
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="class1.start_date" matInput [min]="minDate"
@@ -23,16 +25,14 @@
       </mat-form-field>
     </mat-card-content>
     <div>
-      <button (click)="postClass()" mat-button matStepperNext>Next</button>
+      <button (click)="postClass()" mat-raised-button color="primary">Submit</button>
     </div>
   </mat-step>
 
 
   <mat-step>
-      <ng-template matStepLabel>Class Fee Invoice</ng-template>
+    <ng-template matStepLabel>Class Fee Invoice</ng-template>
     <mat-card-content *ngFor="let cl of class1.classInvoices">
-      <!-- TODO - HIDE THIS if you are in the add class popup -->
-      <br>
       <mat-form-field>
         <input [(ngModel)]="cl.name" matInput placeholder="Name">
       </mat-form-field>
@@ -40,11 +40,22 @@
       <mat-form-field>
         <input [(ngModel)]="cl.invoice_amount" matInput placeholder="Amount">
       </mat-form-field>
+      <br>
+      <div *ngIf="cl.invoice_date !== null && cl.invoice_date !== ''">
+        <mat-form-field>
+          <input [ngModel]="cl.invoice_date.substring(0, 10)" matInput placeholder="Invoice Date" disabled="disabled">
+        </mat-form-field>
+      </div>
+      <div class="submit">
+        <!-- TODO -remove invoice -->
+        <button (click)="removeInvoice(cl)" mat-raised-button color="warn">Remove</button>
+        &nbsp;
+        <button (click)="postClassInvoice(cl)" mat-raised-button color="primary">Submit</button>
+      </div>
     </mat-card-content>
-    <div>
-      <button (click)="postClassInvoice()" mat-button matStepperNext>Next</button>
-    </div>
+    <button (click)="addInvoice()" mat-button>Add invoice</button>
   </mat-step>
+
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
@@ -54,5 +65,7 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
+
+
 </mat-vertical-stepper>
 

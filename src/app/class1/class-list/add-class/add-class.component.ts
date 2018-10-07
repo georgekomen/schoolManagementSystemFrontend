@@ -5,6 +5,7 @@ import {Course} from '../../../shared/Models/course';
 import {School} from '../../../shared/Models/school';
 import {AddCourseComponent} from '../../../course/course-list/add-course/add-course.component';
 import {Class1} from '../../../shared/Models/Class1';
+import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
 
 @Component({
   selector: 'app-add-class',
@@ -54,10 +55,27 @@ export class AddClassComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  postClassInvoice() {
-    this.schoolService.postClassInvoice(this.class1.classInvoices[0]).subscribe(res => {
+  postClassInvoice(classInvoice: ClassInvoice) {
+    this.schoolService.postClassInvoice(classInvoice).subscribe(res => {
       console.log(res);
     });
+  }
+
+  // TODO - do remove invoice both locally and backend
+  removeInvoice(classInvoice: ClassInvoice) {
+
+  }
+
+  addInvoice() {
+    const newClassInvoice: ClassInvoice = new ClassInvoice();
+    newClassInvoice.class1 = new Class1();
+    newClassInvoice.class1.id = this.class1.id;
+    newClassInvoice.name = `${this.class1.name} Invoice`;
+    newClassInvoice.invoice_date = new Date().toJSON().toString();
+    if (this.class1.classInvoices === undefined) {
+      this.class1.classInvoices = [];
+    }
+    this.class1.classInvoices.push(newClassInvoice);
   }
 
   startDateChange(event) {
