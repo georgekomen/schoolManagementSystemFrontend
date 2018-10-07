@@ -12,6 +12,7 @@ import {ClassListDataSource} from '../class1/class-list/class-list-datasource';
 import {Class1} from '../shared/Models/Class1';
 import {EventsService} from '../shared/services/events.service';
 import {ConfigService} from '../../config/ConfigService';
+import {NotificationService} from '../../shared/notification.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -32,7 +33,8 @@ export class MainNavComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router,
               private schoolService: SchoolService,
-              private events: EventsService) {}
+              private events: EventsService,
+              private notificationService: NotificationService) {}
 
   public page(): string {
     if (this.router.url === '/login') {
@@ -63,10 +65,14 @@ export class MainNavComponent implements OnInit {
     // TODO - get user schools
     this.schoolService.getSchools().subscribe(res => {
       this.schoolList = res;
-      ConfigService.schoolList = this.schoolList;
-      ConfigService.selectedSchool = ConfigService.schoolList[0];
-      this.selectedSchool = ConfigService.selectedSchool;
-      this.getCourseList(ConfigService.selectedSchool.id);
+      if (this.schoolList.length > 0) {
+        ConfigService.schoolList = this.schoolList;
+        ConfigService.selectedSchool = ConfigService.schoolList[0];
+        this.selectedSchool = ConfigService.selectedSchool;
+        this.getCourseList(ConfigService.selectedSchool.id);
+      } else {
+        this.notificationService.warning('Warning', 'No schools found');
+      }
     });
   }
 }

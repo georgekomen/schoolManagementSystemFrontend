@@ -5,6 +5,7 @@ import {SchoolService} from '../../shared/services/SchoolService';
 import {Course} from '../../shared/Models/course';
 import {AddCourseComponent} from './add-course/add-course.component';
 import {ClassListComponent} from '../../class1/class-list/class-list.component';
+import {NotificationService} from '../../../shared/notification.service';
 
 @Component({
   selector: 'app-course-list',
@@ -20,7 +21,9 @@ export class CourseListComponent implements OnInit {
 
   courseList: Course[] = [];
 
-  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
+  constructor(private schoolService: SchoolService,
+              private dialog: MatDialog,
+              private notificationService: NotificationService) {
 
   }
 
@@ -54,6 +57,10 @@ export class CourseListComponent implements OnInit {
     this.schoolService.getCourses(null).subscribe(res => {
       this.courseList = res;
       this.dataSource = new CourseListDataSource(this.sort, this.courseList);
+
+      if (this.courseList.length < 1) {
+        this.notificationService.warning('Warning', 'No courses found');
+      }
     });
   }
 
