@@ -58,6 +58,20 @@
 
 
   <mat-step>
+    <ng-template matStepLabel>Streams</ng-template>
+    <mat-card-content *ngFor="let cs of class1.streams">
+      <mat-form-field>
+        <input [(ngModel)]="cs.name" matInput placeholder="Name">
+      </mat-form-field>
+      <div>
+        <button (click)="postStreamm(cs)" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+    <button (click)="addStreamm()" mat-button>Add stream</button>
+  </mat-step>
+
+
+  <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     You are now done.
     <div>

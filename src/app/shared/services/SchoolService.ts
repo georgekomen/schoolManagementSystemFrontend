@@ -10,6 +10,7 @@ import {StudentClass} from '../Models/StudentClass';
 import {Identification} from '../Models/Identification';
 import {UserSchool} from '../Models/UserSchool';
 import {UserInvoice} from '../Models/UserInvoice';
+import {Stream} from '../Models/Steam';
 
 @Injectable()
 export class SchoolService {
@@ -62,6 +63,10 @@ export class SchoolService {
 
   postUserSchool(userSchool: UserSchool): Observable<UserSchool> {
     return this.http.post(`${ConfigService.baseUrl}/user/new_user_school`, userSchool);
+  }
+
+  postStream(stream: Stream): Observable<Stream> {
+    return this.http.post(`${ConfigService.baseUrl}/school/new_stream`, stream);
   }
 
   postUserInvoice(userInvoice: UserInvoice): Observable<UserInvoice> {

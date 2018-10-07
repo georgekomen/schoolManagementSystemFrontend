@@ -6,6 +6,7 @@ import {School} from '../../../shared/Models/school';
 import {AddCourseComponent} from '../../../course/course-list/add-course/add-course.component';
 import {Class1} from '../../../shared/Models/Class1';
 import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
+import {Stream} from '../../../shared/Models/Steam';
 
 @Component({
   selector: 'app-add-class',
@@ -84,6 +85,22 @@ export class AddClassComponent implements OnInit {
     this.class1.end_date = ed.toJSON().toString();
     this.class1.name = `${stDate.getFullYear().toString()}/${(stDate.getFullYear() + 1).toString()} ${this.course.name}`;
     this.class1.course = this.course;
+  }
+
+  postStreamm(stream: Stream) {
+    this.schoolService.postStream(stream).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  addStreamm() {
+    if (this.class1.streams === undefined) {
+      this.class1.streams = [];
+    }
+    const stream: Stream = new Stream();
+    stream.class1 = new Class1();
+    stream.class1.id = this.class1.id;
+    this.class1.streams.push(stream);
   }
 
 }
