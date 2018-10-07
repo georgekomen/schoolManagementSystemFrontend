@@ -7,6 +7,8 @@ import {Course} from '../Models/course';
 import {Class1} from '../Models/Class1';
 import {ClassInvoice} from '../Models/ClassInvoice';
 import {StudentClass} from '../Models/StudentClass';
+import {Identification} from '../Models/Identification';
+import {UserSchool} from '../Models/UserSchool';
 
 @Injectable()
 export class SchoolService {
@@ -51,6 +53,14 @@ export class SchoolService {
 
   postNewStudentClass(studentClass: StudentClass): Observable<StudentClass> {
     return this.http.post(`${ConfigService.baseUrl}/school/new_student_class`, studentClass);
+  }
+
+  postUserIdentification(identification: Identification): Observable<Identification> {
+    return this.http.post(`${ConfigService.baseUrl}/user/new_user_identification`, identification);
+  }
+
+  postUserSchool(userSchool: UserSchool): Observable<UserSchool> {
+    return this.http.post(`${ConfigService.baseUrl}/user/new_user_school`, userSchool);
   }
 
   getSchools(): Observable<School[]> {

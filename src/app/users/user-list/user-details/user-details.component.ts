@@ -67,11 +67,6 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
   init() {
     this.user = new User();
-    this.user.identifications = [new Identification()];
-    this.user.identifications[0].type = 'NATIONAL_ID';
-
-    this.user.userSchools = [new UserSchool()];
-    this.user.userSchools[0].school = ConfigService.selectedSchool;
   }
 
   ngOnInit() {
@@ -121,6 +116,38 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     studentClass.user = new User();
     studentClass.user.id = this.user.id;
     this.user.studentClasses.push(studentClass);
+  }
+
+  postIdentification(ide: Identification) {
+    this.schoolService.postUserIdentification(ide).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  addIdentification() {
+    if (this.user.identifications === undefined) {
+      this.user.identifications = [];
+    }
+    const identification: Identification = new Identification();
+    identification.user = new User();
+    identification.user.id = this.user.id;
+    this.user.identifications.push(identification);
+  }
+
+  postUserSchool(userSchool: UserSchool) {
+    this.schoolService.postUserSchool(userSchool).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  addUserSchool() {
+    if (this.user.userSchools === undefined) {
+      this.user.userSchools = [];
+    }
+    const userSchool: UserSchool = new UserSchool();
+    userSchool.user = new User();
+    userSchool.user.id = this.user.id;
+    this.user.userSchools.push(userSchool);
   }
 
 }

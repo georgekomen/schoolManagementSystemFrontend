@@ -67,10 +67,11 @@
       <mat-form-field>
         <input [(ngModel)]="ids.value" matInput [placeholder]="ids.type">
       </mat-form-field>
+      <div>
+        <button (click)="postIdentification(ids)" mat-raised-button color="primary">Submit</button>
+      </div>
     </mat-card-content>
-    <div>
-      <button mat-raised-button color="primary">Submit</button>
-    </div>
+    <button (click)="addIdentification()" mat-button>Add Identification</button>
   </mat-step>
 
 
@@ -83,10 +84,11 @@
         </mat-select>
         <mat-placeholder>School</mat-placeholder>
       </mat-form-field>
+      <div>
+        <button (click)="postUserSchool(usc)" mat-raised-button color="primary">Submit</button>
+      </div>
     </mat-card-content>
-    <div>
-      <button mat-raised-button color="primary">Submit</button>
-    </div>
+    <button (click)="addUserSchool()" mat-button>Add school</button>
   </mat-step>
 
 
