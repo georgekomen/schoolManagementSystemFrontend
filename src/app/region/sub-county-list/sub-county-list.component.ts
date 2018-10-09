@@ -45,7 +45,7 @@ export class SubCountyListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getSubcounties();
+
     });
   }
 }
