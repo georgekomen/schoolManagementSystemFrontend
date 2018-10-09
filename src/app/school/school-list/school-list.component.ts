@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatDialog, MatPaginator, MatSort} from '@angular/material';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatPaginator, MatSort} from '@angular/material';
 import {SchoolDataSource} from './school-list-datasource';
 import {SchoolService} from '../../shared/services/SchoolService';
 import {AddSchoolComponent} from './add-school/add-school-.component';
 import {School} from '../../shared/Models/school';
+import {Subcounty} from '../../shared/Models/Subcounty';
 
 @Component({
   selector: 'app-table-list',
@@ -18,16 +19,23 @@ export class SchoolListComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'date_registered', 'icons'];
 
-  constructor(private schoolService: SchoolService, private dialog: MatDialog) {
+  subCounty: Subcounty;
+
+  constructor(private schoolService: SchoolService,
+              private dialog: MatDialog,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
 
   ngOnInit() {
-    this.getSchoolList();
+    if (this.data !== null) {
+      this.subCounty = this.data['subCounty'];
+      this.getSchoolList();
+    }
   }
 
   getSchoolList() {
-    this.schoolService.getSchools().subscribe(res => {
+    this.schoolService.getSchools(this.subCounty.id).subscribe(res => {
       this.schoolList = res;
       this.dataSource = new SchoolDataSource(this.sort, this.schoolList);
     });
@@ -35,8 +43,7 @@ export class SchoolListComponent implements OnInit {
 
   addSchool() {
     const dialogRef = this.dialog.open(AddSchoolComponent, {
-      // width: '250px',
-      // data: { name: this.name, animal: this.animal }
+      data: { subCounty: this.subCounty }
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -6,6 +6,6 @@ export class School {
   id?: number;
   date_registered?: string;
   courses?: Course[] = [];
-  subcounty?: Subcounty;
+  subCounty?: Subcounty;
   logoUrl?: string;
 }

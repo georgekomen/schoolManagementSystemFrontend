@@ -63,7 +63,7 @@ export class MainNavComponent implements OnInit {
 
   getSchoolList() {
     // TODO - get user schools
-    this.schoolService.getSchools().subscribe(res => {
+    this.schoolService.getSchools(null).subscribe(res => {
       this.schoolList = res;
       if (this.schoolList.length > 0) {
         ConfigService.schoolList = this.schoolList;

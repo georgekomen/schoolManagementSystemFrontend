@@ -58,7 +58,7 @@ export class RegionComponent implements OnInit {
   getSubCounties(county: County) {
     const dialogRef = this.dialog.open(SubCountyListComponent, {
       height: '100%',
-      width: '90%',
+      width: '80%',
       data: {county: county}
     });
 

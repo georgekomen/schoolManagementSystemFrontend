@@ -6,6 +6,7 @@ import {SchoolService} from '../../shared/services/SchoolService';
 import {Subcounty} from '../../shared/Models/Subcounty';
 import {AddCountyComponent} from '../add-county/add-county.component';
 import {AddSubCountyComponent} from '../add-sub-county/add-sub-county.component';
+import {SchoolListComponent} from '../../school/school-list/school-list.component';
 
 @Component({
   selector: 'app-sub-county-list',
@@ -42,6 +43,19 @@ export class SubCountyListComponent implements OnInit {
   addSubCounty() {
     const dialogRef = this.dialog.open(AddSubCountyComponent, {
       data: {county: this.county}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
+  getSchools(subcounty: Subcounty) {
+    const dialogRef = this.dialog.open(SchoolListComponent, {
+      data: {subCounty: subcounty},
+      height: '100%',
+      width: '70%',
+      scrollStrategy: null
     });
 
     dialogRef.afterClosed().subscribe(result => {

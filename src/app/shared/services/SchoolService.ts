@@ -76,8 +76,12 @@ export class SchoolService {
     return this.http.post(`${ConfigService.baseUrl}/invoice/new_user_invoice`, userInvoice);
   }
 
-  getSchools(): Observable<School[]> {
-    return this.http.get(`${ConfigService.baseUrl}/school/get_schools`);
+  getSchools(subCountyId: number): Observable<School[]> {
+    let url = `${ConfigService.baseUrl}/school/get_schools`;
+    if (subCountyId !== null) {
+      url += `?subCounty=${subCountyId}`;
+    }
+    return this.http.get(url);
   }
 
   getStreams(classid: number): Observable<Stream[]> {

@@ -5,5 +5,5 @@ export class County {
   id?: number;
   name?: string;
   country?: Country;
-  subcounties?: Subcounty[];
+  subCounties?: Subcounty[];
 }
