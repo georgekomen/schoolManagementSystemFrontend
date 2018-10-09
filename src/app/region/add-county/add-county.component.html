@@ -1,0 +1,14 @@
+<app-loader></app-loader>
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input [(ngModel)]="county.name" matInput placeholder="Name">
+    </mat-form-field>
+    <div class="submit">
+      <!-- which submit -->
+      <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+      &nbsp;
+      <button (click)="postCounty()" mat-raised-button color="primary">Submit</button>
+    </div>
+  </mat-card-content>
+</mat-card>

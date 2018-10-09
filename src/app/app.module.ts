@@ -47,6 +47,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { HoverStyleDirective } from './hover-style.directive';
 import { MainFilterComponent } from './shared/main-filter/main-filter.component';
 import { RegionComponent } from './region/region/region.component';
+import { AddCountyComponent } from './region/add-county/add-county.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HoverStyleDirective,
     MainFilterComponent,
     RegionComponent,
+    AddCountyComponent,
   ],
   imports: [
     FormsModule,

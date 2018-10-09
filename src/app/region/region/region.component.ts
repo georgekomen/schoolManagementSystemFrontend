@@ -1,8 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatSort, MatTableDataSource} from '@angular/material';
 import {SchoolService} from '../../shared/services/SchoolService';
 import {County} from '../../shared/Models/County';
 import {Country} from '../../shared/Models/Country';
+import {UserDetailsComponent} from '../../users/user-list/user-details/user-details.component';
+import {AddCountyComponent} from '../add-county/add-county.component';
 
 @Component({
   selector: 'app-region',
@@ -17,9 +19,12 @@ export class RegionComponent implements OnInit {
 
   countryList: Country[] = [];
 
+  selectedCountry: Country;
+
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
@@ -27,19 +32,26 @@ export class RegionComponent implements OnInit {
     this.schoolService.getCountries().subscribe(res => {
       this.countryList = res;
       if (this.countryList.length > 0) {
-        this.getCounties(this.countryList[0].id);
+        this.selectedCountry = this.countryList[0];
+        this.getCounties();
       }
     });
   }
 
-  getCounties(countryId: number) {
-    this.schoolService.getCounties(countryId).subscribe(res => {
+  getCounties() {
+    this.schoolService.getCounties(this.selectedCountry.id).subscribe(res => {
       this.dataSource = new MatTableDataSource<County>(res);
     });
   }
 
   addCounty() {
+    const dialogRef = this.dialog.open(AddCountyComponent, {
+      data: {country: this.selectedCountry}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      this.getCounties();
+    });
   }
 
 }

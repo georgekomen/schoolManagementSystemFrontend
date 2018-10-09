@@ -39,7 +39,17 @@
         </nav>
       </th>
       <td mat-cell *matCellDef="let element">
-
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon
+            matTooltipPosition="above"
+            matTooltipClass ="primary-tooltip"
+            matTooltip="more">
+            more_vert
+          </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Menu</button>
+        </mat-menu>
       </td>
     </ng-container>
 

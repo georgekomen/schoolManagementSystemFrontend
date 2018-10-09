@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatDialog, MatPaginator, MatSort} from '@angular/material';
+import {MatDialog, MatSort} from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/Models/user';
 import {UserDetailsComponent} from './user-details/user-details.component';
-import {EventsService} from '../../shared/services/events.service';
 
 @Component({
   selector: 'app-user-list',

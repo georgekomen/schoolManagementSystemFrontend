@@ -84,6 +84,10 @@ export class SchoolService {
     return this.http.get(`${ConfigService.baseUrl}/school/get_streams?classId=${classid}`);
   }
 
+  postCounty(county: County): Observable<County> {
+    return this.http.post(`${ConfigService.baseUrl}/region/new_county`, county);
+  }
+
   getCountries(): Observable<Country[]> {
     return this.http.get(`${ConfigService.baseUrl}/region/get_countries`);
   }
