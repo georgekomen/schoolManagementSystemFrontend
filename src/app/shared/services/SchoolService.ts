@@ -96,6 +96,10 @@ export class SchoolService {
     return this.http.get(`${ConfigService.baseUrl}/region/get_countries`);
   }
 
+  getSchool(schoolId: number): Observable<School> {
+    return this.http.get(`${ConfigService.baseUrl}/school/get_school/${schoolId}`);
+  }
+
   getCounties(countryId: number): Observable<County[]> {
     return this.http.get(`${ConfigService.baseUrl}/region/get_counties/${countryId}`);
   }

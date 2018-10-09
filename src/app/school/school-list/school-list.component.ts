@@ -41,6 +41,16 @@ export class SchoolListComponent implements OnInit {
     });
   }
 
+  openSchool(school: School) {
+    const dialogRef = this.dialog.open(AddSchoolComponent, {
+      data: { school: school }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
   addSchool() {
     const dialogRef = this.dialog.open(AddSchoolComponent, {
       data: { subCounty: this.subCounty }
