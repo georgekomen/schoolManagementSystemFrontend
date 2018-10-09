@@ -93,7 +93,7 @@ export class SchoolService {
   }
 
   postSchoolLogo(schoolId: number, file: FormData): Observable<School> {
-    return this.http.post(`${ConfigService.baseUrl}/school/upload_school_logo/${schoolId}`, file);
+    return this.http.upload(`${ConfigService.baseUrl}/school/upload_school_logo/${schoolId}`, file);
   }
 
   getCountries(): Observable<Country[]> {
