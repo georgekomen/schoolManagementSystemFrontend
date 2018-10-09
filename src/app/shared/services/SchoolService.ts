@@ -92,6 +92,10 @@ export class SchoolService {
     return this.http.post(`${ConfigService.baseUrl}/region/new_county`, county);
   }
 
+  postSchoolLogo(schoolId: number, file: FormData): Observable<School> {
+    return this.http.post(`${ConfigService.baseUrl}/school/upload_school_logo/${schoolId}`, file);
+  }
+
   getCountries(): Observable<Country[]> {
     return this.http.get(`${ConfigService.baseUrl}/region/get_countries`);
   }

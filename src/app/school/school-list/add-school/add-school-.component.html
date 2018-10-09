@@ -1,6 +1,9 @@
 <app-loader></app-loader>
-<mat-card>
-  <mat-card-content>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+
+  <mat-step>
+    <ng-template matStepLabel>Basic Details</ng-template>
+    <mat-card-content>
     <mat-form-field>
       <input [(ngModel)]="school.name" matInput placeholder="Name">
     </mat-form-field>
@@ -11,4 +14,22 @@
       <button (click)="postSchool()" mat-raised-button color="primary">Submit</button>
     </div>
   </mat-card-content>
-</mat-card>
+  </mat-step>
+
+
+  <mat-step *ngIf="school.id > 0">
+    <ng-template matStepLabel>School Logo</ng-template>
+    <mat-card-content>
+      <div>
+        <input type="file" (change)="setLogo($event)" placeholder="Logo">
+      </div>
+      <div class="submit">
+        <!-- which submit -->
+        <button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+        &nbsp;
+        <button (click)="postSchoolLogo()" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+  </mat-step>
+
+</mat-vertical-stepper>

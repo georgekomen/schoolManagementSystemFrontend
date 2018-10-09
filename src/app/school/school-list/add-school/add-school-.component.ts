@@ -12,9 +12,15 @@ import {isNullOrUndefined} from 'util';
 })
 export class AddSchoolComponent implements OnInit {
 
-  public school: School = new School();
+  isLinear = false;
+
+  school: School = new School();
 
   subCounty: Subcounty;
+
+  formData: FormData = new FormData();
+
+  selectedFile: File;
 
   constructor(private dialogRef: MatDialogRef<AddSchoolComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -40,10 +46,22 @@ export class AddSchoolComponent implements OnInit {
     }
   }
 
+  setLogo(event) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+    this.formData.append('file', this.selectedFile, this.selectedFile.name);
+    // this.formData.append('file', filess, filess.name);
+  }
+
+  postSchoolLogo() {
+    this.schoolService.postSchoolLogo(this.school.id, this.formData).subscribe(res => {
+
+    });
+  }
+
   postSchool() {
     this.schoolService.postSchool(this.school).subscribe(res => {
-      console.log(res);
-      this.closeDialog();
+      this.school = res;
     });
   }
 
