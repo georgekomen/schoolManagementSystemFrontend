@@ -48,6 +48,8 @@ import { HoverStyleDirective } from './hover-style.directive';
 import { MainFilterComponent } from './shared/main-filter/main-filter.component';
 import { RegionComponent } from './region/region/region.component';
 import { AddCountyComponent } from './region/add-county/add-county.component';
+import { AddSubCountyComponent } from './region/add-sub-county/add-sub-county.component';
+import { SubCountyListComponent } from './region/sub-county-list/sub-county-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -76,6 +78,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainFilterComponent,
     RegionComponent,
     AddCountyComponent,
+    AddSubCountyComponent,
+    SubCountyListComponent,
   ],
   imports: [
     FormsModule,

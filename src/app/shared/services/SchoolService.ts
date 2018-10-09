@@ -96,6 +96,10 @@ export class SchoolService {
     return this.http.get(`${ConfigService.baseUrl}/region/get_counties/${countryId}`);
   }
 
+  getSubCounties(countyId: number): Observable<County[]> {
+    return this.http.get(`${ConfigService.baseUrl}/region/get_subCounties/${countyId}`);
+  }
+
   getSubCounty(countyId: number): Observable<Subcounty[]> {
     return this.http.get(`${ConfigService.baseUrl}/region/get_subCounties/${countyId}`);
   }
@@ -106,6 +110,10 @@ export class SchoolService {
 
   postCourse(course: Course): Observable<Course> {
     return this.http.post(`${ConfigService.baseUrl}/school/new_course`, course);
+  }
+
+  postSubCounty(subCounty: Subcounty): Observable<Subcounty> {
+    return this.http.post(`${ConfigService.baseUrl}/region/new_subCounty`, subCounty);
   }
 
 }

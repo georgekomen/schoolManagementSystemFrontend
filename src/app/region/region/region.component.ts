@@ -5,6 +5,7 @@ import {County} from '../../shared/Models/County';
 import {Country} from '../../shared/Models/Country';
 import {UserDetailsComponent} from '../../users/user-list/user-details/user-details.component';
 import {AddCountyComponent} from '../add-county/add-county.component';
+import {SubCountyListComponent} from '../sub-county-list/sub-county-list.component';
 
 @Component({
   selector: 'app-region',
@@ -47,6 +48,18 @@ export class RegionComponent implements OnInit {
   addCounty() {
     const dialogRef = this.dialog.open(AddCountyComponent, {
       data: {country: this.selectedCountry}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getCounties();
+    });
+  }
+
+  getSubCounties(county: County) {
+    const dialogRef = this.dialog.open(SubCountyListComponent, {
+      height: '100%',
+      width: '90%',
+      data: {county: county}
     });
 
     dialogRef.afterClosed().subscribe(result => {

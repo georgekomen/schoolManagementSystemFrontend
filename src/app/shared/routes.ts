@@ -14,6 +14,8 @@ import {AddClassComponent} from '../class1/class-list/add-class/add-class.compon
 import {ClassListComponent} from '../class1/class-list/class-list.component';
 import {RegionComponent} from '../region/region/region.component';
 import {AddCountyComponent} from '../region/add-county/add-county.component';
+import {SubCountyListComponent} from '../region/sub-county-list/sub-county-list.component';
+import {AddSubCountyComponent} from '../region/add-sub-county/add-sub-county.component';
 
 
 export const routes: Routes = [
@@ -90,6 +92,16 @@ export const routes: Routes = [
   {
     path: 'add-county',
     component: AddCountyComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'subcounty-list',
+    component: SubCountyListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add-subcounty',
+    component: AddSubCountyComponent,
     pathMatch: 'full'
   },
   {
