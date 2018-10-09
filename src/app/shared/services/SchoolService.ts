@@ -11,6 +11,9 @@ import {Identification} from '../Models/Identification';
 import {UserSchool} from '../Models/UserSchool';
 import {UserInvoice} from '../Models/UserInvoice';
 import {Stream} from '../Models/Steam';
+import {Country} from '../Models/Country';
+import {County} from '../Models/County';
+import {Subcounty} from '../Models/Subcounty';
 
 @Injectable()
 export class SchoolService {
@@ -79,6 +82,18 @@ export class SchoolService {
 
   getStreams(classid: number): Observable<Stream[]> {
     return this.http.get(`${ConfigService.baseUrl}/school/get_streams?classId=${classid}`);
+  }
+
+  getCountries(): Observable<Country[]> {
+    return this.http.get(`${ConfigService.baseUrl}/region/get_countries`);
+  }
+
+  getCounties(countryId: number): Observable<County[]> {
+    return this.http.get(`${ConfigService.baseUrl}/region/get_counties/${countryId}`);
+  }
+
+  getSubCounty(countyId: number): Observable<Subcounty[]> {
+    return this.http.get(`${ConfigService.baseUrl}/region/get_subCounties/${countyId}`);
   }
 
   postSchool(school: School): Observable<School> {

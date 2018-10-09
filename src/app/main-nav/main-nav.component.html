@@ -10,6 +10,12 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
 
+      <a mat-list-item routerLink="region-list" [routerLinkActive]="['___active']">
+        <mat-icon>place</mat-icon>
+        &nbsp;
+        <span>Regions</span>
+      </a>
+
       <a mat-list-item routerLink="school-list" [routerLinkActive]="['___active']">
         <mat-icon>school</mat-icon>
         &nbsp;

@@ -46,6 +46,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HoverStyleDirective } from './hover-style.directive';
 import { MainFilterComponent } from './shared/main-filter/main-filter.component';
+import { RegionComponent } from './region/region/region.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -72,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoaderComponent,
     HoverStyleDirective,
     MainFilterComponent,
+    RegionComponent,
   ],
   imports: [
     FormsModule,

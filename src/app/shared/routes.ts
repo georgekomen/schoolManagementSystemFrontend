@@ -12,6 +12,7 @@ import {CourseListComponent} from '../course/course-list/course-list.component';
 import {AddCourseComponent} from '../course/course-list/add-course/add-course.component';
 import {AddClassComponent} from '../class1/class-list/add-class/add-class.component';
 import {ClassListComponent} from '../class1/class-list/class-list.component';
+import {RegionComponent} from '../region/region/region.component';
 
 
 export const routes: Routes = [
@@ -78,6 +79,11 @@ export const routes: Routes = [
   {
     path: 'add-permission',
     component: AddPermissionComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'region-list',
+    component: RegionComponent,
     pathMatch: 'full'
   },
   {
