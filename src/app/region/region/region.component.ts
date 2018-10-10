@@ -63,7 +63,7 @@ export class RegionComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getCounties();
+
     });
   }
 

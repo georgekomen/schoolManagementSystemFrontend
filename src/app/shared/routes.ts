@@ -106,6 +106,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'school-list'
+    redirectTo: 'course-list'
   }
 ];
