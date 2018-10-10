@@ -19,8 +19,6 @@ export class AddClassComponent implements OnInit {
 
   course: Course;
 
-  schoolList: School[] = [];
-
   class1: Class1 = new Class1();
 
   minDate = new Date(2000, 0, 1);

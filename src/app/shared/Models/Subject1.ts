@@ -4,7 +4,7 @@ import {Course} from './course';
 
 export class Subject1 {
   id?: number;
-  name?: number;
+  name?: string;
   subjectCode?: string;
   pass_mark?: number;
   course?: Course;

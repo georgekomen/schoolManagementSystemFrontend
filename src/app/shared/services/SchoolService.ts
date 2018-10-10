@@ -62,6 +62,10 @@ export class SchoolService {
     return this.http.get(`${ConfigService.baseUrl}/school/get_class/${classId}`);
   }
 
+  getSubjects(courseId: number): Observable<Subject1[]> {
+    return this.http.get(`${ConfigService.baseUrl}/exam/get_subjects?course=${courseId}`);
+  }
+
   postClassInvoice(classInvoice: ClassInvoice): Observable<ClassInvoice> {
     return this.http.post(`${ConfigService.baseUrl}/invoice/new_class_invoice`, classInvoice);
   }
