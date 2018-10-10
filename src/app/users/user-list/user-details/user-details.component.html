@@ -63,19 +63,19 @@
         </mat-select>
         <mat-placeholder>Class</mat-placeholder>
       </mat-form-field>
-      <br>
-      <mat-form-field class="example-full-width">
-        <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
-               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-      <br>
+      &nbsp;
       <mat-form-field *ngIf="studentClass.stream !== null && streamList.length !== 0">
         <mat-select [(ngModel)]="studentClass.stream.id">
           <mat-option *ngFor="let cs of streamList" [value]="cs.id">{{cs.name}}</mat-option>
         </mat-select>
         <mat-placeholder>Stream</mat-placeholder>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
       <div>
         <button (click)="postUserClass(studentClass)" mat-raised-button color="primary">Submit</button>
@@ -109,17 +109,13 @@
   <mat-step>
     <ng-template matStepLabel>Invoices</ng-template>
     <mat-card-content *ngFor="let inv of user.userInvoices">
-      <mat-form-field *ngIf="inv.date_created !== undefined && inv.date_created !== null && inv.date_created !== ''">
-        <input [ngModel]="inv.date_created.substring(0, 10)" matInput placeholder="Date created" disabled="disabled">
-      </mat-form-field>
-      <br>
       <mat-form-field>
         <mat-select [(ngModel)]="inv.invoiceTo">
           <mat-option *ngFor="let invOpt of invOptions" [value]="invOpt">{{invOpt}}</mat-option>
         </mat-select>
         <mat-placeholder>Invoice Type</mat-placeholder>
       </mat-form-field>
-      <br>
+      &nbsp;
       <mat-form-field>
         <input [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
       </mat-form-field>
@@ -127,11 +123,14 @@
       <mat-form-field>
         <input [(ngModel)]="inv.name" matInput placeholder="Name">
       </mat-form-field>
-      <br>
+      &nbsp;
       <mat-form-field *ngIf="inv.classInvoice !== undefined && inv.classInvoice !== null">
         <input placeholder="class invoice name" matInput [ngModel]="inv.classInvoice.name">
       </mat-form-field>
-      <br>
+      &nbsp;
+      <mat-form-field *ngIf="inv.date_created !== undefined && inv.date_created !== null && inv.date_created !== ''">
+        <input [ngModel]="inv.date_created.substring(0, 10)" matInput placeholder="Date created" disabled="disabled">
+      </mat-form-field>
       <div>
         <button (click)="postUserInvoice(inv)" mat-raised-button color="primary">Submit</button>
       </div>
