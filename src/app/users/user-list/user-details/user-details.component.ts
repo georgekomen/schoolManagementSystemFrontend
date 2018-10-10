@@ -110,8 +110,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   }
 
   classSelected(studentClass: StudentClass, event) {
-    const cl: Class1 = event.value;
-    this.user.studentClasses.find(gg => gg.id === studentClass.id).date_joined = cl.start_date;
+    this.user.studentClasses.find(gg => gg.id === studentClass.id).date_joined
+      = this.classList.find(rr => rr.id === event.value).start_date;
 
     this.streamList = [];
     this.schoolService.getStreams(studentClass.class1.id).subscribe(res => {

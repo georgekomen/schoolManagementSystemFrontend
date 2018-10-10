@@ -64,18 +64,18 @@
         <mat-placeholder>Class</mat-placeholder>
       </mat-form-field>
       &nbsp;
-      <mat-form-field *ngIf="studentClass.stream !== null && streamList.length !== 0">
-        <mat-select [(ngModel)]="studentClass.stream.id">
-          <mat-option *ngFor="let cs of streamList" [value]="cs.id">{{cs.name}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Stream</mat-placeholder>
-      </mat-form-field>
-      &nbsp;
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="studentClass.date_joined" matInput [min]="minDate"
                [max]="maxDate" [matDatepicker]="picker2" placeholder="Date Joined">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field *ngIf="studentClass.stream !== null && streamList.length !== 0">
+        <mat-select [(ngModel)]="studentClass.stream.id">
+          <mat-option *ngFor="let cs of streamList" [value]="cs.id">{{cs.name}}</mat-option>
+        </mat-select>
+        <mat-placeholder>Stream</mat-placeholder>
       </mat-form-field>
       <div>
         <button (click)="postUserClass(studentClass)" mat-raised-button color="primary">Submit</button>
