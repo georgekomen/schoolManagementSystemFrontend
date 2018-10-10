@@ -29,9 +29,9 @@
     </div>
   </mat-step>
 
-  <mat-step *ngIf="course !== undefined">
+  <mat-step *ngIf="course !== undefined && class1.id !== null">
     <ng-template matStepLabel>Class Subjects</ng-template>
-    <app-class-subject [_course]="course"></app-class-subject>
+    <app-class-subject [_course]="course" [_class]="class1"></app-class-subject>
   </mat-step>
 
   <mat-step>

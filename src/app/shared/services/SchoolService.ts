@@ -15,6 +15,7 @@ import {Country} from '../Models/Country';
 import {County} from '../Models/County';
 import {Subcounty} from '../Models/Subcounty';
 import {Subject1} from '../Models/Subject1';
+import {ClassSubject} from '../Models/ClassSubject';
 
 @Injectable()
 export class SchoolService {
@@ -80,6 +81,10 @@ export class SchoolService {
 
   postUserSchool(userSchool: UserSchool): Observable<UserSchool> {
     return this.http.post(`${ConfigService.baseUrl}/user/new_user_school`, userSchool);
+  }
+
+  postClassSubject(classSubject: ClassSubject): Observable<ClassSubject> {
+    return this.http.post(`${ConfigService.baseUrl}/exam/new_class_subject`, classSubject);
   }
 
   postStream(stream: Stream): Observable<Stream> {
