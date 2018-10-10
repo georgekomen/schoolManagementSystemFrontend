@@ -14,3 +14,4 @@ export class AppComponent {
     ConfigService.load();
   }
 }
+// todo - add country, filter counties by country(side filter using menu,
