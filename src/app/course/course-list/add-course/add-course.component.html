@@ -19,9 +19,23 @@
 
   <mat-step>
     <ng-template matStepLabel>Subjects</ng-template>
-    <mat-card-content>
-
+    <mat-card-content *ngFor="let sub of course.subjects">
+      <mat-form-field>
+        <input [(ngModel)]="sub.name" matInput placeholder="Name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="sub.pass_mark" matInput placeholder="Pass mark">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input [(ngModel)]="sub.subjectCode" matInput placeholder="Code">
+      </mat-form-field>
+      <div>
+        <button (click)="postSubject(sub)" mat-raised-button color="primary">Submit</button>
+      </div>
     </mat-card-content>
+    <button (click)="addSubject()" mat-button>Add subject</button>
   </mat-step>
 
 </mat-vertical-stepper>

@@ -5,6 +5,7 @@ import {Course} from '../../../shared/Models/course';
 import {School} from '../../../shared/Models/school';
 import {ConfigService} from '../../../../config/ConfigService';
 import {isNullOrUndefined} from 'util';
+import {Subject1} from '../../../shared/Models/Subject1';
 
 @Component({
   selector: 'app-add-course',
@@ -40,5 +41,19 @@ export class AddCourseComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  postSubject(subject: Subject1) {
+
+  }
+
+  addSubject() {
+    if (this.course.subjects === undefined) {
+      this.course.subjects = [];
+    }
+    const subject: Subject1 = new Subject1();
+    subject.course = new Course();
+    subject.course.id = this.course.id;
+    this.course.subjects.push(subject);
   }
 }
