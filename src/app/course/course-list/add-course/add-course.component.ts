@@ -44,7 +44,9 @@ export class AddCourseComponent implements OnInit {
   }
 
   postSubject(subject: Subject1) {
+    this.schoolService.postSubject(subject).subscribe(res => {
 
+    });
   }
 
   addSubject() {

@@ -14,6 +14,7 @@ import {Stream} from '../Models/Steam';
 import {Country} from '../Models/Country';
 import {County} from '../Models/County';
 import {Subcounty} from '../Models/Subcounty';
+import {Subject1} from '../Models/Subject1';
 
 @Injectable()
 export class SchoolService {
@@ -37,6 +38,10 @@ export class SchoolService {
 
   postClass(class1: Class1): Observable<Class1> {
     return this.http.post(`${ConfigService.baseUrl}/school/new_class`, class1);
+  }
+
+  postSubject(subject: Subject1): Observable<Subject1> {
+    return this.http.post(`${ConfigService.baseUrl}/exam/new_subject`, subject);
   }
 
   getClasses(courseId: number, startDate: string): Observable<Class1[]> {
