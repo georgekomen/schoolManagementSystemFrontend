@@ -83,7 +83,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddCountyComponent,
     AddSubCountyComponent,
     SubCountyListComponent,
-    MatAutocompleteModule,
     ClassSubjectComponent,
   ],
   imports: [
@@ -116,6 +115,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatListModule,
     MatChipsModule,
+    MatAutocompleteModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
