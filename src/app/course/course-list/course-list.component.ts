@@ -53,6 +53,18 @@ export class CourseListComponent implements OnInit {
     });
   }
 
+  openCourse(course: Course) {
+    const dialogRef = this.dialog.open(AddCourseComponent, {
+        data: { course: course },
+        height: '100%',
+        width: '70%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
   getCourseList() {
     this.schoolService.getCourses(null).subscribe(res => {
       this.courseList = res;

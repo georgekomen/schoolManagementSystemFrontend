@@ -8,4 +8,6 @@ export class Subject1 {
   class1?: Class1;
   pass_mark?: number;
   course?: Course;
+  subjects?: Subject1[];
+  classes?: Class1[];
 }

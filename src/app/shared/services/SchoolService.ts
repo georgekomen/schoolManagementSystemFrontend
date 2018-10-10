@@ -30,6 +30,11 @@ export class SchoolService {
     return this.http.get(url);
   }
 
+  getCourse(courseId: number): Observable<Course> {
+    const url = `${ConfigService.baseUrl}/school/get_course/${courseId}`;
+    return this.http.get(url);
+  }
+
   postClass(class1: Class1): Observable<Class1> {
     return this.http.post(`${ConfigService.baseUrl}/school/new_class`, class1);
   }
