@@ -142,6 +142,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   }
 
   addUserExam() {
+    // TODO - add class to an exam
     if (isNullOrUndefined(this.user.studentExams)) {
       this.user.studentExams = [];
     }
