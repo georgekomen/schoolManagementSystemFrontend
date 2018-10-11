@@ -86,6 +86,24 @@
 
 
   <mat-step>
+    <ng-template matStepLabel>Student Exams</ng-template>
+    <mat-card-content *ngFor="let studentExam of user.studentExams">
+      <mat-form-field>
+        <input [(ngModel)]="studentExam.name" matInput placeholder="Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field>
+        <input [(ngModel)]="studentExam.sitting_date" matInput placeholder="Name">
+      </mat-form-field>
+      <div>
+        <button (click)="postUserExam(studentExam)" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+    <button (click)="addUserExam()" mat-button>Add student exam</button>
+  </mat-step>
+
+
+  <mat-step>
     <ng-template matStepLabel>Identifications</ng-template>
     <mat-card-content *ngFor="let ids of user.identifications">
       <mat-form-field>

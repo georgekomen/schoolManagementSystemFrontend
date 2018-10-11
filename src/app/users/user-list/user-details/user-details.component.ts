@@ -14,6 +14,8 @@ import {StudentClass} from '../../../shared/Models/StudentClass';
 import {ConfigService} from '../../../../config/ConfigService';
 import {UserInvoice} from '../../../shared/Models/UserInvoice';
 import {Stream} from '../../../shared/Models/Steam';
+import {isNullOrUndefined} from 'util';
+import {StudentExam} from '../../../shared/Models/studentExam';
 
 @Component({
   selector: 'app-user-details',
@@ -131,6 +133,23 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
       });
       console.log(this.streamList);
     });
+  }
+
+  postUserExam(studentExam: StudentExam) {
+    this.schoolService.postStudentExam(studentExam).subscribe(res => {
+
+    });
+  }
+
+  addUserExam() {
+    if (isNullOrUndefined(this.user.studentExams)) {
+      this.user.studentExams = [];
+    }
+    const studentExam: StudentExam = new StudentExam();
+    studentExam.sitting_date = new Date().toJSON().toString();
+    studentExam.user = new User();
+    studentExam.user.id = this.user.id;
+    this.user.studentExams.push(studentExam);
   }
 
   addUserClass() {
