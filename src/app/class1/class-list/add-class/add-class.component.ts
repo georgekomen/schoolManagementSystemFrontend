@@ -7,6 +7,8 @@ import {AddCourseComponent} from '../../../course/course-list/add-course/add-cou
 import {Class1} from '../../../shared/Models/Class1';
 import {ClassInvoice} from '../../../shared/Models/ClassInvoice';
 import {Stream} from '../../../shared/Models/Steam';
+import {isNullOrUndefined} from 'util';
+import {ClassExam} from '../../../shared/Models/ClassExam';
 
 @Component({
   selector: 'app-add-class',
@@ -89,6 +91,25 @@ export class AddClassComponent implements OnInit {
     this.schoolService.postStream(stream).subscribe(res => {
       console.log(res);
     });
+  }
+
+  postClassExam(classExam: ClassExam) {
+    this.schoolService.postClassExam(classExam).subscribe(res => {
+
+    });
+  }
+
+  addExam() {
+    if (isNullOrUndefined(this.class1.classExams)) {
+      this.class1.classExams = [];
+    }
+    const classExam: ClassExam = new ClassExam();
+    classExam.class1 = new Class1();
+    classExam.class1.id = this.class1.id;
+
+    classExam.sitting_date = new Date().toJSON().toString();
+
+    this.class1.classExams.push(classExam);
   }
 
   addStreamm() {

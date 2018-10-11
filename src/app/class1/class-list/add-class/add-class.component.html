@@ -29,9 +29,31 @@
     </div>
   </mat-step>
 
+
   <mat-step *ngIf="course !== undefined && class1.id !== null">
     <ng-template matStepLabel>Class Subjects</ng-template>
     <app-class-subject [_course]="course" [_class]="class1"></app-class-subject>
+  </mat-step>
+
+
+  <mat-step *ngIf="class1 !== undefined && class1.id !== null">
+    <ng-template matStepLabel>Class Exams</ng-template>
+    <mat-card-content *ngFor="let ce of class1.classExams">
+      <mat-form-field>
+        <input [(ngModel)]="ce.name" matInput placeholder="Name">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="ce.sitting_date" matInput [min]="minDate"
+               [max]="maxDate" [matDatepicker]="picker3" placeholder="Sitting date">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <div class="submit">
+        <button (click)="postClassExam(ce)" mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+    <button (click)="addExam()" mat-button>Add Exam</button>
   </mat-step>
 
   <mat-step>
