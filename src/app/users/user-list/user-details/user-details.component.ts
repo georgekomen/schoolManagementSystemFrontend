@@ -86,9 +86,16 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     this.getClassList();
   }
 
+  streamListPerClass(classId: number): Stream[] {
+    return this.streamList.filter(tt => tt.class1.id === classId);
+  }
+
   getClassList() {
     this.schoolService.getClasses(null, null).subscribe(res => {
       this.classList = res;
+      this.classList.forEach(res1 => {
+        this.getStreams(res1.id);
+      });
     });
   }
 
@@ -112,10 +119,17 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
   classSelected(studentClass: StudentClass, event) {
     this.user.studentClasses.find(gg => gg.id === studentClass.id).date_joined
       = this.classList.find(rr => rr.id === event.value).start_date;
+    this.getStreams(studentClass.class1.id);
+  }
 
-    this.streamList = [];
-    this.schoolService.getStreams(studentClass.class1.id).subscribe(res => {
-      this.streamList = res;
+  getStreams(classId: number) {
+    this.schoolService.getStreams(classId).subscribe(res => {
+      res.forEach(st => {
+        if (this.streamList.findIndex(gg => gg.id === st.id) < 0) {
+          this.streamList.push(st);
+        }
+      });
+      console.log(this.streamList);
     });
   }
 

@@ -73,7 +73,7 @@
       &nbsp;
       <mat-form-field *ngIf="studentClass.stream !== null && streamList.length !== 0">
         <mat-select [(ngModel)]="studentClass.stream.id">
-          <mat-option *ngFor="let cs of streamList" [value]="cs.id">{{cs.name}}</mat-option>
+          <mat-option *ngFor="let cs of streamListPerClass(studentClass.class1.id)" [value]="cs.id">{{cs.name}}</mat-option>
         </mat-select>
         <mat-placeholder>Stream</mat-placeholder>
       </mat-form-field>
@@ -109,23 +109,19 @@
   <mat-step>
     <ng-template matStepLabel>Invoices</ng-template>
     <mat-card-content *ngFor="let inv of user.userInvoices">
-      <mat-form-field>
-        <mat-select [(ngModel)]="inv.invoiceTo">
-          <mat-option *ngFor="let invOpt of invOptions" [value]="invOpt">{{invOpt}}</mat-option>
-        </mat-select>
-        <mat-placeholder>Invoice Type</mat-placeholder>
-      </mat-form-field>
-      &nbsp;
-      <mat-form-field>
-        <input [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
-      </mat-form-field>
-      <br>
+      <!--<mat-form-field>-->
+        <!--<mat-select [(ngModel)]="inv.invoiceTo">-->
+          <!--<mat-option *ngFor="let invOpt of invOptions" [value]="invOpt">{{invOpt}}</mat-option>-->
+        <!--</mat-select>-->
+        <!--<mat-placeholder>Invoice Type</mat-placeholder>-->
+      <!--</mat-form-field>-->
+      <!--&nbsp;-->
       <mat-form-field>
         <input [(ngModel)]="inv.name" matInput placeholder="Name">
       </mat-form-field>
       &nbsp;
-      <mat-form-field *ngIf="inv.classInvoice !== undefined && inv.classInvoice !== null">
-        <input placeholder="class invoice name" matInput [ngModel]="inv.classInvoice.name">
+      <mat-form-field>
+        <input [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
       </mat-form-field>
       &nbsp;
       <mat-form-field *ngIf="inv.invoice_date !== undefined && inv.invoice_date !== null && inv.invoice_date !== ''">
