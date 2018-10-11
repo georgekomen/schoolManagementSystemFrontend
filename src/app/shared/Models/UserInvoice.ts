@@ -4,11 +4,11 @@ import {ClassInvoice} from './ClassInvoice';
 
 export class UserInvoice {
   id?: number;
-  date_created?: string;
+  invoice_date?: string;
   classInvoice?: ClassInvoice;
   invoice_amount?: number;
   invoiceTo?: 'SCHOOL_TO_USER' | 'USER_TO_SCHOOL';
   user?: User;
-  name?: String;
-  userReceipts?: UserReceipt;
+  name?: string;
+  userReceipts?: UserReceipt[];
 }

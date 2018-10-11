@@ -128,8 +128,8 @@
         <input placeholder="class invoice name" matInput [ngModel]="inv.classInvoice.name">
       </mat-form-field>
       &nbsp;
-      <mat-form-field *ngIf="inv.date_created !== undefined && inv.date_created !== null && inv.date_created !== ''">
-        <input [ngModel]="inv.date_created.substring(0, 10)" matInput placeholder="Date created" disabled="disabled">
+      <mat-form-field *ngIf="inv.invoice_date !== undefined && inv.invoice_date !== null && inv.invoice_date !== ''">
+        <input [ngModel]="inv.invoice_date.substring(0, 10)" matInput placeholder="Date invoiced" disabled="disabled">
       </mat-form-field>
       <div>
         <button (click)="postUserInvoice(inv)" mat-raised-button color="primary">Submit</button>
