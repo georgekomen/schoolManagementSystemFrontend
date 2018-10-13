@@ -1,18 +1,25 @@
 <div class="mat-elevation-z8" xmlns="http://www.w3.org/1999/html">
   <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
 
-        <mat-menu #appMenu="matMenu" yPosition="above">
+    <ng-container matColumnDef="select" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>
+
+        <mat-menu #appMenu="matMenu" yPosition="above" style="margin-left: -1em">
           <app-main-filter (click)="$event.stopPropagation();"></app-main-filter>
         </mat-menu>
 
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
           <mat-icon>filter</mat-icon>
         </button>
-        &nbsp;
+      </th>
+      <td mat-cell *matCellDef="let row">
 
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Name
       </th>
       <td mat-cell *matCellDef="let row">{{row.first_name}} {{row.middle_name}} {{row.last_name}}</td>

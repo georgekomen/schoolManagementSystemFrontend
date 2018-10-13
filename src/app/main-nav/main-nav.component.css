@@ -17,10 +17,12 @@
   border-bottom: #4d4d4d;
   outline: none;
 }
+
 .mat-select {
   border-bottom: #4d4d4d;
   outline: none;
 }
+
 .mat-form-field-infix {
   border-bottom: #4d4d4d;
   outline: none;
@@ -29,13 +31,27 @@
 a:link {
   color:black;
 }
+
 a:hover {
   font-size:20px;
   font-weight:bold;
 }
+
 a:active {
   color:#ef6c00;
 }
+
 a:visited {
 
+}
+
+.logo {
+  width: 172px;
+  height: 51px
+}
+
+@media (min-width: 960px) {
+  .logo {
+    margin-left: -1em;
+  }
 }

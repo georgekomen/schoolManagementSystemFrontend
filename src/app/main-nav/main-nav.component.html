@@ -60,7 +60,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
 
-        <img *ngIf="selectedSchool !== undefined" style="width: 172px; height: 51px" [src]="selectedSchool.logoUrl"/>
+        <img *ngIf="selectedSchool !== undefined" class="logo" [src]="selectedSchool.logoUrl"/>
         &nbsp;
         <mat-form-field>
           <mat-select [(ngModel)]="selectedSchool" (selectionChange)="schoolChange($event)">

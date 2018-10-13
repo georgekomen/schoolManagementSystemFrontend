@@ -57,6 +57,11 @@ nav {
   width: 6px;
 }
 
+.mat-table-sticky:first-child {
+  /*border-right: 1px solid #e0e0e0;*/
+  width: .5em;
+}
+
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;

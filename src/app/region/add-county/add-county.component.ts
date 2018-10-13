@@ -30,7 +30,7 @@ export class AddCountyComponent implements OnInit {
 
   postCounty() {
     this.schoolService.postCounty(this.county).subscribe(res => {
-
+      this.closeDialog();
     });
   }
 

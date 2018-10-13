@@ -15,11 +15,11 @@ export class UserListComponent implements OnInit {
   dataSource: UserListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name', 'phoneNumber', 'email', 'gender', 'icons'];
+  displayedColumns = ['select', 'name', 'phoneNumber', 'email', 'gender', 'icons'];
 
-  displayForStudent = ['name', 'gender', 'icons'];
+  displayForStudent = ['select', 'name', 'gender', 'icons'];
 
-  displayForEmployee = ['name', 'phoneNumber', 'email', 'gender', 'icons'];
+  displayForEmployee = ['select', 'name', 'phoneNumber', 'email', 'gender', 'icons'];
 
   userList: User[] = [];
 
