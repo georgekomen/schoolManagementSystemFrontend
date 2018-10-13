@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {SchoolService} from '../shared/services/SchoolService';
@@ -28,7 +28,13 @@ export class MainNavComponent implements OnInit {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches)
+      map(result => {
+        if (window.innerWidth < 700) {
+          return true;
+        } else {
+          return false;
+        }
+      })
     );
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router,

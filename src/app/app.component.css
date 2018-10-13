@@ -1,16 +1,37 @@
 .main_container {
   display: inline-block;
-  width: 95%;
+  width: 92%;
   height: 100%;
   float: left;
 }
 
 .right_side_menu {
   display: inline-block;
-  width: 5%;
+  width: 8%;
   float: right;
   height: 100%;
   font-size: xx-small;
   min-height: 100vh;
   position: fixed;
+  padding-top: 2em;
+  padding-right: 1em;
 }
+
+@media (max-width: 600px) {
+  .main_container {
+    width: 90%;
+  }
+  .right_side_menu{
+    width: 10%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .main_container {
+    width: 95%;
+  }
+  .right_side_menu{
+    width: 5%;
+  }
+}
+
