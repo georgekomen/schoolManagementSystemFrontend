@@ -47,11 +47,12 @@ a:visited {
 
 .logo {
   width: 172px;
-  height: 51px
+  height: 51px;
+  border-radius: 3px;
 }
 
 @media (min-width: 960px) {
   .logo {
-    margin-left: -1em;
+    margin-left: -.73em;
   }
 }

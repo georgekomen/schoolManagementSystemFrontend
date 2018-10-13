@@ -62,7 +62,7 @@
 
         <img *ngIf="selectedSchool !== undefined" class="logo" [src]="selectedSchool.logoUrl"/>
         &nbsp;
-        <mat-form-field>
+        <mat-form-field appearance="outline" style="margin-top: .5em">
           <mat-select [(ngModel)]="selectedSchool" (selectionChange)="schoolChange($event)">
             <mat-option *ngFor="let sch of schoolList" [value]="sch">{{sch.name}}</mat-option>
           </mat-select>
