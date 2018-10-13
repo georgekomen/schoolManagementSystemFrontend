@@ -1,0 +1,16 @@
+.main_container {
+  display: inline-block;
+  width: 90%;
+  height: 100%;
+  float: left;
+}
+
+.right_side_menu {
+  display: inline-block;
+  width: 10%;
+  float: right;
+  /*border-radius: 1em 0em 0em 1em;*/
+  /*border: rgba(34,156,169,0.93) solid 1em;*/
+  /*min-height: 100vh;*/
+  /*margin-top: -3.98em; !* ref *!*/
+}

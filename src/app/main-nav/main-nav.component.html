@@ -3,7 +3,7 @@
     [ngStyle]="{'visibility': page()}"
     #drawer
     class="sidenav"
-    fixedInViewport="true"
+    fixedInViewport="false"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
@@ -72,7 +72,7 @@
       </mat-toolbar>
     </div>
 
-    <div style="margin-top: 3.98em">
+    <div class="container_holder">
       <ng-content></ng-content>
     </div>
     <!-- Add Content Here -->

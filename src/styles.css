@@ -88,3 +88,9 @@ mat-menu:focus,
 button:focus {
   outline: none;
 }
+
+html, body, mat-sidenav-container, app-main-nav {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}

@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+.container_holder {
+  margin-top: 3.98em;
+}
+
 .sidenav {
   width: 200px;
   background-color: #eeeeee;
@@ -54,5 +58,11 @@ a:visited {
 @media (min-width: 960px) {
   .logo {
     margin-left: -.73em;
+  }
+}
+
+@media (max-width: 600px) {
+  .container_holder{
+    margin-top: 3em;
   }
 }
