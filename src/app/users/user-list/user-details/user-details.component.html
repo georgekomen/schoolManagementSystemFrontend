@@ -29,11 +29,11 @@
       <br>
       &nbsp;
       <mat-form-field>
-        <input [(ngModel)]="user.phoneNumber" matInput placeholder="Phonen Number">
+        <input type="number" [(ngModel)]="user.phoneNumber" matInput placeholder="Phone Number">
       </mat-form-field>
       &nbsp;
       <mat-form-field>
-        <input [(ngModel)]="user.email" matInput placeholder="Email">
+        <input type="email" [(ngModel)]="user.email" matInput placeholder="Email">
       </mat-form-field>
       &nbsp;
       <br>
@@ -139,7 +139,7 @@
       </mat-form-field>
       &nbsp;
       <mat-form-field>
-        <input [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
+        <input type="number" [(ngModel)]="inv.invoice_amount" matInput placeholder="Amount">
       </mat-form-field>
       &nbsp;
       <mat-form-field *ngIf="inv.invoice_date !== undefined && inv.invoice_date !== null && inv.invoice_date !== ''">

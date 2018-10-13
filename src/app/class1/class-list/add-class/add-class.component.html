@@ -64,7 +64,7 @@
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input [(ngModel)]="cl.invoice_amount" matInput placeholder="Amount">
+        <input type="number" [(ngModel)]="cl.invoice_amount" matInput placeholder="Amount">
       </mat-form-field>
       <br>
       <div *ngIf="cl.invoice_date !== null && cl.invoice_date !== ''">
