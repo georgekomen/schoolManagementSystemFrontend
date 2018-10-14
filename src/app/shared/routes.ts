@@ -16,6 +16,7 @@ import {RegionComponent} from '../region/region/region.component';
 import {AddCountyComponent} from '../region/add-county/add-county.component';
 import {SubCountyListComponent} from '../region/sub-county-list/sub-county-list.component';
 import {AddSubCountyComponent} from '../region/add-sub-county/add-sub-county.component';
+import {ExamListComponent} from '../exam/exam-list/exam-list.component';
 
 
 export const routes: Routes = [
@@ -72,6 +73,11 @@ export const routes: Routes = [
   {
     path: 'course-list',
     component: CourseListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'exam-list',
+    component: ExamListComponent,
     pathMatch: 'full'
   },
   {

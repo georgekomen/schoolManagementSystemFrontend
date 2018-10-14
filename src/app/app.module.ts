@@ -53,6 +53,7 @@ import { SubCountyListComponent } from './region/sub-county-list/sub-county-list
 import { ClassSubjectComponent } from './class1/class-list/class-subject/class-subject.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ExamListComponent } from './exam/exam-list/exam-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -84,6 +85,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddSubCountyComponent,
     SubCountyListComponent,
     ClassSubjectComponent,
+    ExamListComponent,
   ],
   imports: [
     FormsModule,
