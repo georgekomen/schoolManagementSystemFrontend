@@ -1,25 +1,29 @@
-<app-loader></app-loader>
-<mat-form-field>
-  <input [(ngModel)]="year" matInput placeholder="year">
-</mat-form-field>
-<br>
-<mat-form-field>
-  <mat-select [(ngModel)]="selectedCourse" (selectionChange)="courseChange($event)">
-    <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
-  </mat-select>
-  <mat-placeholder>Course</mat-placeholder>
-</mat-form-field>
-<br>
-<mat-form-field>
-  <mat-select  [(ngModel)]="selectedClass.id" (selectionChange)="classChange($event)">
-    <mat-option *ngFor="let sch of classList" [value]="sch.id">{{sch.name}}</mat-option>
-  </mat-select>
-  <mat-placeholder>Class</mat-placeholder>
-</mat-form-field>
-<br>
-<mat-form-field *ngIf="selectedClass != undefined">
-  <mat-select  [(ngModel)]="selectedExam" (selectionChange)="examChange($event)">
-    <mat-option *ngFor="let ce of selectedClass.classExams" [value]="ce">{{ce.name}}</mat-option>
-  </mat-select>
-  <mat-placeholder>Exam</mat-placeholder>
-</mat-form-field>
+<mat-card>
+  <mat-card-content>
+    <app-loader></app-loader>
+    <mat-form-field>
+      <input [(ngModel)]="year" matInput placeholder="year">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedCourse" (selectionChange)="courseChange($event)">
+        <mat-option *ngFor="let cs of courseList" [value]="cs">{{cs.name}}</mat-option>
+      </mat-select>
+      <mat-placeholder>Course</mat-placeholder>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select  [(ngModel)]="selectedClass.id" (selectionChange)="classChange($event)">
+        <mat-option *ngFor="let sch of classList" [value]="sch.id">{{sch.name}}</mat-option>
+      </mat-select>
+      <mat-placeholder>Class</mat-placeholder>
+    </mat-form-field>
+    <br>
+    <mat-form-field *ngIf="selectedClass != undefined">
+      <mat-select  [(ngModel)]="selectedExam" (selectionChange)="examChange($event)">
+        <mat-option *ngFor="let ce of selectedClass.classExams" [value]="ce">{{ce.name}}</mat-option>
+      </mat-select>
+      <mat-placeholder>Exam</mat-placeholder>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

@@ -12,9 +12,14 @@
   /*border-right: #d7d7d7 1px solid;*/
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
+.nav-toolbar {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.inherit-theme {
+  color: inherit;
 }
 
 .mat-form-field-flex {

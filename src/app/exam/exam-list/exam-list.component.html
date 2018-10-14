@@ -32,7 +32,10 @@
           {{item}}({{getPassMark(item)}})
         </th>
         <td mat-cell *matCellDef="let element">
-          <input style="border: #3F51B5 solid 1px; width: 4.5em; border-radius: 4px; padding: 3px" [value]="getSubjectResult(item, element)">
+          <mat-form-field class="result_input" appearance="outline">
+          <input matInput [value]="getSubjectResult(item, element)">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
         </td>
 
       </ng-container>
