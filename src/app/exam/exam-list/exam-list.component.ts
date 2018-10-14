@@ -1,11 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatSort, MatTableDataSource} from '@angular/material';
-import {Country} from '../../shared/Models/Country';
-import {County} from '../../shared/Models/County';
 import {SchoolService} from '../../shared/services/SchoolService';
-import {SubCountyListComponent} from '../../region/sub-county-list/sub-county-list.component';
-import {AddCountyComponent} from '../../region/add-county/add-county.component';
 import {EventsService} from '../../shared/services/events.service';
+import {StudentExam} from '../../shared/Models/studentExam';
 
 @Component({
   selector: 'app-exam-list',
@@ -14,9 +11,11 @@ import {EventsService} from '../../shared/services/events.service';
 })
 export class ExamListComponent implements OnInit {
 
-  displayedColumns: string[] = ['filter', 'icons'];
+  displayedColumns: string[] = ['filter', 'name'];
 
-  dataSource = new MatTableDataSource<County>();
+  dataSource = new MatTableDataSource<StudentExam>();
+
+  studentExam: StudentExam[] = [];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -31,8 +30,26 @@ export class ExamListComponent implements OnInit {
 
   getStudentExams(classExamId: number) {
     this.schoolService.getStudentExam(classExamId).subscribe(res => {
-      this.dataSource =  new MatTableDataSource<County>(res);
+      this.studentExam = res;
+      // loop through and add subject as headers
+      res[0].studentExamResults.forEach(r => {
+        this.displayedColumns.push(r.subject.name);
+      });
+      this.displayedColumns.push('icons');
+
+      this.dataSource =  new MatTableDataSource<StudentExam>(res);
     });
+  }
+
+  getSubjectResult(subject: string, studentExam: StudentExam): string {
+    console.log(subject, studentExam);
+    const pass = studentExam.studentExamResults.find(rr => rr.subject.name === subject).subject.pass_mark;
+    let result = studentExam.studentExamResults.find(rr => rr.subject.name === subject).result_mark;
+    if (result === null) {
+      result = 0;
+    }
+
+    return `${result} / ${pass}`;
   }
 
 }
