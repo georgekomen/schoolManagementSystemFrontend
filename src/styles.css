@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
 /*@import "~@angular/material/prebuilt-themes/purple-green.css";*/
 /*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
 
@@ -9,9 +9,10 @@ nav {
   right: 0;
 }
 
- table {
+table {
    width: 100%;
    overflow: auto;
+   background-color: inherit !important;
  }
 
 /* Transparent Overlay */
@@ -98,7 +99,6 @@ html, body, mat-sidenav-container, app-main-nav {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: #eeeeee;
 }
 
 mat-icon {
