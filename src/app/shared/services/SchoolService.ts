@@ -153,6 +153,14 @@ export class SchoolService {
     return this.http.post(`${ConfigService.baseUrl}/exam/new_student_exam`, studentExam);
   }
 
+  getStudentExam(classExamId: number): Observable<StudentExam[]> {
+    let url = `${ConfigService.baseUrl}/exam/get_student_exams`;
+    if (classExamId !== null) {
+      url += `?classExam=${classExamId}`;
+    }
+    return this.http.get(url);
+  }
+
   postSubCounty(subCounty: Subcounty): Observable<Subcounty> {
     return this.http.post(`${ConfigService.baseUrl}/region/new_subCounty`, subCounty);
   }

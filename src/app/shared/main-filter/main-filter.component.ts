@@ -51,7 +51,7 @@ export class MainFilterComponent implements OnInit {
     });
   }
 
-  examChange(classExam: ClassExam) {
-
+  examChange(event) {
+    this.events.publish('classExamId', event.value.id);
   }
 }
