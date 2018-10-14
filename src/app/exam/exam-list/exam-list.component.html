@@ -1,42 +1,27 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <ng-container matColumnDef="filter" sticky>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>
+        <mat-menu #appMenu="matMenu" yPosition="above" style="margin-left: -1em">
+          <app-main-filter (click)="$event.stopPropagation();"></app-main-filter>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>filter</mat-icon>
+        </button>
+      </th>
+      <td mat-cell *matCellDef="let element">
+
+      </td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
+
+
+
 
     <ng-container matColumnDef="icons" stickyEnd>
       <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>
-        <!--Actions-->
-        <nav>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>
-              more
-            </mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="addCounty()">
-              <mat-icon>
-                add_circle
-              </mat-icon>
-              <span>Add county</span>
-            </button>
-            <button mat-menu-item (click)="getCounties()">
-              <mat-icon>
-                refresh
-              </mat-icon>
-              <span>Refresh</span>
-            </button>
-          </mat-menu>
-        </nav>
+
       </th>
       <td mat-cell *matCellDef="let element">
         <button mat-button [matMenuTriggerFor]="menu">
@@ -48,7 +33,7 @@
           </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="getSubCounties(element)">Sub-Counties</button>
+          <button mat-menu-item >Menu</button>
         </mat-menu>
       </td>
     </ng-container>

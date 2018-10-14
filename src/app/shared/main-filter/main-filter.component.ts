@@ -4,6 +4,7 @@ import {EventsService} from '../services/events.service';
 import {Class1} from '../Models/Class1';
 import {Course} from '../Models/course';
 import {ConfigService} from '../../../config/ConfigService';
+import {ClassExam} from '../Models/ClassExam';
 
 @Component({
   selector: 'app-main-filter',
@@ -13,11 +14,13 @@ import {ConfigService} from '../../../config/ConfigService';
 export class MainFilterComponent implements OnInit {
   courseList: Course[] = [];
 
+  selectedExam: ClassExam;
+
   year: string;
 
   classList: Class1[] = [];
 
-  selectedClass: Class1;
+  selectedClass: Class1 = new Class1();
 
   selectedCourse: Course;
 
@@ -37,12 +40,18 @@ export class MainFilterComponent implements OnInit {
     this.selectedCourse = event.value;
     this.schoolService.getClasses(event.value.id, this.year + '-01-01T00:00:00').subscribe(res => {
       this.classList = res;
-      this.events.publish('classList', this.classList);
+
     });
   }
 
   classChange(event) {
     // emit year, course, class, stream for filtering
+    this.schoolService.getClass(event.value).subscribe(res => {
+      this.selectedClass = res;
+    });
+  }
+
+  examChange(classExam: ClassExam) {
 
   }
 }
