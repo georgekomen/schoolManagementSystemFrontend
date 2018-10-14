@@ -32,7 +32,7 @@
           {{item}}({{getPassMark(item)}})
         </th>
         <td mat-cell *matCellDef="let element">
-          {{getSubjectResult(item, element)}}
+          <input style="border: #3F51B5 solid 1px; width: 4.5em; border-radius: 4px; padding: 3px" [value]="getSubjectResult(item, element)">
         </td>
 
       </ng-container>
@@ -41,7 +41,22 @@
 
     <ng-container matColumnDef="icons" stickyEnd>
       <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>
-
+        <!--Actions-->
+        <nav>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>
+              more
+            </mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="getStudentExams()">
+              <mat-icon>
+                refresh
+              </mat-icon>
+              <span>Refresh</span>
+            </button>
+          </mat-menu>
+        </nav>
       </th>
       <td mat-cell *matCellDef="let element">
         <button mat-button [matMenuTriggerFor]="menu">
@@ -53,7 +68,8 @@
           </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item >Menu</button>
+          <button mat-menu-item >Save Changes</button>
+          <button mat-menu-item >Discard Changes</button>
         </mat-menu>
       </td>
     </ng-container>

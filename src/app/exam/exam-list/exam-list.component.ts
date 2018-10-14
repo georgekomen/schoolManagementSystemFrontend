@@ -11,11 +11,15 @@ import {StudentExam} from '../../shared/Models/studentExam';
 })
 export class ExamListComponent implements OnInit {
 
-  displayedColumns: string[] = ['filter', 'name'];
+  defaultDisplayedColumns: string[] = ['filter', 'name'];
+
+  displayedColumns: string[] = [];
 
   dataSource = new MatTableDataSource<StudentExam>();
 
   studentExam: StudentExam[] = [];
+
+  classExamId: number;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -24,12 +28,24 @@ export class ExamListComponent implements OnInit {
               private event: EventsService) { }
 
   ngOnInit() {
+    this.init();
     this.dataSource.sort = this.sort;
-    this.event.subscribe('classExamId', data => this.getStudentExams(data));
+    this.event.subscribe('classExamId', data => {
+      this.classExamId = data;
+      this.getStudentExams();
+    });
   }
 
-  getStudentExams(classExamId: number) {
-    this.schoolService.getStudentExam(classExamId).subscribe(res => {
+  init() {
+    this.displayedColumns.splice(0 , this.displayedColumns.length);
+    this.defaultDisplayedColumns.forEach(rr => {
+      this.displayedColumns.push(rr);
+    });
+  }
+
+  getStudentExams() {
+    this.init();
+    this.schoolService.getStudentExam(this.classExamId).subscribe(res => {
       this.studentExam = res;
       // loop through and add subject as headers
       res[0].studentExamResults.forEach(r => {
