@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+/*@import "~@angular/material/prebuilt-themes/purple-green.css";*/
+/*@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";*/
 
-/*deeppurple-amber.css*/
-/*indigo-pink.css*/
-/*pink-bluegrey.css*/
-/*purple-green.css*/
 
 nav {
   position: absolute;
@@ -13,6 +12,7 @@ nav {
 
  table {
    width: 100%;
+   overflow: auto;
  }
 
 /* Transparent Overlay */
@@ -68,27 +68,27 @@ nav {
   width: .5em;
 }
 
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #F5F5F5;
-}
+/*::-webkit-scrollbar-track {*/
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+  /*border-radius: 10px;*/
+  /*background-color: #F5F5F5;*/
+/*}*/
 
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #F5F5F5;
-  border-radius: 10px;
-}
+/*::-webkit-scrollbar-track {*/
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+  /*background-color: #F5F5F5;*/
+  /*border-radius: 10px;*/
+/*}*/
 
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: #F5F5F5;
-}
+/*::-webkit-scrollbar {*/
+  /*width: 10px;*/
+  /*background-color: #F5F5F5;*/
+/*}*/
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(164,166,169,0.46);
-  border-radius: 15px;
-}
+/*::-webkit-scrollbar-thumb {*/
+  /*background-color: #c3664e;*/
+  /*border-radius: 15px;*/
+/*}*/
 
 mat-menu:focus,
 button:focus {
