@@ -41,15 +41,19 @@ export class ExamListComponent implements OnInit {
     });
   }
 
-  getSubjectResult(subject: string, studentExam: StudentExam): string {
-    console.log(subject, studentExam);
+  getPassMark(subject: string): number {
+    return this.studentExam[0].studentExamResults.find(rr => rr.subject.name === subject).subject.pass_mark;
+  }
+
+  getSubjectResult(subject: string, studentExam: StudentExam): number {
     const pass = studentExam.studentExamResults.find(rr => rr.subject.name === subject).subject.pass_mark;
     let result = studentExam.studentExamResults.find(rr => rr.subject.name === subject).result_mark;
     if (result === null) {
       result = 0;
     }
 
-    return `${result} / ${pass}`;
+    // return `${result} / ${pass}`;
+    return result;
   }
 
 }

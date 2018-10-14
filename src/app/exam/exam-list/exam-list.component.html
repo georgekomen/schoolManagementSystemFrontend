@@ -16,7 +16,7 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Name
       </th>
       <td mat-cell *matCellDef="let element">
@@ -29,10 +29,10 @@
       <ng-container *ngIf="item !== 'filter' && item !== 'icons' && item !== 'name'" matColumnDef={{item}}>
 
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          {{item}}
+          {{item}}({{getPassMark(item)}})
         </th>
         <td mat-cell *matCellDef="let element">
-            {{getSubjectResult(item, element)}}
+          {{getSubjectResult(item, element)}}
         </td>
 
       </ng-container>
