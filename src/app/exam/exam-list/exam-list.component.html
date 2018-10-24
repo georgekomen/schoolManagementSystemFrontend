@@ -33,8 +33,8 @@
         </th>
         <td mat-cell *matCellDef="let element">
           <mat-form-field class="result_input" appearance="outline">
-          <input matInput [value]="getSubjectResult(item, element)">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <input matInput [attr.disabled]="isDisabled(item, element)" [value]="getSubjectResult(item, element)" (change)="update($event, element)">
+            <mat-icon (click)="enable(item, element)" matSuffix>sentiment_very_satisfied</mat-icon>
           </mat-form-field>
         </td>
 

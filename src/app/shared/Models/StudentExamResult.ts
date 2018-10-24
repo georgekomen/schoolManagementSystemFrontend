@@ -8,4 +8,5 @@ export class StudentExamResult {
   user?: User;
   result_mark?: number;
   studentExam?: StudentExam;
+  disabled?: string;
 }

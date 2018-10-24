@@ -9,5 +9,4 @@ export class StudentExam {
   name?: string;
   classExam?: ClassExam;
   studentExamResults?: StudentExamResult[];
-
 }
